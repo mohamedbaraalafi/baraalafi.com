@@ -123,7 +123,7 @@ const I18N = {
     footer_stay_p: "لأي تعاون أكاديمي أو سؤال حول أعمالي.",
     footer_rights: "جميع الحقوق محفوظة.",
     page_pub_title: "المنشورات", page_pub_sub: "مقالات محكّمة، أوراق عمل، وملاحظات بحثية.",
-    page_art_title: "مقالات وتدوينات", page_art_sub: "مقالات رأي وتدوينات..",
+    page_art_title: "مقالات وتدوينات", page_art_sub: "مقالات رأي وتدوينات.",
     page_cv_title: "السيرة الذاتية", page_cv_sub: "التكوين والخبرة والمهارات.",
     page_contact_title: "تواصل", page_contact_sub: "لأي سؤال حول أعمالي أو تعاون أو طلب بيانات النسخ، لا تتردد في مراسلتي.",
     cv_edu: "التكوين", cv_pos: "الخبرة", cv_skills: "المهارات", cv_lang: "اللغات", cv_download: "تحميل السيرة الذاتية (PDF)",
