@@ -250,7 +250,7 @@ function applyPageTitle(lang) {
   // Individual article pages: <body data-title-key="art1_title"> -> "Article Title - Mohamed Baraa Lafi"
   const titleKey = document.body.getAttribute('data-title-key');
   if (titleKey && dict[titleKey] !== undefined) {
-    document.title = dict[titleKey] + ' - Mohamed Baraa Lafi';
+    document.title = dict[titleKey] + ' - ' + dict.brand_name;
   }
 }
 
@@ -297,11 +297,24 @@ function initShareBar() {
   }
 }
 
+/* Article detail pages have a dedicated URL per language (article-x.html /
+   article-x-ar.html) so that shared links show a title, description and
+   cover image that actually match the language of the page being shared. */
+function articleLangFilename(filename, lang) {
+  const isArUrl = /-ar\.html$/.test(filename);
+  if (lang === 'ar' && !isArUrl) return filename.replace(/\.html$/, '-ar.html');
+  if (lang === 'en' && isArUrl) return filename.replace(/-ar\.html$/, '.html');
+  return filename;
+}
+
 function getPrefs() {
   const params = new URLSearchParams(window.location.search);
   const theme = params.get('theme') === 'dark' ? 'dark' : 'light';
   let lang = params.get('lang');
-  if (!['en', 'ar'].includes(lang)) lang = 'en';
+  if (!['en', 'ar'].includes(lang)) {
+    const pageDefault = document.documentElement.getAttribute('lang');
+    lang = pageDefault === 'ar' ? 'ar' : 'en';
+  }
   return { theme, lang };
 }
 
@@ -316,6 +329,17 @@ function applyTheme(theme) {
 }
 
 function applyLang(lang) {
+  if (document.body.getAttribute('data-page') === 'article') {
+    const filename = window.location.pathname.split('/').pop();
+    const target = articleLangFilename(filename, lang);
+    if (target !== filename) {
+      const url = new URL(target, window.location.href);
+      const theme = new URLSearchParams(window.location.search).get('theme');
+      if (theme) url.searchParams.set('theme', theme);
+      window.location.href = url.pathname.split('/').pop() + url.search;
+      return;
+    }
+  }
   const dict = I18N[lang] || I18N.en;
   document.documentElement.setAttribute('lang', lang);
   document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
@@ -346,6 +370,13 @@ function updateLinksWithPrefs(theme, lang) {
     try {
       const url = new URL(href, window.location.href);
       if (url.origin !== window.location.origin) return;
+      const filename = url.pathname.split('/').pop();
+      if (/^article-[a-z0-9-]+\.html$/.test(filename)) {
+        const target = articleLangFilename(filename, lang);
+        url.searchParams.set('theme', theme);
+        a.setAttribute('href', target + url.search + url.hash);
+        return;
+      }
       url.searchParams.set('theme', theme);
       url.searchParams.set('lang', lang);
       a.setAttribute('href', url.pathname.split('/').pop() + url.search + url.hash);
