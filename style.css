@@ -263,6 +263,9 @@ html[data-theme="dark"] .card .link-more { color: var(--gold); }
 html[data-theme="dark"] .badge-politique { color: #A78BFA; background: rgba(167,139,250,0.16); }
 .badge-social { background: rgba(34,197,94,0.13); color: var(--success); }
 .pub-row h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; font-family: var(--font-body); line-height: 1.4; }
+.pub-row h3 a { color: inherit; }
+.pub-row h3 a:hover { color: var(--navy-700); }
+html[data-theme="dark"] .pub-row h3 a:hover { color: var(--gold); }
 .pub-row .venue { font-style: italic; font-size: 14px; color: var(--text-muted); margin-bottom: 4px; }
 .pub-row .co { font-size: 13.5px; }
 .pub-row .dl { font-size: 13px; font-weight: 700; color: var(--navy-700); white-space: nowrap; padding-top: 3px; }
@@ -422,6 +425,20 @@ html[data-theme="dark"] .article-body h2 { color: var(--gold); }
 .article-refs ol[dir="rtl"] { padding-inline-start: 0; padding-inline-end: 22px; }
 .article-refs a { color: var(--navy-700); font-weight: 600; }
 html[data-theme="dark"] .article-refs a { color: var(--gold); }
+
+/* ---------- Publication detail page ---------- */
+.pub-authors { max-width: 760px; margin: 0 auto 6px; font-size: 15px; color: var(--text); }
+.pub-authors b { font-weight: 700; }
+.pub-authors .venue { display: block; font-size: 13.5px; color: var(--text-muted); font-style: italic; margin-top: 4px; }
+.pub-supervision { max-width: 760px; margin: 10px auto 0; font-size: 13.5px; color: var(--text-muted); }
+.pub-downloads { max-width: 760px; margin: 24px auto 0; display: flex; gap: 14px; flex-wrap: wrap; }
+.pub-downloads .btn svg { width: 16px; height: 16px; }
+.pub-abstract { max-width: 760px; margin: 34px auto 0; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px 26px; box-shadow: var(--shadow); }
+.pub-abstract h2 { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin: 0 0 14px; }
+.pub-abstract p { font-size: 16.5px; line-height: 1.85; color: var(--text); margin: 0; }
+.pub-tags-block { max-width: 760px; margin: 26px auto 0; display: grid; gap: 16px; }
+.pub-tags-block h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 8px; }
 
 /* ---------- Interactive cost-comparison table ---------- */
 .cost-table-card { max-width: 100%; margin: 26px 0 34px; background: var(--surface); border: 1px solid var(--border);

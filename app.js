@@ -151,13 +151,13 @@ const I18N = {
     pub3_title: "الاستثمار الأجنبي المباشر والنمو: أدلة من تونس ومصر والأردن والمغرب", pub3_authors: "بالاشتراك مع مصباح اللافي",
 
     pub4_date: "قيد الإنجاز — 2026", pub4_type: "مشروع بحثي", pub4_status: "قيد الكتابة",
-    pub4_title: "Reforming the Subsidy System in Tunisia: Fiscal Sustainability, Social Protection and Economic Efficiency", pub4_authors: "مؤلف منفرد",
+    pub4_title: "إصلاح منظومة الدعم في تونس: الاستدامة المالية والحماية الاجتماعية والكفاءة الاقتصادية", pub4_authors: "مؤلف منفرد",
 
     pub5_date: "قيد الإنجاز — 2026", pub5_type: "مشروع بحثي", pub5_status: "قيد الكتابة",
-    pub5_title: "Public Enterprises in Tunisia, Governance, Competition and Economic Performance", pub5_authors: "مؤلف منفرد",
+    pub5_title: "المؤسسات العمومية في تونس: الحوكمة والمنافسة والأداء الاقتصادي", pub5_authors: "مؤلف منفرد",
 
     pub6_date: "قيد الإنجاز — 2026", pub6_type: "مشروع بحثي", pub6_status: "قيد الكتابة",
-    pub6_title: "Minimum Wage in Tunisia: Employment, Productivity and Labor Market Outcomes", pub6_authors: "مؤلف منفرد",
+    pub6_title: "الأجر الأدنى في تونس: التشغيل والإنتاجية ونتائج سوق الشغل", pub6_authors: "مؤلف منفرد",
 
     pub_soon: "مسودة قريبًا",
 
