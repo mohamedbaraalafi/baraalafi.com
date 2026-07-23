@@ -77,6 +77,7 @@ body {
   font-family: var(--font-body);
   transition: background 0.35s ease, color 0.35s ease;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 html[lang="ar"] { --font-title: 'Tajawal', 'Inter', sans-serif; --font-body: 'Tajawal', 'Inter', sans-serif; }
 html[lang="ar"] body { font-family: var(--font-ar); }
@@ -231,6 +232,27 @@ html[data-theme="dark"] .stat b { color: var(--gold); }
 .card .link-more { font-size: 13px; font-weight: 700; color: var(--navy-700); margin-top: 14px; display: inline-block; }
 html[data-theme="dark"] .card .link-more { color: var(--gold); }
 
+/* ---------- Article cards (with cover image) ---------- */
+.article-card { padding: 0; display: flex; flex-direction: column; }
+.article-card::before { content: none; }
+.article-card-img {
+  position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden;
+  background: linear-gradient(135deg, var(--navy-900), var(--navy-700));
+  flex-shrink: 0;
+}
+.article-card-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.article-card:hover .article-card-img img { transform: scale(1.07); }
+.article-card-img.is-placeholder { display: flex; align-items: center; justify-content: center; }
+.article-card-img.is-placeholder svg { width: 34%; height: 34%; max-width: 46px; max-height: 46px; stroke: rgba(255,255,255,0.5); }
+.article-card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+.article-card-body .pub-meta-row { margin-bottom: 10px; }
+.article-card-body h3 { flex: 1; }
+.article-card-body .link-more { margin-top: 14px; }
+html[data-theme="dark"] .article-card-img { background: linear-gradient(135deg, #16315F, #0B1120); }
+
 /* ---------- Publications list rows ---------- */
 .pub-row {
   display: grid; grid-template-columns: 52px 1fr auto; gap: 18px; align-items: start;
@@ -372,6 +394,21 @@ html[dir="rtl"] nav.primary-nav a::after { left: auto; right: 0; }
   section { padding: 52px 0; }
   .hero { padding: 56px 0 40px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+  /* More breathing room around content on phones */
+  .container { padding: 0 24px; }
+  .page-header { padding: 40px 0 22px; }
+  .page-header h1 { font-size: 29px; }
+  .grid-3 { gap: 22px; row-gap: 26px; }
+
+  /* Larger, easier-to-read article card text */
+  .card { box-shadow: 0 3px 14px rgba(15,23,42,0.09); }
+  .card .tag { font-size: 12px; }
+  .card h3 { font-size: 18.5px; line-height: 1.45; }
+  .card .link-more { font-size: 14.5px; margin-top: 16px; }
+  .badge { font-size: 11.5px; padding: 4px 11px; }
+  .article-card-body { padding: 20px 20px 22px; }
+  .article-card-img { aspect-ratio: 16 / 10; }
 }
 
 /* ---------- Long-form article page ---------- */
