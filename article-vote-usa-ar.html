@@ -295,8 +295,8 @@
   }
 
   /* ---- Chart 1: Democratic vote by diploma (grouped bars, 4 years) ---- */
-  function renderDiplomaChart() {
-    var mounts = document.querySelectorAll('[data-chart="diploma"]');
+  function renderDiplomaChart(lang) {
+    var mounts = document.querySelectorAll('[data-lang-block="' + lang + '"] [data-chart="diploma"]');
     if (!mounts.length) return;
     var groups = [
       { year: '1948', vals: [62, 49, 31, 26, null] },
@@ -305,7 +305,11 @@
       { year: '2016', vals: [58, 45, 51, 70, 75] }
     ];
     var colors = [C_RED, C_GREEN, C_BLUE, C_ORANGE, C_PURPLE];
-    var labels = ['Primary', 'Secondary', 'Higher (BA)', 'High (MA)', 'High (PhD)'];
+    var LABELS = {
+      en: ['Primary', 'Secondary', 'Higher (BA)', 'High (MA)', 'High (PhD)'],
+      ar: ['ابتدائي', 'ثانوي', 'جامعي', 'ماجستير', 'دكتوراه']
+    };
+    var labels = LABELS[lang] || LABELS.en;
     var W = 720, H = 340, padL = 40, padR = 12, padT = 20, padB = 56;
     var plotW = W - padL - padR, plotH = H - padT - padB;
     var max = 80;
@@ -339,13 +343,18 @@
   }
 
   /* ---- Chart 2: Democratic vote by ethnic group (grouped bars, 18 years) ---- */
-  function renderEthnicChart() {
-    var mounts = document.querySelectorAll('[data-chart="ethnic"]');
+  function renderEthnicChart(lang) {
+    var mounts = document.querySelectorAll('[data-lang-block="' + lang + '"] [data-chart="ethnic"]');
     if (!mounts.length) return;
     var years = ['1948','1952','1956','1960','1964','1968','1972','1976','1980','1984','1988','1992','1996','2000','2004','2008','2012','2016'];
     var white   = [49,43,41,49,59,44,32,47,35,35,40,39,43,42,41,43,39,37];
     var black   = [59,69,61,68,94,97,82,95,93,91,91,94,94,90,88,95,93,89];
     var latino  = [null,null,null,null,null,null,64,67,55,62,63,61,68,60,54,66,70,64];
+    var LEGEND = {
+      en: ['Whites', 'Blacks', 'Latinos/others'],
+      ar: ['البيض', 'السود', 'اللاتينيون/آخرون']
+    };
+    var leg = LEGEND[lang] || LEGEND.en;
     var W = 900, H = 340, padL = 44, padR = 16, padT = 18, padB = 54;
     var plotW = W - padL - padR, plotH = H - padT - padB;
     var max = 100;
@@ -370,9 +379,9 @@
       }
     });
     var legend =
-      '<rect x="' + padL + '" y="0" width="10" height="10" rx="2" fill="' + C_SLATE + '"/><text x="' + (padL + 15) + '" y="9" font-size="11" fill="var(--text-muted)">Whites</text>' +
-      '<rect x="' + (padL + 90) + '" y="0" width="10" height="10" rx="2" fill="' + C_RED + '"/><text x="' + (padL + 105) + '" y="9" font-size="11" fill="var(--text-muted)">Blacks</text>' +
-      '<rect x="' + (padL + 185) + '" y="0" width="10" height="10" rx="2" fill="' + C_GREEN + '"/><text x="' + (padL + 200) + '" y="9" font-size="11" fill="var(--text-muted)">Latinos/others</text>';
+      '<rect x="' + padL + '" y="0" width="10" height="10" rx="2" fill="' + C_SLATE + '"/><text x="' + (padL + 15) + '" y="9" font-size="11" fill="var(--text-muted)">' + leg[0] + '</text>' +
+      '<rect x="' + (padL + 90) + '" y="0" width="10" height="10" rx="2" fill="' + C_RED + '"/><text x="' + (padL + 105) + '" y="9" font-size="11" fill="var(--text-muted)">' + leg[1] + '</text>' +
+      '<rect x="' + (padL + 185) + '" y="0" width="10" height="10" rx="2" fill="' + C_GREEN + '"/><text x="' + (padL + 200) + '" y="9" font-size="11" fill="var(--text-muted)">' + leg[2] + '</text>';
     var svg = svgWrap(W, H,
       '<g transform="translate(0,24)">' +
       gridLines(padL, padT, plotW, plotH - 24, max, 20, W) +
@@ -383,13 +392,17 @@
   }
 
   /* ---- Chart 3: Democratic vote by income decile — 1964 vs 2016 (line chart) ---- */
-  function renderIncomeChart() {
-    var mounts = document.querySelectorAll('[data-chart="income"]');
+  function renderIncomeChart(lang) {
+    var mounts = document.querySelectorAll('[data-lang-block="' + lang + '"] [data-chart="income"]');
     if (!mounts.length) return;
-    var cats = ['D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','Top5%','Top1%'];
+    var CATS = {
+      en: ['D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','Top5%','Top1%'],
+      ar: ['ع1','ع2','ع3','ع4','ع5','ع6','ع7','ع8','ع9','ع10','أعلى5%','أعلى1%']
+    };
+    var cats = CATS[lang] || CATS.en;
     var y1964 = [69,67,68,66,64,64,62,58,48,37,29,22];
     var y2016 = [56,56,55,51,46,45,46,48,52,59,59,57];
-    var W = 760, H = 320, padL = 40, padR = 26, padT = 18, padB = 40;
+    var W = 760, H = 320, padL = 40, padR = (lang === 'ar' ? 42 : 26), padT = 18, padB = 40;
     var plotW = W - padL - padR, plotH = H - padT - padB;
     var max = 80;
     var stepX = plotW / (cats.length - 1);
@@ -412,6 +425,7 @@
       var x = padL + i * stepX;
       return '<text x="' + x.toFixed(1) + '" y="' + (H - padB + 20) + '" text-anchor="middle" font-size="11.5" fill="var(--text-muted)">' + c + '</text>';
     }).join('');
+    var YEAR_LABEL = lang === 'ar' ? ['1964', '2016'] : ['1964', '2016'];
 
     var svg = svgWrap(W, H,
       gridLines(padL, padT, plotW, plotH, max, 20, W) +
@@ -420,13 +434,19 @@
       '<path d="' + pathFor(y2016) + '" fill="none" stroke="' + C_RED + '" stroke-width="2.5"/>' +
       dotsFor(y1964, C_BLUE) + dotsFor(y2016, C_RED) +
       xlabels +
-      '<rect x="' + padL + '" y="0" width="10" height="10" rx="2" fill="' + C_BLUE + '"/><text x="' + (padL + 15) + '" y="9" font-size="11" fill="var(--text-muted)">1964</text>' +
-      '<rect x="' + (padL + 60) + '" y="0" width="10" height="10" rx="2" fill="' + C_RED + '"/><text x="' + (padL + 75) + '" y="9" font-size="11" fill="var(--text-muted)">2016</text>'
+      '<rect x="' + padL + '" y="0" width="10" height="10" rx="2" fill="' + C_BLUE + '"/><text x="' + (padL + 15) + '" y="9" font-size="11" fill="var(--text-muted)">' + YEAR_LABEL[0] + '</text>' +
+      '<rect x="' + (padL + 60) + '" y="0" width="10" height="10" rx="2" fill="' + C_RED + '"/><text x="' + (padL + 75) + '" y="9" font-size="11" fill="var(--text-muted)">' + YEAR_LABEL[1] + '</text>'
     );
     mounts.forEach(function (m) { m.innerHTML = svg; });
   }
 
-  function renderAll() { renderDiplomaChart(); renderEthnicChart(); renderIncomeChart(); }
+  function renderAll() {
+    ['en', 'ar'].forEach(function (lang) {
+      renderDiplomaChart(lang);
+      renderEthnicChart(lang);
+      renderIncomeChart(lang);
+    });
+  }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', renderAll);
