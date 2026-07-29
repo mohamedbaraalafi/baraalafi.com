@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Public Enterprises in Tunisia: An Economic and Financial Assessment of Eleven Enterprises and Reform Options in Light of International Experience - Mohamed Baraa Lafi</title>
+<title>Public Enterprises in Tunisia: An Economic and Financial Assessment of Eleven Enterprises and Reform Options - Mohamed Baraa Lafi</title>
 <meta name="description" content="An economic and financial assessment of eleven Tunisian public enterprises, and a review of reform options in light of the experience of France, Morocco, Italy, Norway, Chile, Eastern Europe, the UK and Italy.">
-<link rel="stylesheet" href="style.css?v=202607291230">
+<link rel="stylesheet" href="style.css?v=202607291400">
 <link rel="icon" href="assets/logo-circle.png">
 
 <!-- Open Graph / social share preview -->
@@ -25,21 +25,14 @@
 <style>
   /* Scoped styles for this publication page: table of contents, bar-chart
      leaderboards, the financial-indicators table, and the ministry
-     composition grid. Uses the site's existing CSS variables throughout. */
-  .pe-section { max-width: 780px; margin: 40px auto 0; }
-  .pe-section h2 { font-size: 20px; margin: 0 0 10px; }
-  .pe-toc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 22px 26px; box-shadow: var(--shadow); }
+     composition grid. Reuses .article-chart-card for card framing so
+     padding/shadow/mobile behaviour match the rest of the site exactly. */
   .pe-toc ol { margin: 0; padding-inline-start: 20px; display: grid; gap: 9px; font-size: 14.5px; }
   .pe-toc ol[dir="rtl"] { padding-inline-start: 0; padding-inline-end: 20px; }
   .pe-toc ol ol { margin-top: 8px; padding-inline-start: 20px; font-size: 13.5px; color: var(--text-muted); }
   .pe-toc ol ol[dir="rtl"] { padding-inline-start: 0; padding-inline-end: 20px; }
   .pe-toc li > b { color: var(--text); }
   .pe-toc li { line-height: 1.55; }
-  .pe-figure { margin: 22px auto 30px; background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 22px 24px 18px; box-shadow: var(--shadow); }
-  .pe-figure h4 { font-size: 14.5px; font-weight: 700; margin: 0 0 3px; }
-  .pe-figure .chart-sub { font-size: 12.5px; color: var(--text-muted); margin: 0 0 16px; }
   .bar-row { margin-bottom: 9px; }
   .bar-row-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 3px; }
   .bar-row-top .bl { font-size: 12.5px; color: var(--text); line-height: 1.35; }
@@ -48,24 +41,25 @@
   .bar-fill { height: 100%; border-radius: 6px; }
   .bar-fill.loss { background: linear-gradient(90deg, #DC2626, #F87171); }
   .bar-fill.profit { background: linear-gradient(90deg, #15803D, #4ADE80); }
-  .ministry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 12px; margin-top: 8px; }
-  .ministry-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 17px; }
+  .ministry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 8px; }
+  .ministry-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
   .ministry-card h5 { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); margin: 0 0 9px; }
   .ministry-card ul { margin: 0; padding-inline-start: 16px; display: grid; gap: 5px; font-size: 12.6px; color: var(--text-muted); }
   .ministry-card ul[dir="rtl"] { padding-inline-start: 0; padding-inline-end: 16px; }
   .pe-table-wrap { overflow-x: auto; }
-  table.pe-table { width: 100%; border-collapse: collapse; font-size: 12.8px; }
+  table.pe-table { width: 100%; border-collapse: collapse; font-size: 12.6px; }
   table.pe-table th, table.pe-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: right; white-space: nowrap; }
   table.pe-table[dir="rtl"] th, table.pe-table[dir="rtl"] td { text-align: left; }
   table.pe-table th:first-child, table.pe-table td:first-child { text-align: start; white-space: normal; }
   table.pe-table thead th { color: var(--text-muted); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 2px solid var(--border); }
   table.pe-table td.neg { color: var(--danger); font-weight: 700; }
   table.pe-table td.pos { color: var(--success); font-weight: 700; }
-  table.pe-table tfoot td { font-size: 11px; color: var(--text-muted); border-bottom: none; white-space: normal; padding-top: 10px; }
-  @media (max-width: 640px) { .pe-figure, .pe-toc { padding: 16px 14px; } }
+  /* Smaller, calmer download buttons than the default .btn size */
+  .pub-downloads .btn { padding: 9px 15px; font-size: 12px; letter-spacing: 0.02em; gap: 6px; }
+  .pub-downloads .btn svg { width: 14px; height: 14px; }
 </style>
 </head>
-<body data-page="publication">
+<body data-page="article" data-title-key="pub5_title">
 <header class="site-nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">
@@ -105,7 +99,7 @@
     <span class="badge badge-draft">Paper available</span>
   </div>
   <h1 class="pub-title">Public Enterprises in Tunisia</h1>
-  <p style="max-width:760px; margin:6px auto 0; font-size:16.5px; color:var(--text-muted); font-style:italic;">An Economic and Financial Assessment of Eleven Enterprises and Reform Options in Light of International Experience</p>
+  <p class="article-lede" style="margin-top:8px; font-style:italic;">An Economic and Financial Assessment of Eleven Enterprises and Reform Options in Light of International Experience</p>
   <div class="pub-authors" style="margin-top:14px;">
     <b>Mohamed Baraa Lafi</b>
     <span class="venue">Paris School of Economics (PSE)</span>
@@ -115,15 +109,15 @@
   <div class="pub-downloads">
     <a class="btn btn-primary" href="assets/publications/public-enterprises-tunisia-en.pdf" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-      Download Paper — English (PDF)
+      Paper (English PDF)
     </a>
     <a class="btn btn-primary" href="assets/publications/public-enterprises-tunisia-ar.pdf" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-      تحميل الورقة — نسخة عربية (PDF)
+      Paper (Arabic PDF)
     </a>
     <a class="btn btn-outline" href="assets/publications/Public-Enterprises-Tunisia-Data-Sources.zip" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
-      Download Data, References &amp; Official Reports
+      Data &amp; References
     </a>
   </div>
 </div>
@@ -132,29 +126,28 @@
   <img src="assets/articles/public-enterprises-tunisia-cover.jpg" alt="Public Enterprises in Tunisia" loading="lazy">
 </div>
 
-<!-- ================= ENGLISH ================= -->
-<div data-lang-block="en" lang="en" dir="ltr">
+<div class="pub-abstract">
+  <h2>Abstract</h2>
+  <p>Public enterprises have played a central role in Tunisia's economy since independence, particularly in the energy, water, transport, telecommunications, banking, and extractive sectors. This study examines public enterprise reform in Tunisia from an economic perspective, focusing on evidence rather than ideology. It first reviews the origins and objectives of Tunisia's public enterprise model. It then analyses the financial and operational performance of eleven public enterprises across different sectors. Finally, it compares Tunisia's experience with those of France, Morocco, Italy, and Norway, while drawing on the broader economic literature and reform experiences from Eastern Europe, Chile, the United Kingdom, and Italy.</p>
+  <p style="margin-top:16px;">The paper offers a financial and operational diagnosis of the Société Tunisienne de l'Électricité et du Gaz (STEG), the Société Nationale d'Exploitation et de Distribution des Eaux (SONEDE), the Office National de l'Assainissement (ONAS), the Société Tunisienne des Industries de Raffinage (STIR), the Société Nationale de Distribution des Pétroles ("Agil"), Tunisair, the Société Nationale des Chemins de Fer Tunisiens (SNCFT), the Société Tunisienne de Navigation (CTN), the Compagnie des Phosphates de Gafsa (CPG), and the Groupe Chimique Tunisien, drawing on the Ministry of Finance's report on public enterprises, on World Bank analyses, and on investigative journalism. The findings show that the aggregate net losses of loss-making enterprises reached approximately TND 4.27 billion in 2022 alone, driven principally by administered prices that fail to cover real costs, delayed investment, and weak governance independence, rather than by weak demand.</p>
+  <p style="margin-top:16px;">The paper concludes that the debate should move beyond the traditional dichotomy between "privatization" and "retaining public ownership," toward a sector-by-sector assessment grounded in economic evidence and international comparison, aimed at identifying the reform option best suited to the Tunisian context, whether restructuring, strengthening competition, public–private partnership, or privatization.</p>
+</div>
 
-  <div class="pub-abstract">
-    <h2>Abstract</h2>
-    <p>Public enterprises have played a central role in Tunisia's economy since independence, particularly in the energy, water, transport, telecommunications, banking, and extractive sectors. This study examines public enterprise reform in Tunisia from an economic perspective, focusing on evidence rather than ideology. It first reviews the origins and objectives of Tunisia's public enterprise model. It then analyses the financial and operational performance of eleven public enterprises across different sectors. Finally, it compares Tunisia's experience with those of France, Morocco, Italy, and Norway, while drawing on the broader economic literature and reform experiences from Eastern Europe, Chile, the United Kingdom, and Italy.</p>
-    <p style="margin-top:16px;">The paper offers a financial and operational diagnosis of the Société Tunisienne de l'Électricité et du Gaz (STEG), the Société Nationale d'Exploitation et de Distribution des Eaux (SONEDE), the Office National de l'Assainissement (ONAS), the Société Tunisienne des Industries de Raffinage (STIR), the Société Nationale de Distribution des Pétroles ("Agil"), Tunisair, the Société Nationale des Chemins de Fer Tunisiens (SNCFT), the Société Tunisienne de Navigation (CTN), the Compagnie des Phosphates de Gafsa (CPG), and the Groupe Chimique Tunisien, drawing on the Ministry of Finance's report on public enterprises, on World Bank analyses, and on investigative journalism. The findings show that the aggregate net losses of loss-making enterprises reached approximately TND 4.27 billion in 2022 alone, driven principally by administered prices that fail to cover real costs, delayed investment, and weak governance independence, rather than by weak demand.</p>
-    <p style="margin-top:16px;">The paper concludes that the debate should move beyond the traditional dichotomy between "privatization" and "retaining public ownership," toward a sector-by-sector assessment grounded in economic evidence and international comparison, aimed at identifying the reform option best suited to the Tunisian context, whether restructuring, strengthening competition, public–private partnership, or privatization.</p>
-  </div>
-
-  <div class="pub-tags-block">
-    <div>
-      <h4>Keywords</h4>
-      <div class="skill-pills">
-        <span>Public Enterprises</span><span>Tunisia</span><span>Privatization</span><span>SOEs</span>
-        <span>Public Utilities</span><span>Economic Reform</span><span>Governance</span><span>Public Finance</span>
-      </div>
+<div class="pub-tags-block">
+  <div>
+    <h4>Keywords</h4>
+    <div class="skill-pills">
+      <span>Public Enterprises</span><span>Tunisia</span><span>Privatization</span><span>SOEs</span>
+      <span>Public Utilities</span><span>Economic Reform</span><span>Governance</span><span>Public Finance</span>
     </div>
   </div>
+</div>
 
-  <section class="pe-section">
-    <h2>Table of Contents</h2>
-    <div class="pe-toc">
+<section style="padding-top:0;">
+  <div class="container">
+
+    <div class="article-chart-card pe-toc" style="max-width:760px;">
+      <h4 style="font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); margin-bottom:14px;">Table of Contents</h4>
       <ol>
         <li><b>Public Enterprises in Tunisia: Origins, Objectives, and Evolution</b>
           <ol>
@@ -197,160 +190,42 @@
         <li><b>References</b></li>
       </ol>
     </div>
-  </section>
 
-  <section class="pe-section">
-    <h2>Figures</h2>
-
-    <div class="pe-figure">
+    <div class="article-chart-card" style="max-width:760px;">
       <h4>Composition of Tunisia's Public Enterprises, by Supervising Ministry</h4>
       <p class="chart-sub">Enterprises with a direct economic and service-delivery activity, per the Ministry of Finance's Report on Public Enterprises (Appendix No. 9 to the 2025 Finance Bill)</p>
       <div id="composition-grid" class="ministry-grid"></div>
       <p class="chart-source">Source: Report on Public Enterprises, Appendix No. 9 to the 2025 Finance Bill, Tunisian Ministry of Finance.</p>
     </div>
 
-    <div class="pe-figure">
+    <div class="article-chart-card" style="max-width:760px;">
       <h4>Table 1 — Financial Indicators of the Eleven Enterprises Studied, FY2022</h4>
       <p class="chart-sub">TND million, unless noted · operating result, net result, staff costs, debt to the state (end-2023)</p>
       <div class="pe-table-wrap"><table class="pe-table" id="indicators-table"></table></div>
       <p class="chart-source">Source: Ministry of Finance, Report on Public Enterprises, Appendix No. 9 to the 2025 Finance Bill. Tunisair: the Ministry of Finance figure differs from the company's own audited 2022 statements, which report a net loss of TND 282.7 million; the source document does not reconcile this discrepancy (see the paper, §2.7).</p>
     </div>
 
-    <div class="pe-figure">
+    <div class="article-chart-card" style="max-width:760px;">
       <h4>Ranking of Public Enterprises by Negative Net Result, 2022</h4>
       <p class="chart-sub">TND million · sorted from largest to smallest loss</p>
       <div id="losses-chart" class="bar-list"></div>
       <p class="chart-source">Source: Annex No. 9 to the Draft Finance Law for 2025, Tunisian Ministry of Finance.</p>
     </div>
 
-    <div class="pe-figure">
+    <div class="article-chart-card" style="max-width:760px;">
       <h4>Ranking of Public Enterprises by Positive Net Result, 2022</h4>
       <p class="chart-sub">TND million · sorted from largest to smallest profit</p>
       <div id="profits-chart" class="bar-list"></div>
       <p class="chart-source">Source: Annex No. 9 to the Draft Finance Law for 2025, Tunisian Ministry of Finance.</p>
     </div>
-  </section>
 
-  <section style="padding-top:0;">
-    <div class="container">
-      <div class="article-refs">
-        <h4 style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin:0 0 16px;">References</h4>
-        <ol id="refs-list-en"></ol>
-      </div>
+    <div class="article-refs">
+      <h4 style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin:0 0 16px;">References</h4>
+      <ol id="refs-list"></ol>
     </div>
-  </section>
 
-</div>
-
-<!-- ================= ARABIC ================= -->
-<div data-lang-block="ar" lang="ar" dir="rtl">
-
-  <div class="pub-abstract">
-    <h2>الملخّص</h2>
-    <p>لعبت المنشآت العمومية دورًا محوريًا في الاقتصاد التونسي منذ الاستقلال، حيث شملت قطاعات الطاقة، والمياه، والنقل، والاتصالات، والخدمات المصرفية، والصناعات الاستخراجية. تعيد هذه الدراسة تناول مسألة إصلاح المؤسسات العمومية في تونس من منظور اقتصادي، بعيدًا عن المقاربات الإيديولوجية، من خلال تقييم مختلف خيارات الإصلاح في ضوء الأدلة والتجارب الدولية. وتبدأ باستعراض الجذور التاريخية وأهداف نموذج المنشآت العمومية في تونس، ثم تقدم تشخيصًا ماليًا وتشغيليًا لإحدى عشرة منشأة عمومية حسب القطاعات، قبل وضع التجربة التونسية في سياق مقارن مع تجارب فرنسا، والمغرب، وإيطاليا، والنرويج، والاستفادة من الأدبيات الاقتصادية وتجارب إصلاح قطاعية في دول أوروبا الشرقية، والتشيلي، والمملكة المتحدة، وإيطاليا.</p>
-    <p style="margin-top:16px;">تقدم الدراسة تشخيصًا ماليًا وتشغيليًا لكل من الشركة التونسية للكهرباء والغاز، والشركة الوطنية لاستغلال وتوزيع المياه، والديوان الوطني للتطهير، والشركة التونسية لصناعات التكرير، وشركة عجيل، والخطوط التونسية، والشركة الوطنية للسكك الحديدية التونسية، والشركة التونسية للملاحة، وشركة فسفاط قفصة، والمجمع الكيميائي التونسي، وذلك بالاعتماد على تقرير وزارة المالية حول المنشآت العمومية، وتحليلات البنك الدولي، والتحقيقات الصحفية. وتبين النتائج أن صافي الخسائر المجمعة للمنشآت الخاسرة بلغ نحو 4.27 مليار دينار تونسي خلال سنة 2022 وحدها، ويرجع ذلك بدرجة أكبر إلى الأسعار الإدارية التي لا تغطي التكاليف الحقيقية، وتأخر الاستثمارات، وضعف استقلالية الحوكمة، أكثر من كونه ناتجًا عن ضعف الطلب.</p>
-    <p style="margin-top:16px;">وتخلص الدراسة إلى أن النقاش ينبغي أن يتجاوز الثنائية التقليدية بين «الخوصصة» و«الإبقاء على الملكية العمومية»، ليتجه نحو تقييم خاص بكل قطاع، يستند إلى الأدلة الاقتصادية والمقارنة مع التجارب الدولية، بهدف تحديد الخيار الإصلاحي الأنسب للسياق التونسي، سواء تمثل في إعادة الهيكلة، أو تعزيز المنافسة، أو الشراكة بين القطاعين العام والخاص، أو الخوصصة.</p>
   </div>
-
-  <div class="pub-tags-block">
-    <div>
-      <h4>الكلمات المفتاحية</h4>
-      <div class="skill-pills">
-        <span>المؤسسات العمومية</span><span>تونس</span><span>الخوصصة</span><span>المؤسسات المملوكة للدولة</span>
-        <span>المرافق العمومية</span><span>الإصلاح الاقتصادي</span><span>الحوكمة</span><span>المالية العمومية</span>
-      </div>
-    </div>
-  </div>
-
-  <section class="pe-section">
-    <h2>فهرس المحتويات</h2>
-    <div class="pe-toc">
-      <ol dir="rtl">
-        <li><b>المؤسسات العمومية في تونس: النشأة، الأهداف، والتطور</b>
-          <ol dir="rtl">
-            <li>النموذج الاقتصادي لدولة الاستقلال</li>
-            <li>خريطة المؤسسات العمومية في تونس</li>
-            <li>موقع النموذج التونسي في ضوء التجارب الدولية — فرنسا، المغرب، إيطاليا، النرويج</li>
-          </ol>
-        </li>
-        <li><b>تشخيص واقع المؤسسات العمومية في تونس</b>
-          <ol dir="rtl">
-            <li>المؤسسات العمومية والمنافسة</li>
-            <li>الشركة التونسية للكهرباء والغاز (STEG)</li>
-            <li>الشركة الوطنية لاستغلال وتوزيع المياه (SONEDE)</li>
-            <li>الديوان الوطني للتطهير (ONAS)</li>
-            <li>الشركة التونسية لصناعات التكرير (STIR)</li>
-            <li>الشركة الوطنية لتوزيع البترول (عجيل)</li>
-            <li>الخطوط التونسية</li>
-            <li>الشركة التونسية للملاحة (CTN)</li>
-            <li>الشركة الوطنية للسكك الحديدية التونسية (SNCFT)</li>
-            <li>شركة نقل تونس (TRANSTU)</li>
-            <li>شركة فسفاط قفصة (CPG)</li>
-            <li>المجمع الكيميائي التونسي</li>
-            <li>خلاصة: نزيف المنشآت العمومية وخيارات الإصلاح</li>
-          </ol>
-        </li>
-        <li><b>التجارب الدولية في إصلاح المؤسسات العمومية والخوصصة: الدروس المستفادة</b>
-          <ol dir="rtl">
-            <li>ماذا تقول الأدبيات الاقتصادية عن الخوصصة؟</li>
-            <li>تجربة تشيلي في خصخصة قطاع الكهرباء</li>
-            <li>تجربة دول أوروبا الشرقية والوسطى في خصخصة قطاع الطاقة</li>
-            <li>تجربة المجر في خصخصة قطاع الكهرباء</li>
-            <li>تجربة دول منظمة التعاون الاقتصادي والتنمية في خصخصة قطاع الطيران</li>
-            <li>تجربة دول أوروبا الغربية في خصخصة قطاع الكهرباء</li>
-            <li>تجربة المملكة المتحدة في خصخصة قطاع الطيران</li>
-            <li>تجربة إيطاليا في خصخصة قطاع الطيران</li>
-          </ol>
-        </li>
-        <li><b>الدروس المستفادة ومعايير حوكمة المؤسسات العمومية</b></li>
-        <li><b>خاتمة</b></li>
-        <li><b>المراجع</b></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="pe-section">
-    <h2>الأشكال والرسوم البيانية</h2>
-
-    <div class="pe-figure">
-      <h4>تركيبة المؤسسات العمومية التونسية حسب وزارة الإشراف</h4>
-      <p class="chart-sub">المؤسسات ذات النشاط الاقتصادي والخدماتي المباشر، وفق تقرير وزارة المالية حول المنشآت العمومية (الملحق عدد 09 بمشروع قانون المالية لسنة 2025)</p>
-      <div id="composition-grid-ar" class="ministry-grid" dir="rtl"></div>
-      <p class="chart-source">المصدر: تقرير وزارة المالية حول المنشآت العمومية، الملحق عدد 09 بمشروع قانون المالية لسنة 2025.</p>
-    </div>
-
-    <div class="pe-figure">
-      <h4>الجدول 1 — المؤشرات المالية لإحدى عشرة مؤسسة موضوع الدراسة، لسنة 2022</h4>
-      <p class="chart-sub">مليون دينار، ما لم يُذكر خلاف ذلك · نتيجة الاستغلال، النتيجة الصافية، أعباء الأعوان، المديونية تجاه الدولة (موفى 2023)</p>
-      <div class="pe-table-wrap"><table class="pe-table" id="indicators-table-ar" dir="rtl"></table></div>
-      <p class="chart-source">المصدر: وزارة المالية، تقرير حول المنشآت العمومية، الملحق عدد 09 بمشروع قانون المالية لسنة 2025. بالنسبة للخطوط التونسية: رقم وزارة المالية يختلف عن القوائم المالية المدققة الخاصة بالشركة لسنة 2022 التي تفيد بخسارة صافية قدرها 282.7 مليون دينار؛ لا يوفق التقرير المصدر بين الرقمين (انظر الورقة، القسم 2.7).</p>
-    </div>
-
-    <div class="pe-figure">
-      <h4>ترتيب المنشآت العمومية حسب النتائج الصافية السلبية لسنة 2022</h4>
-      <p class="chart-sub">مليون دينار · ترتيب تنازلي من الأكبر خسارة إلى الأصغر</p>
-      <div id="losses-chart-ar" class="bar-list" dir="rtl"></div>
-      <p class="chart-source">المصدر: الملحق عدد 09 بمشروع قانون المالية لسنة 2025، وزارة المالية التونسية.</p>
-    </div>
-
-    <div class="pe-figure">
-      <h4>ترتيب المنشآت العمومية حسب النتائج الصافية الإيجابية لسنة 2022</h4>
-      <p class="chart-sub">مليون دينار · ترتيب تنازلي من الأكبر ربحًا إلى الأصغر</p>
-      <div id="profits-chart-ar" class="bar-list" dir="rtl"></div>
-      <p class="chart-source">المصدر: الملحق عدد 09 بمشروع قانون المالية لسنة 2025، وزارة المالية التونسية.</p>
-    </div>
-  </section>
-
-  <section style="padding-top:0;">
-    <div class="container">
-      <div class="article-refs">
-        <h4 style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin:0 0 16px;">المراجع</h4>
-        <ol id="refs-list-ar" dir="rtl"></ol>
-      </div>
-    </div>
-  </section>
-
-</div>
+</section>
 
 <footer class="site-footer">
   <div class="container">
@@ -398,118 +273,72 @@
    the 2025 Finance Bill) so figures stay crisp and are easy to update. */
 (function () {
   var LOSSES = [
-    { en: 'STIR — Société Tunisienne des Industries de Raffinage', ar: 'الشركة التونسية لصناعات التكرير (STIR)', v: 1902.9 },
-    { en: 'Office des Céréales (Cereals Office)', ar: 'ديوان الحبوب', v: 701.4 },
-    { en: 'Office Tunisien du Commerce (Trade Office)', ar: 'الديوان التونسي للتجارة', v: 424.0 },
-    { en: 'STEG — Société Tunisienne de l\u2019Électricité et du Gaz', ar: 'الشركة التونسية للكهرباء والغاز STEG', v: 381.2 },
-    { en: 'Société des Transports de Tunis (TRANSTU)', ar: 'شركة نقل تونس (TRANSTU)', v: 226.5 },
-    { en: 'SNCFT — Société Nationale des Chemins de Fer Tunisiens', ar: 'الشركة الوطنية للسكك الحديدية التونسية', v: 199.8 },
-    { en: 'Tunisair', ar: 'الخطوط التونسية', v: 176.3 },
-    { en: 'Office des Terres Domaniales', ar: 'ديوان الأراضي الدولية', v: 45.1 },
-    { en: 'Office National de l\u2019Huile', ar: 'الديوان الوطني للزيت', v: 41.4 },
-    { en: 'National Alfa & Paper Pulp Company', ar: 'الشركة الوطنية لعجين الحلفاء والورق', v: 37.1 },
-    { en: 'Oum El Kelil Cement Company', ar: 'شركة اسمنت أم الكليل', v: 36.8 },
-    { en: 'Bizerte Cement Company', ar: 'شركة اسمنت بنزرت', v: 29.0 },
-    { en: 'General Company for Works, Equipment & Construction', ar: 'الشركة العامة للمقاولات والمعدات والأشغال', v: 23.9 },
-    { en: 'SONEDE — Société Nationale d\u2019Exploitation et de Distribution des Eaux', ar: 'الشركة الوطنية لاستغلال وتوزيع المياه', v: 21.1 },
-    { en: 'Technical Agency for Land Transport', ar: 'الوكالة الفنية للنقل البري', v: 5.4 },
-    { en: 'Regional Transport Company — Sfax', ar: 'الشركة الجهوية للنقل بولاية صفاقس', v: 4.9 },
-    { en: 'Tunisian Iron & Steel Company', ar: 'الشركة التونسية لصناعة الحديد "الفولاذ"', v: 4.8 },
-    { en: 'Société Tunisienne de Forage (drilling)', ar: 'الشركة التونسية للحفر', v: 3.9 },
-    { en: 'Social Housing Development Company', ar: 'شركة النهوض بالمساكن الاجتماعية', v: 3.6 },
-    { en: 'National Alcohol Agency', ar: 'وكالة الكحول', v: 2.5 }
+    { t: 'STIR — Société Tunisienne des Industries de Raffinage', v: 1902.9 },
+    { t: 'Office des Céréales (Cereals Office)', v: 701.4 },
+    { t: 'Office Tunisien du Commerce (Trade Office)', v: 424.0 },
+    { t: 'STEG — Société Tunisienne de l\u2019Électricité et du Gaz', v: 381.2 },
+    { t: 'Société des Transports de Tunis (TRANSTU)', v: 226.5 },
+    { t: 'SNCFT — Société Nationale des Chemins de Fer Tunisiens', v: 199.8 },
+    { t: 'Tunisair', v: 176.3 },
+    { t: 'Office des Terres Domaniales', v: 45.1 },
+    { t: 'Office National de l\u2019Huile', v: 41.4 },
+    { t: 'National Alfa & Paper Pulp Company', v: 37.1 },
+    { t: 'Oum El Kelil Cement Company', v: 36.8 },
+    { t: 'Bizerte Cement Company', v: 29.0 },
+    { t: 'General Company for Works, Equipment & Construction', v: 23.9 },
+    { t: 'SONEDE — Société Nationale d\u2019Exploitation et de Distribution des Eaux', v: 21.1 },
+    { t: 'Technical Agency for Land Transport', v: 5.4 },
+    { t: 'Regional Transport Company — Sfax', v: 4.9 },
+    { t: 'Tunisian Iron & Steel Company', v: 4.8 },
+    { t: 'Société Tunisienne de Forage (drilling)', v: 3.9 },
+    { t: 'Social Housing Development Company', v: 3.6 },
+    { t: 'National Alcohol Agency', v: 2.5 }
   ];
   var PROFITS = [
-    { en: 'CPG — Compagnie des Phosphates de Gafsa', ar: 'شركة فسفاط قفصة (CPG)', v: 445.0 },
-    { en: 'ETAP — Entreprise Tunisienne d\u2019Activités Pétrolières', ar: 'المؤسسة التونسية للأنشطة البترولية (ETAP)', v: 352.2 },
-    { en: 'OACA — Office de l\u2019Aviation Civile et des Aéroports', ar: 'ديوان الطيران المدني والمطارات', v: 248.0 },
-    { en: 'Tunisian Motorways Company', ar: 'شركة تونس للطرقات السيارة', v: 195.1 },
-    { en: 'Tobacco and Matches Agency', ar: 'وكالة التبغ والوقيد', v: 130.7 },
-    { en: 'Groupe Chimique Tunisien', ar: 'المجمع الكيميائي التونسي', v: 63.1 },
-    { en: 'OMMP — Office de la Marine Marchande et des Ports', ar: 'ديوان البحرية التجارية والموانئ', v: 56.0 },
-    { en: 'Kairouan Tobacco Factory', ar: 'مصنع التبغ بالقيروان', v: 49.2 },
-    { en: 'Tunisie Telecom', ar: 'الشركة الوطنية للاتصالات - اتصالات تونس', v: 49.0 },
-    { en: 'SNDP — Agil', ar: 'الشركة الوطنية لتوزيع البترول (عجيل)', v: 46.1 },
-    { en: 'Pharmacie Centrale de Tunisie', ar: 'الصيدلية المركزية للبلاد التونسية', v: 14.2 },
-    { en: 'Agence Foncière de l\u2019Habitat (AFH)', ar: 'الوكالة العقارية للسكنى', v: 12.6 },
-    { en: 'CTN — Société Tunisienne de Navigation', ar: 'الشركة التونسية للملاحة (CTN)', v: 11.5 },
-    { en: 'Agence de Réhabilitation et de Rénovation Urbaine (ARRU)', ar: 'وكالة التهذيب والتجديد العمراني', v: 10.7 },
-    { en: 'Pipeline Transport Company', ar: 'شركة النقل بواسطة الأنابيب', v: 9.4 },
-    { en: 'National Real Estate Company', ar: 'الشركة الوطنية العقارية للبلاد التونسية', v: 8.2 },
-    { en: 'Tunisia Trade Network Company', ar: 'شركة شبكة تونس للتجارة', v: 5.7 },
-    { en: 'ONAS — Office National de l\u2019Assainissement', ar: 'الديوان الوطني للتطهير', v: 2.0 },
-    { en: 'Regional Transport Company — Bizerte', ar: 'الشركة الجهوية للنقل ببنزرت', v: 0.9 },
-    { en: 'Industrial Real Estate Agency', ar: 'الوكالة العقارية الصناعية', v: 0.5 }
+    { t: 'CPG — Compagnie des Phosphates de Gafsa', v: 445.0 },
+    { t: 'ETAP — Entreprise Tunisienne d\u2019Activités Pétrolières', v: 352.2 },
+    { t: 'OACA — Office de l\u2019Aviation Civile et des Aéroports', v: 248.0 },
+    { t: 'Tunisian Motorways Company', v: 195.1 },
+    { t: 'Tobacco and Matches Agency', v: 130.7 },
+    { t: 'Groupe Chimique Tunisien', v: 63.1 },
+    { t: 'OMMP — Office de la Marine Marchande et des Ports', v: 56.0 },
+    { t: 'Kairouan Tobacco Factory', v: 49.2 },
+    { t: 'Tunisie Telecom', v: 49.0 },
+    { t: 'SNDP — Agil', v: 46.1 },
+    { t: 'Pharmacie Centrale de Tunisie', v: 14.2 },
+    { t: 'Agence Foncière de l\u2019Habitat (AFH)', v: 12.6 },
+    { t: 'CTN — Société Tunisienne de Navigation', v: 11.5 },
+    { t: 'Agence de Réhabilitation et de Rénovation Urbaine (ARRU)', v: 10.7 },
+    { t: 'Pipeline Transport Company', v: 9.4 },
+    { t: 'National Real Estate Company', v: 8.2 },
+    { t: 'Tunisia Trade Network Company', v: 5.7 },
+    { t: 'ONAS — Office National de l\u2019Assainissement', v: 2.0 },
+    { t: 'Regional Transport Company — Bizerte', v: 0.9 },
+    { t: 'Industrial Real Estate Agency', v: 0.5 }
   ];
   var COMPOSITION = [
-    { en: 'Ministry of Finance', ar: 'وزارة المالية', items: [
-      { en: 'Tobacco and Matches Agency', ar: 'وكالة التبغ والوقيد' },
-      { en: 'Société Tunisienne de Loterie (SNL)', ar: 'شركة اليانصيب التونسي' },
-      { en: 'Office National des Postes (La Poste Tunisienne)', ar: 'الديوان الوطني للبريد' },
-      { en: 'Société Tunisienne de Banque (STB)', ar: 'الشركة التونسية للبنك (STB)' },
-      { en: 'Banque Nationale Agricole (BNA)', ar: 'البنك الوطني الفلاحي (BNA)' },
-      { en: 'Banque de l\u2019Habitat (BH)', ar: 'بنك الإسكان (BH)' },
-      { en: 'Société Tunisienne de Garantie', ar: 'الشركة التونسية للضمان' },
-      { en: 'Tunis Re (reinsurance company)', ar: 'شركة إعادة التأمين "تونس ري"' }
-    ]},
-    { en: 'Ministry of Transport', ar: 'وزارة النقل', items: [
-      { en: 'Tunisair', ar: 'الخطوط التونسية' },
-      { en: 'Tunisair Handling', ar: 'شركة الخدمات الأرضية' },
-      { en: 'Société de l\u2019Avitaillement (fuel supply)', ar: 'شركة التموين' },
-      { en: 'OACA — Office de l\u2019Aviation Civile et des Aéroports', ar: 'ديوان الطيران المدني والمطارات' },
-      { en: 'CTN — Société Tunisienne de Navigation', ar: 'الشركة التونسية للملاحة' },
-      { en: 'SNCFT — Chemins de Fer Tunisiens', ar: 'الشركة الوطنية للسكك الحديدية التونسية' },
-      { en: 'TRANSTU — Transports de Tunis', ar: 'شركة نقل تونس' }
-    ]},
-    { en: 'Ministry of Industry, Mines and Energy', ar: 'وزارة الصناعة والمناجم والطاقة', items: [
-      { en: 'Société Tunisienne de Forage', ar: 'الشركة التونسية للحفر' },
-      { en: 'SNDP — Agil', ar: 'الشركة الوطنية لتوزيع البترول (عجيل)' },
-      { en: 'STEG', ar: 'الشركة التونسية للكهرباء والغاز' },
-      { en: 'STIR', ar: 'الشركة التونسية لصناعات التكرير' },
-      { en: 'CPG — Compagnie des Phosphates de Gafsa', ar: 'شركة فسفاط قفصة' },
-      { en: 'Groupe Chimique Tunisien', ar: 'المجمع الكيميائي التونسي' },
-      { en: 'Société du Pipeline Trans-Saharien', ar: 'شركة نقل الأنابيب عبر الصحراء' },
-      { en: 'ETAP', ar: 'المؤسسة التونسية للأنشطة البترولية' },
-      { en: 'Société Tunisienne des Pipe-lines', ar: 'الشركة التونسية للأنابيب' },
-      { en: 'Agence Nationale pour la Maîtrise de l\u2019Énergie', ar: 'الوكالة الوطنية للتحكم في الطاقة' }
-    ]},
-    { en: 'Ministry of Agriculture, Water Resources and Fisheries', ar: 'وزارة الفلاحة والموارد المائية والصيد البحري', items: [
-      { en: 'SONEDE', ar: 'الشركة الوطنية لاستغلال وتوزيع المياه' },
-      { en: 'Office des Céréales', ar: 'ديوان الحبوب' },
-      { en: 'Office des Terres Domaniales', ar: 'ديوان الأراضي الدولية' },
-      { en: 'Office National de l\u2019Huile', ar: 'الديوان الوطني للزيت' },
-      { en: 'Office d\u2019Élevage et de Pâturages', ar: 'ديوان تربية الماشية وتوفير المرعى' }
-    ]},
-    { en: 'Ministry of Equipment and Housing', ar: 'وزارة التجهيز والإسكان', items: [
-      { en: 'Société de Promotion des Logements Sociaux', ar: 'شركة النهوض بالمساكن الاجتماعية' },
-      { en: 'Agence Foncière de l\u2019Habitat', ar: 'الوكالة العقارية للسكنى' },
-      { en: 'Agence de Réhabilitation et de Rénovation Urbaine', ar: 'وكالة التهذيب والتجديد العمراني' }
-    ]},
-    { en: 'Ministry of the Environment', ar: 'وزارة البيئة', items: [
-      { en: 'ONAS — Office National de l\u2019Assainissement', ar: 'الديوان الوطني للتطهير' }
-    ]},
-    { en: 'Ministry of Communication Technologies', ar: 'وزارة تكنولوجيات الاتصال', items: [
-      { en: 'Tunisie Telecom', ar: 'اتصالات تونس' }
-    ]},
-    { en: 'Ministry of Trade and Export Development', ar: 'وزارة التجارة وتنمية الصادرات', items: [
-      { en: 'Office Tunisien du Commerce', ar: 'الديوان التونسي للتجارة' }
-    ]},
-    { en: 'Ministry of Health', ar: 'وزارة الصحة', items: [
-      { en: 'Pharmacie Centrale de Tunisie', ar: 'الصيدلية المركزية للبلاد التونسية' }
-    ]}
+    { t: 'Ministry of Finance', items: ['Tobacco and Matches Agency', 'Société Tunisienne de Loterie (SNL)', 'Office National des Postes (La Poste Tunisienne)', 'Société Tunisienne de Banque (STB)', 'Banque Nationale Agricole (BNA)', 'Banque de l\u2019Habitat (BH)', 'Société Tunisienne de Garantie', 'Tunis Re (reinsurance company)'] },
+    { t: 'Ministry of Transport', items: ['Tunisair', 'Tunisair Handling', 'Société de l\u2019Avitaillement (fuel supply)', 'OACA — Office de l\u2019Aviation Civile et des Aéroports', 'CTN — Société Tunisienne de Navigation', 'SNCFT — Chemins de Fer Tunisiens', 'TRANSTU — Transports de Tunis'] },
+    { t: 'Ministry of Industry, Mines and Energy', items: ['Société Tunisienne de Forage', 'SNDP — Agil', 'STEG', 'STIR', 'CPG — Compagnie des Phosphates de Gafsa', 'Groupe Chimique Tunisien', 'Société du Pipeline Trans-Saharien', 'ETAP', 'Société Tunisienne des Pipe-lines', 'Agence Nationale pour la Maîtrise de l\u2019Énergie'] },
+    { t: 'Ministry of Agriculture, Water Resources and Fisheries', items: ['SONEDE', 'Office des Céréales', 'Office des Terres Domaniales', 'Office National de l\u2019Huile', 'Office d\u2019Élevage et de Pâturages'] },
+    { t: 'Ministry of Equipment and Housing', items: ['Société de Promotion des Logements Sociaux', 'Agence Foncière de l\u2019Habitat', 'Agence de Réhabilitation et de Rénovation Urbaine'] },
+    { t: 'Ministry of the Environment', items: ['ONAS — Office National de l\u2019Assainissement'] },
+    { t: 'Ministry of Communication Technologies', items: ['Tunisie Telecom'] },
+    { t: 'Ministry of Trade and Export Development', items: ['Office Tunisien du Commerce'] },
+    { t: 'Ministry of Health', items: ['Pharmacie Centrale de Tunisie'] }
   ];
   var INDICATORS = [
-    { en: 'STEG', ar: 'الشركة التونسية للكهرباء والغاز (STEG)', op: 142.7, net: -381.2, staff: 615.7, debt: 26.8 },
-    { en: 'SONEDE', ar: 'الشركة الوطنية لاستغلال وتوزيع المياه (SONEDE)', op: 12.9, net: -21.1, staff: null, debt: 61.3 },
-    { en: 'ONAS', ar: 'الديوان الوطني للتطهير (ONAS)', op: 20.3, net: 2.0, staff: null, debt: 252.0 },
-    { en: 'STIR', ar: 'الشركة التونسية لصناعات التكرير (STIR)', op: -1641.8, net: -1902.9, staff: null, debt: 101.2 },
-    { en: 'SNDP (Agil)', ar: 'الشركة الوطنية لتوزيع البترول (عجيل)', op: 36.0, net: 46.1, staff: 63.7, debt: 168.6 },
-    { en: 'Tunisair *', ar: 'الخطوط التونسية *', op: -125.7, net: -176.3, staff: 234.9, debt: 232.4 },
-    { en: 'CTN', ar: 'الشركة التونسية للملاحة (CTN)', op: 22.3, net: 11.5, staff: 70.0, debt: 1.6 },
-    { en: 'SNCFT', ar: 'الشركة الوطنية للسكك الحديدية التونسية (SNCFT)', op: -142.5, net: -199.8, staff: 135.5, debt: 50.3 },
-    { en: 'TRANSTU', ar: 'شركة نقل تونس (TRANSTU)', op: -202.5, net: -226.5, staff: 293.1, debt: 1510.0 },
-    { en: 'CPG', ar: 'شركة فسفاط قفصة (CPG)', op: 691.1, net: 445.0, staff: 331.0, debt: 290.0 },
-    { en: 'Groupe Chimique Tunisien', ar: 'المجمع الكيميائي التونسي', op: 263.9, net: 63.1, staff: 337.0, debt: 181.3 }
+    { t: 'STEG', op: 142.7, net: -381.2, staff: 615.7, debt: 26.8 },
+    { t: 'SONEDE', op: 12.9, net: -21.1, staff: null, debt: 61.3 },
+    { t: 'ONAS', op: 20.3, net: 2.0, staff: null, debt: 252.0 },
+    { t: 'STIR', op: -1641.8, net: -1902.9, staff: null, debt: 101.2 },
+    { t: 'SNDP (Agil)', op: 36.0, net: 46.1, staff: 63.7, debt: 168.6 },
+    { t: 'Tunisair *', op: -125.7, net: -176.3, staff: 234.9, debt: 232.4 },
+    { t: 'CTN', op: 22.3, net: 11.5, staff: 70.0, debt: 1.6 },
+    { t: 'SNCFT', op: -142.5, net: -199.8, staff: 135.5, debt: 50.3 },
+    { t: 'TRANSTU', op: -202.5, net: -226.5, staff: 293.1, debt: 1510.0 },
+    { t: 'CPG', op: 691.1, net: 445.0, staff: 331.0, debt: 290.0 },
+    { t: 'Groupe Chimique Tunisien', op: 263.9, net: 63.1, staff: 337.0, debt: 181.3 }
   ];
   var REFERENCES = [
     'El Materi Al-Taymoumi, Al-Hedi (2024). <i>Tunisie bourguibienne, 1956–1987.</i> Dar Mohamed Ali.',
@@ -562,42 +391,38 @@
   function fmt(v) { return Math.abs(v).toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }); }
   function fmtSigned(v) { return (v < 0 ? '−' : '+') + fmt(v); }
 
-  function renderBarList(id, data, lang, cls, sign) {
+  function renderBarList(id, data, cls, sign) {
     var mount = document.getElementById(id);
     if (!mount) return;
     var max = Math.max.apply(null, data.map(function (x) { return x.v; }));
     mount.innerHTML = data.map(function (item) {
       var pct = Math.max((item.v / max) * 100, 2.5);
-      var label = item[lang] || item.en;
       return '<div class="bar-row">' +
-        '<div class="bar-row-top"><span class="bl">' + label + '</span>' +
+        '<div class="bar-row-top"><span class="bl">' + item.t + '</span>' +
         '<span class="bv">' + sign + fmt(item.v) + '</span></div>' +
         '<div class="bar-track"><div class="bar-fill ' + cls + '" style="width:' + pct.toFixed(1) + '%"></div></div>' +
         '</div>';
     }).join('');
   }
 
-  function renderComposition(id, lang) {
+  function renderComposition(id) {
     var mount = document.getElementById(id);
     if (!mount) return;
     mount.innerHTML = COMPOSITION.map(function (m) {
-      var items = m.items.map(function (it) { return '<li>' + (it[lang] || it.en) + '</li>'; }).join('');
-      return '<div class="ministry-card"><h5>' + (m[lang] || m.en) + '</h5>' +
-        '<ul dir="' + (lang === 'ar' ? 'rtl' : 'ltr') + '">' + items + '</ul></div>';
+      var items = m.items.map(function (it) { return '<li>' + it + '</li>'; }).join('');
+      return '<div class="ministry-card"><h5>' + m.t + '</h5><ul>' + items + '</ul></div>';
     }).join('');
   }
 
-  function renderIndicators(id, lang) {
+  function renderIndicators(id) {
     var table = document.getElementById(id);
     if (!table) return;
-    var head = lang === 'ar'
-      ? ['المؤسسة', 'نتيجة الاستغلال', 'النتيجة الصافية', 'أعباء الأعوان', 'المديونية تجاه الدولة']
-      : ['Enterprise', 'Operating result', 'Net result', 'Staff costs', 'Debt to state'];
+    var head = ['Enterprise', 'Operating result', 'Net result', 'Staff costs', 'Debt to state'];
     var thead = '<thead><tr>' + head.map(function (h) { return '<th>' + h + '</th>'; }).join('') + '</tr></thead>';
     var rows = INDICATORS.map(function (r) {
       var opCls = r.op < 0 ? 'neg' : 'pos';
       var netCls = r.net < 0 ? 'neg' : 'pos';
-      return '<tr><td>' + (r[lang] || r.en) + '</td>' +
+      return '<tr><td>' + r.t + '</td>' +
         '<td class="' + opCls + '">' + fmtSigned(r.op) + '</td>' +
         '<td class="' + netCls + '">' + fmtSigned(r.net) + '</td>' +
         '<td>' + (r.staff === null ? 'n.a.' : fmt(r.staff)) + '</td>' +
@@ -613,16 +438,11 @@
   }
 
   function renderAll() {
-    renderBarList('losses-chart', LOSSES, 'en', 'loss', '−');
-    renderBarList('losses-chart-ar', LOSSES, 'ar', 'loss', '−');
-    renderBarList('profits-chart', PROFITS, 'en', 'profit', '+');
-    renderBarList('profits-chart-ar', PROFITS, 'ar', 'profit', '+');
-    renderComposition('composition-grid', 'en');
-    renderComposition('composition-grid-ar', 'ar');
-    renderIndicators('indicators-table', 'en');
-    renderIndicators('indicators-table-ar', 'ar');
-    renderRefs('refs-list-en');
-    renderRefs('refs-list-ar');
+    renderBarList('losses-chart', LOSSES, 'loss', '−');
+    renderBarList('profits-chart', PROFITS, 'profit', '+');
+    renderComposition('composition-grid');
+    renderIndicators('indicators-table');
+    renderRefs('refs-list');
   }
 
   if (document.readyState === 'loading') {

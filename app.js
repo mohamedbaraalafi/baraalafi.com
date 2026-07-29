@@ -374,7 +374,7 @@ function updateLinksWithPrefs(theme, lang) {
       const url = new URL(href, window.location.href);
       if (url.origin !== window.location.origin) return;
       const filename = url.pathname.split('/').pop();
-      if (/^article-[a-z0-9-]+\.html$/.test(filename)) {
+      if (/^(article|publication)-[a-z0-9-]+\.html$/.test(filename)) {
         const target = articleLangFilename(filename, lang);
         url.searchParams.set('theme', theme);
         a.setAttribute('href', target + url.search + url.hash);
