@@ -60,8 +60,9 @@ const I18N = {
     pub4_date: "Ongoing — 2026", pub4_type: "Research Project", pub4_status: "Work in progress",
     pub4_title: "Reforming the Subsidy System in Tunisia: Fiscal Sustainability, Social Protection and Economic Efficiency", pub4_authors: "sole author",
 
-    pub5_date: "Ongoing — 2026", pub5_type: "Research Project", pub5_status: "Work in progress",
-    pub5_title: "Public Enterprises in Tunisia, Governance, Competition and Economic Performance", pub5_authors: "sole author",
+    pub5_date: "July 2026", pub5_type: "Working Paper", pub5_status: "Paper available",
+    pub5_venue: "Paris School of Economics — Political Economy of Public Enterprises",
+    pub5_title: "Public Enterprises in Tunisia: An Economic and Financial Assessment of Eleven Enterprises and Reform Options", pub5_authors: "sole author",
 
     pub6_date: "Ongoing — 2026", pub6_type: "Research Project", pub6_status: "Work in progress",
     pub6_title: "Minimum Wage in Tunisia: Employment, Productivity and Labor Market Outcomes", pub6_authors: "sole author",
@@ -153,8 +154,9 @@ const I18N = {
     pub4_date: "قيد الإنجاز — 2026", pub4_type: "مشروع بحثي", pub4_status: "قيد الكتابة",
     pub4_title: "إصلاح منظومة الدعم في تونس: الاستدامة المالية والحماية الاجتماعية والكفاءة الاقتصادية", pub4_authors: "مؤلف منفرد",
 
-    pub5_date: "قيد الإنجاز — 2026", pub5_type: "مشروع بحثي", pub5_status: "قيد الكتابة",
-    pub5_title: "المؤسسات العمومية في تونس: الحوكمة والمنافسة والأداء الاقتصادي", pub5_authors: "مؤلف منفرد",
+    pub5_date: "جويلية 2026", pub5_type: "ورقة عمل", pub5_status: "الورقة متاحة",
+    pub5_venue: "مدرسة باريس للاقتصاد — الاقتصاد السياسي للمؤسسات العمومية",
+    pub5_title: "المنشآت العمومية في تونس: تقييم اقتصادي ومالي لإحدى عشرة مؤسسة وخيارات الإصلاح", pub5_authors: "مؤلف منفرد",
 
     pub6_date: "قيد الإنجاز — 2026", pub6_type: "مشروع بحثي", pub6_status: "قيد الكتابة",
     pub6_title: "الأجر الأدنى في تونس: التشغيل والإنتاجية ونتائج سوق الشغل", pub6_authors: "مؤلف منفرد",
@@ -198,6 +200,7 @@ const I18N = {
    Publication titles are kept in their original (English) form across all
    languages, matching the convention already used on publications.html. */
 const RECENT_WORK = [
+  { kind: 'pub', order: 202607, titleKey: 'pub5_title', typeKey: 'pub5_type', dateKey: 'pub5_date', link: 'publication-public-enterprises-tunisia.html' },
   { kind: 'pub', order: 202605, title: 'Replication of Forbes and Warnock 2012', typeKey: 'pub2_type', dateKey: 'pub2_date', link: 'publications.html' },
   { kind: 'pub', order: 202603, title: 'What Would Saudi Arabia Look Like Without Vision 2030? Early Evidence from Synthetic Controls', typeKey: 'pub1_type', dateKey: 'pub1_date', link: 'publications.html' },
   { kind: 'art', order: 202607, titleKey: 'art1_title', dateKey: 'art1_date', typeKey: 'topic_eco', link: 'article-steg.html' },
