@@ -453,39 +453,3 @@
 })();
 </script>
 
-<!-- Email notification on file download.
-     Uses Formspree (https://formspree.io) — a free, backend-free form-to-email
-     relay. Setup (one-time, ~2 minutes):
-       1. Create a free account at https://formspree.io with mohamed@baraalafi.com
-       2. Create a new form; Formspree gives you an endpoint like
-          https://formspree.io/f/xxxxabcd
-       3. Replace YOUR_FORMSPREE_ENDPOINT_ID below with that ID (just the part
-          after /f/). Do this in BOTH the English and Arabic HTML files.
-     Every click on a download button will then send Formspree a small POST
-     (file name, page URL, timestamp), and Formspree emails it to the address
-     on the account. No server of your own is required. -->
-<script>
-(function () {
-  var FORMSPREE_ENDPOINT_ID = 'YOUR_FORMSPREE_ENDPOINT_ID'; // <-- replace this
-  if (FORMSPREE_ENDPOINT_ID === 'YOUR_FORMSPREE_ENDPOINT_ID') return; // not configured yet
-
-  document.querySelectorAll('.pub-downloads a[download]').forEach(function (link) {
-    link.addEventListener('click', function () {
-      var data = {
-        file: link.getAttribute('href'),
-        label: link.textContent.trim(),
-        page: window.location.href,
-        time: new Date().toISOString(),
-        _subject: 'Download: ' + link.textContent.trim()
-      };
-      fetch('https://formspree.io/f/' + FORMSPREE_ENDPOINT_ID, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      }).catch(function () { /* fail silently, never block the download */ });
-    });
-  });
-})();
-</script>
-</body>
-</html>
