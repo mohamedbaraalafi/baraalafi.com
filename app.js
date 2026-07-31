@@ -97,6 +97,8 @@ const I18N = {
     art10_date: "May 2025", art10_title: "Cross-Investment Between the United States and Gulf Countries: What the Data Show",
     art11_date: "April 2025", art11_title: "The Marine Le Pen Case: Judicial Transparency and Democratic Process in France",
     art12_date: "April 2025", art12_title: "Implementing Political Platforms: The Case of Donald Trump",
+    art13_date: "August 2026", art13_title: "The Problem Is Neither Capitalism nor Socialism: Private Universities Reveal Tunisia's Distorted Economic Model",
+    art13_lede: "Tunisia turns socialist when markets need competition, and capitalist when competition needs protecting.",
   },
   ar: {
     nav_home: "الرئيسية", nav_about: "نبذة عني", nav_research: "البحث",
@@ -191,6 +193,8 @@ const I18N = {
     art10_date: "مايو 2025", art10_title: "الاستثمارات المتبادلة بين الولايات المتحدة ودول الخليج: ماذا تقول البيانات؟",
     art11_date: "أبريل 2025", art11_title: "قضية مارين لوبان: الشفافية القضائية وسير العمل الديمقراطي في فرنسا",
     art12_date: "أبريل 2025", art12_title: "تنفيذ البرامج السياسية: حالة دونالد ترامب",
+    art13_date: "أوت 2026", art13_title: "المشكلة ليست في الرأسمالية ولا في الاشتراكية: الجامعات الخاصة تكشف النموذج الاقتصادي المشوّه في تونس",
+    art13_lede: "اشتراكية عندما تحتاج البلاد إلى المنافسة، ورأسمالية عندما تحتاج إلى حماية المنافسة.",
   }
 };
 
@@ -200,6 +204,7 @@ const I18N = {
    Publication titles are kept in their original (English) form across all
    languages, matching the convention already used on publications.html. */
 const RECENT_WORK = [
+  { kind: 'art', order: 202608, titleKey: 'art13_title', dateKey: 'art13_date', typeKey: 'topic_eco', link: 'article-facs-privees.html' },
   { kind: 'pub', order: 202607, titleKey: 'pub5_title', typeKey: 'pub5_type', dateKey: 'pub5_date', link: 'publication-public-enterprises-tunisia.html' },
   { kind: 'pub', order: 202605, title: 'Replication of Forbes and Warnock 2012', typeKey: 'pub2_type', dateKey: 'pub2_date', link: 'publications.html' },
   { kind: 'pub', order: 202603, title: 'What Would Saudi Arabia Look Like Without Vision 2030? Early Evidence from Synthetic Controls', typeKey: 'pub1_type', dateKey: 'pub1_date', link: 'publications.html' },
