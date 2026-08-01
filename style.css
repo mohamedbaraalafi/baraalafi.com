@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Polices hébergées localement (fiabilité : plus de dépendance à Google Fonts)
-   IBM Plex Sans Arabic — utilisée pour tout le site (latin + arabe)
-   On garde uniquement les graisses lisibles : Regular, Medium, SemiBold, Bold
-   (Thin / ExtraLight / Light sont exclues car trop fines pour la lecture mobile)
+   Fonts hosted locally (reliability: no more dependency on Google Fonts)
+   IBM Plex Sans Arabic — used across the whole site (Latin + Arabic)
+   Only the readable weights are kept: Regular, Medium, SemiBold, Bold
+   (Thin / ExtraLight / Light are excluded as too fine for mobile reading)
    ========================================================================== */
 @font-face {
   font-family: 'IBM Plex Sans Arabic';
@@ -37,8 +37,8 @@
 }
 
 /* ==========================================================================
-   Mohamed Baraa Lafi — Site personnel
-   Design tokens + composants partagés
+   Mohamed Baraa Lafi — Personal website
+   Design tokens + shared components
    ========================================================================== */
 
 :root {
@@ -66,8 +66,8 @@
   --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.16);
 
-  /* Police unique pour tout le site (latin + arabe), graisse de base relevée
-     à 500 (Medium) pour une meilleure lisibilité, notamment sur mobile */
+  /* Single font for the whole site (Latin + Arabic), base weight raised
+     to 500 (Medium) for better readability, especially on mobile */
   --font-title: 'IBM Plex Sans Arabic', sans-serif;
   --font-body: 'IBM Plex Sans Arabic', sans-serif;
   --font-ar: 'IBM Plex Sans Arabic', sans-serif;
@@ -109,8 +109,8 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-/* La police étant désormais la même pour l'arabe et le latin, on ne change
-   plus la font-family selon la langue — uniquement le poids si besoin */
+/* Since the font is now the same for Arabic and Latin, the font-family
+   no longer changes based on language — only the weight, if needed */
 html[lang="ar"] { --font-title: 'IBM Plex Sans Arabic', sans-serif; --font-body: 'IBM Plex Sans Arabic', sans-serif; }
 html[lang="ar"] body { font-family: var(--font-ar); }
 img { max-width: 100%; display: block; }
@@ -154,8 +154,8 @@ header.site-nav {
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; max-width: var(--container); margin: 0 auto; }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand img { width: 42px; height: 42px; border-radius: 50%; transition: transform 0.4s ease; }
-.brand:hover img { transform: rotate(-6deg) scale(1.06); }
+.brand img { width: 42px; height: 42px; border-radius: 50%; transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.brand:hover img { transform: scale(1.08); }
 .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
 .brand-text b { font-family: var(--font-title); font-size: 16px; font-weight: 700; color: var(--text); }
 .brand-text span { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
@@ -409,9 +409,9 @@ html[dir="rtl"] nav.primary-nav a::after { left: auto; right: 0; }
   .hero { padding: 56px 0 40px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
 
-  /* Lisibilité renforcée sur mobile : corps de texte plus grand, interligne
-     plus généreux, et graisse un cran au-dessus pour compenser les petits
-     écrans (IBM Plex Sans Arabic reste net même en Medium/SemiBold) */
+  /* Improved readability on mobile: larger body text, more generous
+     line-height, and one weight step up to compensate for small
+     screens (IBM Plex Sans Arabic stays crisp even at Medium/SemiBold) */
   body { font-size: 16.5px; line-height: 1.75; }
   p { line-height: 1.8; }
   .hero .role { font-size: 15.5px; }

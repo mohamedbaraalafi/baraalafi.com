@@ -1,7 +1,7 @@
 /* Mohamed Baraa Lafi — app.js
-   Thème clair/sombre + langues FR/EN/AR + navigation mobile.
-   Préférences propagées via les paramètres d'URL (?theme=&lang=) pour
-   persister d'une page à l'autre sans utiliser de stockage navigateur. */
+   Light/dark theme + EN/AR languages + mobile navigation.
+   Preferences are propagated via URL parameters (?theme=&lang=) so they
+   persist from one page to another without using browser storage. */
 
 const I18N = {
   en: {
@@ -71,6 +71,9 @@ const I18N = {
 
     read_more: "Read →",
     brand_name: "Mohamed Baraa Lafi",
+    showcase_pub_desc: "Working papers & articles", showcase_art_desc: "Research notes & commentary",
+    showcase_cv_desc: "Education & experience", showcase_contact_desc: "Write to me",
+    contact_success: "Thank you! Message sent (demo).",
     card1_tag: "01", card1_title: "Economic Growth & Institutions", card1_desc: "The role of institutions in long-run economic performance, with a focus on emerging economies.",
     card2_tag: "02", card2_title: "Development & Productivity", card2_desc: "Trade openness, human capital and firm productivity in developing countries.",
     card3_tag: "03", card3_title: "Applied Public Policy", card3_desc: "Policy evaluation and administrative data, with particular attention to developing countries.",
@@ -93,6 +96,7 @@ const I18N = {
     art6_date: "October 2025", art6_title: "2026 Tunisian Finance Law: Public Employment and Fiscal Sustainability",
     art7_date: "September 2025", art7_title: "Reconstruction in the Middle East: A comparison between regional contributions",
     art8_date: "September 2025", art8_title: "Lebanon: Two Lost Decades of Economic Growth?",
+    art8_lede: "How did Lebanon lose twenty years of economic development?",
     art9_date: "May 2025", art9_title: "Tunisia's Population Census: Key Demographic and Economic Insights",
     art10_date: "May 2025", art10_title: "Cross-Investment Between the United States and Gulf Countries: What the Data Show",
     art11_date: "April 2025", art11_title: "The Marine Le Pen Case: Judicial Transparency and Democratic Process in France",
@@ -167,6 +171,9 @@ const I18N = {
 
     read_more: "قراءة ←",
     brand_name: "محمد براء اللافي",
+    showcase_pub_desc: "أوراق عمل ومقالات", showcase_art_desc: "ملاحظات بحثية وتعليقات",
+    showcase_cv_desc: "التكوين والخبرة", showcase_contact_desc: "راسلني",
+    contact_success: "شكرًا! تم إرسال الرسالة (تجريبي).",
     card1_tag: "01", card1_title: "النمو الاقتصادي والمؤسسات", card1_desc: "دور المؤسسات في الأداء الاقتصادي على المدى الطويل، مع التركيز على الاقتصادات الناشئة.",
     card2_tag: "02", card2_title: "التنمية والإنتاجية", card2_desc: "الانفتاح التجاري ورأس المال البشري وإنتاجية الشركات في البلدان النامية.",
     card3_tag: "03", card3_title: "السياسات العامة التطبيقية", card3_desc: "تقييم السياسات والبيانات الإدارية، مع اهتمام خاص بالبلدان النامية.",
@@ -189,6 +196,7 @@ const I18N = {
     art6_date: "أكتوبر 2025", art6_title: "قانون المالية التونسي 2026: التشغيل العمومي واستدامة المالية العمومية",
     art7_date: "سبتمبر 2025", art7_title: "إعادة الإعمار في الشرق الأوسط: مقارنة بين مساهمات دول المنطقة",
     art8_date: "سبتمبر 2025", art8_title: "لبنان: عقدان ضائعان من النمو الاقتصادي؟",
+    art8_lede: "كيف خسر لبنان عشرين عاماً من التنمية؟",
     art9_date: "مايو 2025", art9_title: "التعداد السكاني في تونس: أبرز الدروس الديموغرافية والاقتصادية",
     art10_date: "مايو 2025", art10_title: "الاستثمارات المتبادلة بين الولايات المتحدة ودول الخليج: ماذا تقول البيانات؟",
     art11_date: "أبريل 2025", art11_title: "قضية مارين لوبان: الشفافية القضائية وسير العمل الديمقراطي في فرنسا",
@@ -198,7 +206,7 @@ const I18N = {
   }
 };
 
-/* Source of truth for "Travaux récents" on the homepage.
+/* Source of truth for "Recent work" on the homepage.
    Combines publications.html and articles.html entries so the two stay in
    sync automatically. `order` is a language-independent YYYYMM sort key.
    Publication titles are kept in their original (English) form across all
@@ -313,6 +321,15 @@ function articleLangFilename(filename, lang) {
   if (lang === 'ar' && !isArUrl) return filename.replace(/\.html$/, '-ar.html');
   if (lang === 'en' && isArUrl) return filename.replace(/-ar\.html$/, '.html');
   return filename;
+}
+
+/* Contact form demo handler: shows a localized confirmation message
+   instead of actually sending anything (no backend on this static site). */
+function handleContactSubmit(e) {
+  e.preventDefault();
+  const lang = document.documentElement.getAttribute('lang') === 'ar' ? 'ar' : 'en';
+  const dict = I18N[lang] || I18N.en;
+  alert(dict.contact_success);
 }
 
 function getPrefs() {
