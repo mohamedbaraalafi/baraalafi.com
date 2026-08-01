@@ -98,7 +98,7 @@ const I18N = {
     art11_date: "April 2025", art11_title: "The Marine Le Pen Case: Judicial Transparency and Democratic Process in France",
     art12_date: "April 2025", art12_title: "Implementing Political Platforms: The Case of Donald Trump",
     art13_date: "August 2026", art13_title: "The Problem Is Neither Capitalism nor Socialism: Private Universities Reveal Tunisia's Distorted Economic Model",
-    art13_lede: "Tunisia turns socialist when markets need competition, and capitalist when competition needs protecting.",
+    art13_lede: "Tunisia Turns Socialist Against Competition and Capitalist for Rent-Seeking.",
   },
   ar: {
     nav_home: "الرئيسية", nav_about: "نبذة عني", nav_research: "البحث",
@@ -194,7 +194,7 @@ const I18N = {
     art11_date: "أبريل 2025", art11_title: "قضية مارين لوبان: الشفافية القضائية وسير العمل الديمقراطي في فرنسا",
     art12_date: "أبريل 2025", art12_title: "تنفيذ البرامج السياسية: حالة دونالد ترامب",
     art13_date: "أوت 2026", art13_title: "المشكلة ليست في الرأسمالية ولا في الاشتراكية: الجامعات الخاصة تكشف النموذج الاقتصادي المشوّه في تونس",
-    art13_lede: "اشتراكية عندما تحتاج البلاد إلى المنافسة، ورأسمالية عندما تحتاج إلى حماية المنافسة.",
+    art13_lede: "اشتراكية في مواجهة المنافسة، رأسمالية في حماية الاحتكار.",
   }
 };
 
