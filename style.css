@@ -356,6 +356,42 @@ html[data-theme="dark"] .tl-item::before { background: var(--gold); }
 .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--gold); }
 .contact-form label { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
 
+/* ---------- Contact tiles (individual boxed cards, real brand-color accents) ---------- */
+.contact-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.contact-tile {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 22px;
+  background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--border);
+  border-radius: 16px; box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.contact-tile:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.contact-tile-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.contact-tile-text b { font-size: 14.5px; font-weight: 700; color: var(--navy-700); }
+html[data-theme="dark"] .contact-tile-text b { color: var(--gold); }
+.contact-tile-text span { font-size: 16px; font-weight: 500; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.contact-tile-icon {
+  width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.contact-tile-icon svg { width: 24px; height: 24px; }
+.badge-email { background: rgba(59,130,246,0.12); color: #3B82F6; }
+.badge-linkedin { background: rgba(10,102,194,0.12); color: #0A66C2; }
+.badge-facebook { background: rgba(24,119,242,0.12); color: #1877F2; }
+.badge-x { background: var(--bg-alt); color: var(--text); }
+.badge-researchgate { background: rgba(0,204,187,0.14); color: #00CCBB; }
+.badge-location { background: rgba(239,68,68,0.12); color: #EF4444; }
+.tile-email:hover { border-top-color: #3B82F6; }
+.tile-linkedin:hover { border-top-color: #0A66C2; }
+.tile-facebook:hover { border-top-color: #1877F2; }
+.tile-x:hover { border-top-color: var(--text); }
+.tile-researchgate:hover { border-top-color: #00CCBB; }
+.tile-location:hover { border-top-color: #EF4444; }
+html[dir="rtl"] .contact-tile { flex-direction: row-reverse; }
+html[dir="rtl"] .contact-tile-text { align-items: flex-end; text-align: right; }
+@media (max-width: 640px) {
+  .contact-rows { grid-template-columns: 1fr; }
+}
+
 /* ---------- Footer ---------- */
 footer.site-footer { background: var(--navy-900); color: #cfd6dd; padding: 56px 0 24px; margin-top: 60px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding-bottom: 34px; border-bottom: 1px solid rgba(255,255,255,0.12); }
