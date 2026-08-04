@@ -50,9 +50,11 @@ const I18N = {
 
     pub1_date: "March 2026", pub1_type: "Working Paper", pub1_status: "Draft available",
     pub1_venue: "Paris School of Economics — Synthetic Control Method", pub1_authors: "sole author",
+    pub1_title: "What Would Saudi Arabia Look Like Without Vision 2030? Early Evidence from Synthetic Controls",
 
     pub2_date: "May 2026", pub2_type: "Replication", pub2_status: "Draft available",
     pub2_venue: "Paris School of Economics", pub2_authors: "with D. Agafiev Macambira, P.-A. Etienne",
+    pub2_title: "Replication of Forbes and Warnock (2012): Capital Flow Waves",
 
     pub3_date: "Ongoing — 2026", pub3_type: "Research Project", pub3_status: "Work in progress",
     pub3_title: "FDI and Growth: Evidence from Tunisia, Egypt, Jordan and Morocco", pub3_authors: "with Mosbah Lafi",
@@ -150,9 +152,11 @@ const I18N = {
 
     pub1_date: "مارس 2026", pub1_type: "ورقة عمل", pub1_status: "مسودة متاحة",
     pub1_venue: "مدرسة باريس للاقتصاد — طريقة الرقابة الاصطناعية", pub1_authors: "مؤلف منفرد",
+    pub1_title: "كيف كان يمكن أن يبدو حال المملكة العربية السعودية بدون رؤية 2030؟ أدلة مبكرة من طريقة الرقابة الاصطناعية",
 
     pub2_date: "مايو 2026", pub2_type: "إعادة إنتاج بحثية", pub2_status: "مسودة متاحة",
     pub2_venue: "مدرسة باريس للاقتصاد", pub2_authors: "بالاشتراك مع D. Agafiev Macambira وP.-A. Etienne",
+    pub2_title: "إعادة إنتاج بحث Forbes وWarnock (2012): موجات تدفق رؤوس الأموال",
 
     pub3_date: "قيد الإنجاز — 2026", pub3_type: "مشروع بحثي", pub3_status: "قيد الكتابة",
     pub3_title: "الاستثمار الأجنبي المباشر والنمو: أدلة من تونس ومصر والأردن والمغرب", pub3_authors: "بالاشتراك مع مصباح اللافي",
