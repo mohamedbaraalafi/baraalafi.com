@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicating and Extending the Economic Impact of Political Shocks in Tunisia - Mohamed Baraa Lafi</title>
+<meta name="description" content="A replication of Matta, Appleton and Bleaney (2016) on the economic cost of the Arab Spring in Tunisia, extended with a second Synthetic Control analysis of the July 2021 political changes, through 2025.">
+<link rel="stylesheet" href="style.css?v=202607230823">
+<link rel="icon" href="assets/logo-circle.png">
+
+<!-- Open Graph / social share preview -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mohamed Baraa Lafi">
+<meta property="og:title" content="Replicating and Extending the Economic Impact of Political Shocks in Tunisia">
+<meta property="og:description" content="A replication of Matta, Appleton and Bleaney (2016) on the economic cost of the Arab Spring in Tunisia, extended with a second Synthetic Control analysis of the July 2021 political changes, through 2025.">
+<meta property="og:image" content="https://baraalafi.com/assets/logo-circle.png">
+<meta property="og:url" content="https://baraalafi.com/publication-tunisia-two-shocks-ar.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Replicating and Extending the Economic Impact of Political Shocks in Tunisia">
+<meta name="twitter:description" content="A replication of Matta, Appleton and Bleaney (2016) on the economic cost of the Arab Spring in Tunisia, extended with a second Synthetic Control analysis of the July 2021 political changes, through 2025.">
+
+</head>
+<body data-page="article">
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-circle.png" alt="MBL">
+      <span class="brand-text"><b data-i18n="brand_name">Mohamed Baraa Lafi</b></span>
+    </a>
+    <nav class="primary-nav" id="primary-nav">
+      <a href="index.html" data-i18n-aria="nav_home" aria-label="Home">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9"/></svg>
+      </a>
+      <a href="publications.html" data-i18n="nav_publications" class="active">Publications</a>
+      <a href="articles.html" data-i18n="nav_articles">Articles</a>
+      <a href="cv.html" data-i18n="nav_cv">CV</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-tools">
+      <div class="lang-switch">
+        <button data-lang="en">EN</button>
+        <button data-lang="ar">AR</button>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg id="theme-icon" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page-header container reveal d1">
+  <a href="publications.html" class="back-to-list">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    <span data-i18n="nav_publications">Publications</span>
+  </a>
+  <div class="pub-meta-row" style="margin-bottom:10px;">
+    <span class="tag" style="margin-bottom:0;">August 2026</span>
+    <span class="badge badge-type">Replication &amp; Extension</span>
+    <span class="badge badge-draft">Draft available</span>
+  </div>
+  <h1 class="pub-title">Replicating and Extending the Economic Impact of Political Shocks in Tunisia: From the Arab Spring to the 2021 Power Seizure</h1>
+  <div class="pub-authors">
+    <b>Mohamed Baraa Lafi</b>
+    <span class="venue">Paris School of Economics (PSE)</span>
+  </div>
+  <div class="accent-underline"></div>
+
+  <div class="pub-downloads">
+    <a class="btn btn-primary" href="assets/publications/tunisia-two-shocks-2026.pdf" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Download Paper
+    </a>
+    <a class="btn btn-outline" href="assets/publications/Tunisia-Two-Shocks-Data-Code.zip" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
+      Download Data &amp; Code
+    </a>
+  </div>
+</div>
+
+<div class="pub-abstract">
+  <h2>Abstract</h2>
+  <p>This paper replicates and extends the synthetic control analysis of Matta, Appleton and Bleaney (2016), who estimate the economic cost of the Arab Spring in Tunisia. Using the Synthetic Control Method, the paper first reconstructs a counterfactual path for Tunisia's GDP per capita in the absence of the 2011 Arab Spring and assesses the extent to which the original findings can be reproduced using updated data. It then extends the analysis to a second major political shock, the July 2021 political changes and subsequent institutional reconfiguration, constructing a new synthetic control for Tunisia over the 2011–2021 pre-treatment period.</p>
+  <p style="margin-top:16px;">The results show a clear divergence between actual Tunisia and its synthetic counterfactual following both political shocks. The post-2011 gap indicates a substantial and persistent shortfall in GDP per capita relative to the estimated counterfactual, while the post-2021 estimates point to a further negative divergence that persists through 2025. Placebo tests and post-to-pre-treatment RMSPE ratios indicate that the observed post-treatment divergence is large relative to the pre-treatment fit and is relatively unusual among the placebo donor countries.</p>
+  <p style="margin-top:16px;">Overall, the findings suggest that Tunisia's economic performance following major political shocks has been weaker than the corresponding synthetic counterfactual, with the post-2021 period associated with a further divergence from the estimated counterfactual growth path.</p>
+</div>
+
+<div class="pub-tags-block">
+  <div>
+    <h4>Keywords</h4>
+    <div class="skill-pills">
+      <span>Tunisia</span><span>Arab Spring</span><span>July 2021 political changes</span><span>Political instability</span>
+      <span>GDP per capita</span><span>Synthetic Control Method</span><span>Causal inference</span>
+    </div>
+  </div>
+  <div>
+    <h4>JEL Classification</h4>
+    <div class="skill-pills">
+      <span>C31</span><span>D74</span><span>F43</span><span>O11</span><span>P16</span>
+    </div>
+  </div>
+</div>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="article-chart-card" style="max-width:760px;">
+      <h4>Tunisia: the compounding cost of two political shocks</h4>
+      <p class="chart-sub">GDP per capita (PPP, constant international $), actual vs. synthetic-control counterfactuals, 1990–2025 · hover or tap the chart to read off values</p>
+      <div class="chart-svg-wrap" data-chart="tn-shocks"></div>
+      <p class="chart-source">Source: World Development Indicators; author's Synthetic Control calculations. Synthetic Tunisia (Arab Spring) fit on 1990–2010; Synthetic Tunisia (2021 Exceptional Measures) fit on 2011–2021. Figures are rounded for display and reproduce Figure 1 of the paper.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="article-refs">
+      <h4 style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin:0 0 16px;">References</h4>
+      <ol>
+        <li>Abadie, A. and Gardeazabal, J. (2003). The economic costs of conflict: A case study of the Basque Country. <i>American Economic Review</i>, 93(1), 112–132.</li>
+        <li>Abadie, A., Diamond, A. and Hainmueller, J. (2010). Synthetic control methods for comparative case studies: Estimating the effect of California's tobacco control program. <i>Journal of the American Statistical Association</i>, 105(490), 493–505.</li>
+        <li>Kaul, A., Klößner, S., Pfeifer, G. and Schieler, M. (2016). Synthetic control methods: Never use all pre-intervention outcomes as economic predictors. Saarland University, mimeo.</li>
+        <li>Matta, S., Appleton, S. and Bleaney, M. (2016). The impact of the Arab Spring on the Tunisian economy. <i>World Bank Policy Research Working Paper</i> No. 7856.</li>
+        <li>World Bank (2024). <i>World Development Indicators.</i> https://databank.worldbank.org/source/world-development-indicators</li>
+        <li>World Bank (2024). <i>Worldwide Governance Indicators.</i> https://info.worldbank.org/governance/wgi/</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:14px;">
+          <img src="assets/logo-circle.png" alt="MBL" style="width:38px;height:38px;">
+          <span class="brand-text"><b style="color:#fff;" data-i18n="brand_name">Mohamed Baraa Lafi</b></span>
+        </div>
+        <p data-i18n="hero_lead" style="max-width:38ch;">Young economics researcher, currently studying at the Paris School of Economics. My work focuses on economic growth, institutions and development.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer_quick">Quick links</h4>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="publications.html" data-i18n="nav_publications">Publications</a>
+        <a href="articles.html" data-i18n="nav_articles">Articles</a>
+        <a href="cv.html" data-i18n="nav_cv">CV</a>
+      </div>
+      <div>
+        <h4 data-i18n="footer_contact">Contact</h4>
+        <a href="mailto:contact@baraalafi.com">contact@baraalafi.com</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        <div class="socials" style="margin-top:12px;">
+          <a href="https://www.researchgate.net/profile/Mohamed-Baraa-Lafi?ev=hdr_xprf" target="_blank" rel="noopener" aria-label="ResearchGate">R</a>
+          <a href="https://www.linkedin.com/in/mohamed-baraa-lafi-/?skipRedirect=true" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://x.com/baraa_lafi_" target="_blank" rel="noopener" aria-label="X">X</a>
+          <a href="https://www.facebook.com/medbaraalafi" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a href="mailto:contact@baraalafi.com" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Mohamed Baraa Lafi — <span data-i18n="footer_rights">All rights reserved.</span></span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="app.js"></script>
+<script>
+/* Interactive chart: Actual Tunisia vs. two Synthetic Control counterfactuals
+   (Arab Spring break, fit 1990-2010; 2021 Exceptional Measures break, fit 2011-2021).
+   Values reproduce Figure 1 of the paper (World Development Indicators; author's
+   Synthetic Control calculations), rounded for display. Built as a single
+   crosshair/tooltip SVG line chart, consistent with the interactive charts used
+   elsewhere on this site (no external chart library). */
+(function () {
+  var mount = document.querySelector('[data-chart="tn-shocks"]');
+  if (!mount) return;
+
+  var C_BLACK = '#111111', C_RED = '#B3282D', C_GREEN = '#1E7A34', C_GRID = 'var(--border)';
+
+  var YEARS   = [1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+  var ACTUAL  = [6800,6850,7250,7250,7350,7400,7800,8150,8400,8800,9150,9400,9400,9750,10250,10550,11000,11600,12000,12250,12450,12050,12450,12600,12800,12800,12800,12950,13150,13200,12000,12450,12700,12650,12800,13000];
+  var SYN_AS  = [6800,6850,7250,7250,7350,7400,7800,8150,8400,8800,9150,9400,9400,9750,10250,10550,11000,11600,12000,12250,12450,13300,14000,14450,14900,15400,15800,16250,16900,17200,15600,16250,17100,17600,18450,19050];
+  var SYN_EM  = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,12050,12450,12600,12800,12800,12800,12950,13150,13200,12000,12450,13700,13900,14150,14450];
+
+  var W = 720, H = 400, padL = 52, padR = 16, padT = 34, padB = 40;
+  var plotW = W - padL - padR, plotH = H - padT - padB;
+  var YMIN = 5000, YMAX = 20000, YSTEP = 5000;
+  var n = YEARS.length;
+  var stepX = plotW / (n - 1);
+
+  function xPix(i) { return padL + i * stepX; }
+  function yPix(v) { return padT + plotH - ((v - YMIN) / (YMAX - YMIN)) * plotH; }
+  function xYear(x2011or2021Frac) { return padL + x2011or2021Frac * stepX; }
+
+  function pathFor(vals, dashed) {
+    var d = '', started = false;
+    for (var i = 0; i < n; i++) {
+      if (vals[i] == null) { started = false; continue; }
+      var x = xPix(i), y = yPix(vals[i]);
+      d += (started ? ' L' : ' M') + x.toFixed(1) + ' ' + y.toFixed(1);
+      started = true;
+    }
+    return d;
+  }
+  function dotsFor(vals, color) {
+    var out = '';
+    for (var i = 0; i < n; i++) {
+      if (vals[i] == null) continue;
+      out += '<circle class="tn-dot" data-series cx="' + xPix(i).toFixed(1) + '" cy="' + yPix(vals[i]).toFixed(1) + '" r="2.6" fill="' + color + '" opacity="0"/>';
+    }
+    return out;
+  }
+
+  function buildSvg() {
+    var grid = '', ylabels = '', xlabels = '';
+    for (var g = YMIN; g <= YMAX; g += YSTEP) {
+      var y = yPix(g);
+      grid += '<line x1="' + padL + '" y1="' + y.toFixed(1) + '" x2="' + (padL + plotW) + '" y2="' + y.toFixed(1) + '" stroke="' + C_GRID + '" stroke-width="1"/>';
+      ylabels += '<text x="' + (padL - 10) + '" y="' + (y + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="var(--text-muted)">' + g.toLocaleString('en-US') + '</text>';
+    }
+    for (var i = 0; i < n; i++) {
+      if (YEARS[i] % 5 !== 0) continue;
+      var x = xPix(i);
+      xlabels += '<text x="' + x.toFixed(1) + '" y="' + (H - padB + 20) + '" text-anchor="middle" font-size="11" fill="var(--text-muted)">' + YEARS[i] + '</text>';
+    }
+
+    // event markers: Arab Spring ~ start of 2011 (i=21, fraction 0), 2021 Exceptional Measures ~ mid-2021 (i=31 + ~0.5)
+    var i2011 = YEARS.indexOf(2011);
+    var i2021 = YEARS.indexOf(2021);
+    var xAS = xPix(i2011);
+    var xEM = xPix(i2021) + stepX * 0.5;
+    var events =
+      '<line x1="' + xAS.toFixed(1) + '" y1="' + padT + '" x2="' + xAS.toFixed(1) + '" y2="' + (padT + plotH) + '" stroke="var(--text-muted)" stroke-width="1.3" stroke-dasharray="1.5,3"/>' +
+      '<text x="' + (xAS + 6).toFixed(1) + '" y="' + (padT + 12) + '" font-size="10.5" fill="var(--text-muted)">Arab Spring</text>' +
+      '<text x="' + (xAS + 6).toFixed(1) + '" y="' + (padT + 25) + '" font-size="10.5" fill="var(--text-muted)">(Jan 2011)</text>' +
+      '<line x1="' + xEM.toFixed(1) + '" y1="' + padT + '" x2="' + xEM.toFixed(1) + '" y2="' + (padT + plotH) + '" stroke="var(--text-muted)" stroke-width="1.3" stroke-dasharray="1.5,3"/>' +
+      '<text x="' + (xEM + 6).toFixed(1) + '" y="' + (padT + 12) + '" font-size="10.5" fill="var(--text-muted)">2021 Exceptional</text>' +
+      '<text x="' + (xEM + 6).toFixed(1) + '" y="' + (padT + 25) + '" font-size="10.5" fill="var(--text-muted)">Measures (Jul 2021)</text>';
+
+    var axes = '<line x1="' + padL + '" y1="' + padT + '" x2="' + padL + '" y2="' + (padT + plotH) + '" stroke="var(--border)"/>' +
+                '<line x1="' + padL + '" y1="' + (padT + plotH) + '" x2="' + (padL + plotW) + '" y2="' + (padT + plotH) + '" stroke="var(--border)"/>';
+
+    var lineActual = '<path d="' + pathFor(ACTUAL) + '" fill="none" stroke="' + C_BLACK + '" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>';
+    var lineAS = '<path d="' + pathFor(SYN_AS) + '" fill="none" stroke="' + C_RED + '" stroke-width="2.25" stroke-dasharray="7,4" stroke-linecap="round"/>';
+    var lineEM = '<path d="' + pathFor(SYN_EM) + '" fill="none" stroke="' + C_GREEN + '" stroke-width="2.25" stroke-dasharray="7,4" stroke-linecap="round"/>';
+
+    var dots = '<g class="tn-dots-actual">' + dotsFor(ACTUAL, C_BLACK) + '</g>' +
+               '<g class="tn-dots-as">' + dotsFor(SYN_AS, C_RED) + '</g>' +
+               '<g class="tn-dots-em">' + dotsFor(SYN_EM, C_GREEN) + '</g>';
+
+    var legend =
+      '<rect x="' + padL + '" y="4" width="16" height="3" fill="' + C_BLACK + '"/><text x="' + (padL + 21) + '" y="9" font-size="11" fill="var(--text-muted)">Actual Tunisia</text>' +
+      '<rect x="' + (padL + 128) + '" y="4" width="16" height="3" fill="' + C_RED + '"/><text x="' + (padL + 149) + '" y="9" font-size="11" fill="var(--text-muted)">Synthetic (Arab Spring)</text>' +
+      '<rect x="' + (padL + 320) + '" y="4" width="16" height="3" fill="' + C_GREEN + '"/><text x="' + (padL + 341) + '" y="9" font-size="11" fill="var(--text-muted)">Synthetic (2021 Measures)</text>';
+
+    var guide = '<g class="tn-guide" opacity="0">' +
+      '<line class="tn-guide-line" x1="0" y1="' + padT + '" x2="0" y2="' + (padT + plotH) + '" stroke="var(--text-muted)" stroke-width="1"/>' +
+      '</g>';
+
+    var overlay = '<rect class="tn-overlay" x="' + padL + '" y="' + padT + '" width="' + plotW + '" height="' + plotH + '" fill="transparent" style="cursor:crosshair"/>';
+
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" dir="ltr" lang="en" style="direction:ltr" xmlns="http://www.w3.org/2000/svg">' +
+      grid + axes + events + ylabels + xlabels + lineAS + lineEM + lineActual + dots + guide + overlay + legend +
+      '</svg>';
+  }
+
+  function setupInteractivity() {
+    var svgEl = mount.querySelector('svg');
+    var overlay = mount.querySelector('.tn-overlay');
+    var guide = mount.querySelector('.tn-guide');
+    var guideLine = mount.querySelector('.tn-guide-line');
+    var allDots = mount.querySelectorAll('.tn-dot');
+
+    var tip = document.createElement('div');
+    tip.className = 'chart-tooltip';
+    mount.appendChild(tip);
+
+    function nearestIndexFromClientX(clientX) {
+      var rect = svgEl.getBoundingClientRect();
+      var scale = W / rect.width;
+      var mx = (clientX - rect.left) * scale;
+      var i = Math.round((mx - padL) / stepX);
+      return Math.max(0, Math.min(n - 1, i));
+    }
+
+    function show(clientX) {
+      var i = nearestIndexFromClientX(clientX);
+      var x = xPix(i);
+      guideLine.setAttribute('x1', x); guideLine.setAttribute('x2', x);
+      guide.setAttribute('opacity', '1');
+      allDots.forEach(function (d) { d.setAttribute('opacity', '0'); });
+
+      var rect = svgEl.getBoundingClientRect();
+      var sx = rect.width / W, sy = rect.height / H;
+
+      var year = YEARS[i];
+      var a = ACTUAL[i], r = SYN_AS[i], e = SYN_EM[i];
+      var rows = '<b>' + year + '</b>';
+      rows += '<span class="tt-sub" style="color:' + C_BLACK + ';">Actual: $' + a.toLocaleString('en-US') + '</span>';
+      rows += '<span class="tt-sub" style="color:' + C_RED + ';">Synthetic (Arab Spring): $' + r.toLocaleString('en-US') + '</span>';
+      if (e != null) rows += '<span class="tt-sub" style="color:' + C_GREEN + ';">Synthetic (2021 Measures): $' + e.toLocaleString('en-US') + '</span>';
+      tip.innerHTML = rows;
+      tip.style.left = (x * sx) + 'px';
+      tip.style.top = (yPix(a) * sy) + 'px';
+      tip.classList.add('visible');
+    }
+    function hide() {
+      guide.setAttribute('opacity', '0');
+      allDots.forEach(function (d) { d.setAttribute('opacity', '0'); });
+      tip.classList.remove('visible');
+    }
+
+    overlay.addEventListener('mousemove', function (e) { show(e.clientX); });
+    overlay.addEventListener('mouseleave', hide);
+    overlay.addEventListener('touchstart', function (e) { if (e.touches[0]) show(e.touches[0].clientX); }, { passive: true });
+    overlay.addEventListener('touchmove', function (e) { if (e.touches[0]) show(e.touches[0].clientX); }, { passive: true });
+    overlay.addEventListener('touchend', hide);
+  }
+
+  mount.innerHTML = buildSvg();
+  setupInteractivity();
+})();
+</script>
+</body>
+</html>
