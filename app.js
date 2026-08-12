@@ -33,7 +33,14 @@ const I18N = {
     page_art_title: "Articles & posts", page_art_sub: "Opinion Articles & Blog Posts.",
     page_cv_title: "Curriculum Vitae", page_cv_sub: "Education, experience and skills.",
     page_contact_title: "Contact", page_contact_sub: "For any question about my work, a collaboration or a request for replication data, feel free to write to me.",
-    cv_edu: "Education", cv_pos: "Experience", cv_skills: "Skills", cv_lang: "Languages", cv_download: "Download CV (PDF)",
+    cv_edu: "Education", cv_pos: "Experience", cv_skills: "Skills", cv_lang: "Languages", cv_download: "Download CV (PDF) ↓",
+    cv_hero_title: "Full CV, one document.",
+    cv_hero_sub: "Education, appointments, publications, working papers and skills — the complete record, kept current.",
+    cv_research: "Research Experience", cv_teaching: "Teaching", cv_fields: "Fields",
+    cv_fact_edu: "Paris School of Economics — Master's in Analysis and Policy in Economics (APE)",
+    cv_fact_research: "Research Assistant, CY Cergy Paris University",
+    cv_fact_teaching: "Teaching Assistant (Microeconomics), Université Paris 2 Panthéon-Assas",
+    cv_fact_fields: "Public Economics (Public Finance), Political Economy, Macroeconomics, Institutions",
     contact_send: "Send", contact_name: "Name", contact_email: "Email", contact_msg: "Message",
     lang_native: "French (fluent)", lang_ar: "Arabic (native)", lang_en: "English (fluent)", lang_de: "German (basic)",
 
@@ -51,6 +58,10 @@ const I18N = {
     pub1_date: "March 2026", pub1_type: "Working Paper", pub1_status: "Draft available",
     pub1_venue: "Paris School of Economics — Synthetic Control Method", pub1_authors: "sole author",
     pub1_title: "What Would Saudi Arabia Look Like Without Vision 2030? Early Evidence from Synthetic Controls",
+
+    pub7_date: "August 2026", pub7_type: "Replication & Extension", pub7_status: "Draft available",
+    pub7_venue: "Paris School of Economics (PSE)", pub7_authors: "sole author",
+    pub7_title: "Replicating and Extending the Economic Impact of Political Shocks in Tunisia: From the Arab Spring to the 2021 Power Seizure",
 
     pub2_date: "May 2026", pub2_type: "Replication", pub2_status: "Draft available",
     pub2_venue: "Paris School of Economics", pub2_authors: "with D. Agafiev Macambira, P.-A. Etienne",
@@ -134,8 +145,15 @@ const I18N = {
     page_pub_title: "المنشورات", page_pub_sub: "مقالات محكّمة، أوراق عمل، وملاحظات بحثية.",
     page_art_title: "مقالات وتدوينات", page_art_sub: "مقالات رأي وتدوينات.",
     page_cv_title: "السيرة الذاتية", page_cv_sub: "التكوين والخبرة والمهارات.",
+    cv_hero_title: "سيرة ذاتية كاملة في وثيقة واحدة.",
+    cv_hero_sub: "التكوين والمسار المهني والمنشورات وأوراق العمل والمهارات — السجل الكامل، محدّث باستمرار.",
+    cv_research: "الخبرة البحثية", cv_teaching: "التدريس", cv_fields: "التخصصات",
+    cv_fact_edu: "مدرسة باريس للاقتصاد — ماستر في تحليل وسياسات الاقتصاد (APE)",
+    cv_fact_research: "مساعد باحث، جامعة CY Cergy Paris",
+    cv_fact_teaching: "مساعد تدريس (الاقتصاد الجزئي)، جامعة باريس 2 بانتيون-أساس",
+    cv_fact_fields: "الاقتصاد العمومي (المالية العمومية)، الاقتصاد السياسي، الاقتصاد الكلي، المؤسسات",
     page_contact_title: "تواصل", page_contact_sub: "لأي سؤال حول أعمالي أو تعاون أو طلب بيانات النسخ، لا تتردد في مراسلتي.",
-    cv_edu: "التكوين", cv_pos: "الخبرة", cv_skills: "المهارات", cv_lang: "اللغات", cv_download: "تحميل السيرة الذاتية (PDF)",
+    cv_edu: "التكوين", cv_pos: "الخبرة", cv_skills: "المهارات", cv_lang: "اللغات", cv_download: "تحميل السيرة الذاتية (PDF) ↓",
     contact_send: "إرسال", contact_name: "الاسم", contact_email: "البريد الإلكتروني", contact_msg: "الرسالة",
     lang_native: "الفرنسية (بطلاقة)", lang_ar: "العربية (اللغة الأم)", lang_en: "الإنجليزية (بطلاقة)", lang_de: "الألمانية (مبتدئ)",
 
@@ -153,6 +171,10 @@ const I18N = {
     pub1_date: "مارس 2026", pub1_type: "ورقة عمل", pub1_status: "مسودة متاحة",
     pub1_venue: "مدرسة باريس للاقتصاد — طريقة الرقابة الاصطناعية", pub1_authors: "مؤلف منفرد",
     pub1_title: "كيف كان يمكن أن يبدو حال المملكة العربية السعودية بدون رؤية 2030؟ أدلة مبكرة من طريقة الرقابة الاصطناعية",
+
+    pub7_date: "أوت 2026", pub7_type: "إعادة إنتاج وتوسيع", pub7_status: "مسودة متاحة",
+    pub7_venue: "مدرسة باريس للاقتصاد (PSE)", pub7_authors: "مؤلف منفرد",
+    pub7_title: "إعادة إنتاج وتوسيع الأثر الاقتصادي للصدمات السياسية في تونس: من الربيع العربي إلى الاستيلاء على السلطة سنة 2021",
 
     pub2_date: "مايو 2026", pub2_type: "إعادة إنتاج بحثية", pub2_status: "مسودة متاحة",
     pub2_venue: "مدرسة باريس للاقتصاد", pub2_authors: "بالاشتراك مع D. Agafiev Macambira وP.-A. Etienne",
@@ -216,6 +238,7 @@ const I18N = {
    Publication titles are kept in their original (English) form across all
    languages, matching the convention already used on publications.html. */
 const RECENT_WORK = [
+  { kind: 'pub', order: 202608, titleKey: 'pub7_title', typeKey: 'pub7_type', dateKey: 'pub7_date', link: 'publication-tunisia-two-shocks.html' },
   { kind: 'art', order: 202608, titleKey: 'art13_title', dateKey: 'art13_date', typeKey: 'topic_eco', link: 'article-facs-privees.html' },
   { kind: 'pub', order: 202607, titleKey: 'pub5_title', typeKey: 'pub5_type', dateKey: 'pub5_date', link: 'publication-public-enterprises-tunisia.html' },
   { kind: 'pub', order: 202605, title: 'Replication of Forbes and Warnock 2012', typeKey: 'pub2_type', dateKey: 'pub2_date', link: 'publications.html' },

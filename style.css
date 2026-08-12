@@ -341,6 +341,28 @@ html[data-theme="dark"] .tl-item::before { background: var(--gold); }
 .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
 .skill-pills span { background: var(--bg-alt); border: 1px solid var(--border); padding: 7px 14px; border-radius: 20px; font-size: 13px; }
 
+/* ---------- CV fact list (simple label / value rows) ---------- */
+.cv-hero { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: grid; grid-template-columns: 1fr 1.3fr; background: var(--surface); }
+.cv-hero-left { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+.cv-hero-left h2 { font-size: 28px; }
+.cv-hero-left p { font-size: 15.5px; }
+.cv-hero-right { border-left: 1px solid var(--border); background: var(--bg-alt); }
+html[dir="rtl"] .cv-hero-right { border-left: none; border-right: 1px solid var(--border); }
+.fact-row { display: grid; grid-template-columns: 150px 1fr; gap: 18px; padding: 22px 32px; border-bottom: 1px solid var(--border); }
+.fact-row:last-child { border-bottom: none; }
+.fact-row .fact-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); padding-top: 2px; }
+.fact-row .fact-value { font-size: 16px; line-height: 1.6; color: var(--text); }
+.fact-row .fact-value a { color: var(--navy-700); font-weight: 700; border-bottom: 1px solid var(--border); }
+html[data-theme="dark"] .fact-row .fact-value a { color: var(--gold); }
+.fact-row .fact-value a:hover { border-color: var(--gold); }
+@media (max-width: 720px) {
+  .cv-hero { grid-template-columns: 1fr; }
+  .cv-hero-right { border-left: none; border-top: 1px solid var(--border); }
+  html[dir="rtl"] .cv-hero-right { border-right: none; border-top: 1px solid var(--border); }
+  .fact-row { grid-template-columns: 1fr; gap: 6px; padding: 18px 22px; }
+  .cv-hero-left { padding: 36px 24px; }
+}
+
 /* ---------- Contact ---------- */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
 .contact-links a {
