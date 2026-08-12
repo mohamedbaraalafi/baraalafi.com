@@ -16,8 +16,8 @@ const I18N = {
     quote_cite: "John Maynard Keynes",
     stat_1: "Publications & working papers", stat_2: "Published articles", stat_3: "Years of research", stat_4: "Languages spoken",
     about_eyebrow: "About", about_title: "Who am I?",
-    about_p1: "I am a young economist, currently studying economics at the Paris School of Economics. My research focuses on economic growth, institutions and development, with a particular interest in emerging economies.",
-    about_p2: "Passionate about rigorous academic research and its applications to public policy, I aim to produce work that informs decision-making as much as it advances knowledge.",
+    about_p1: "Young economist studying at the Paris School of Economics, with research interests in economic growth, institutions, and development, with a particular focus on emerging economies.",
+    about_p2: "I am interested in rigorous academic research, especially on questions related to public policy. My work focuses on political economy, public finance, and macroeconomics, with the aim of contributing to public debate and evidence-based policymaking.",
     about_more: "Learn more",
     info_edu_t: "Education", info_edu_s: "Paris School of Economics",
     info_res_t: "Research", info_res_s: "Growth, institutions, development",
@@ -61,7 +61,7 @@ const I18N = {
 
     pub7_date: "August 2026", pub7_type: "Replication & Extension", pub7_status: "Draft available",
     pub7_venue: "Paris School of Economics (PSE)", pub7_authors: "sole author",
-    pub7_title: "Replicating and Extending the Economic Impact of Political Shocks in Tunisia: From the Arab Spring to the 2021 Power Seizure",
+    pub7_title: "Replicating and Extending the Economic Impact of Political Shocks in Tunisia: From the Arab Spring to the July 2021 Exceptional Measures",
 
     pub2_date: "May 2026", pub2_type: "Replication", pub2_status: "Draft available",
     pub2_venue: "Paris School of Economics", pub2_authors: "with D. Agafiev Macambira, P.-A. Etienne",
@@ -129,8 +129,8 @@ const I18N = {
     quote_cite: "جون ماينارد كينز",
     stat_1: "منشورات وأوراق عمل", stat_2: "مقالات منشورة", stat_3: "سنوات من البحث", stat_4: "اللغات المتحدثة",
     about_eyebrow: "نبذة عني", about_title: "من أنا؟",
-    about_p1: "اقتصادي شاب، أدرس حاليًا الاقتصاد في مدرسة باريس للاقتصاد. تتركز أبحاثي على النمو الاقتصادي والمؤسسات والتنمية، مع اهتمام خاص بالاقتصادات الناشئة.",
-    about_p2: "شغوف بالبحث الأكاديمي الدقيق وتطبيقاته على السياسات العامة، أسعى لإنتاج أعمال تُنير القرار بقدر ما تُقدّم المعرفة.",
+    about_p1: "اقتصادي شاب أدرس في مدرسة باريس للاقتصاد، تتركز أبحاثي حول النمو الاقتصادي والمؤسسات والتنمية، مع اهتمام خاص بالاقتصادات الناشئة.",
+    about_p2: "أهتم بالبحث الأكاديمي الدقيق، خاصة في القضايا المرتبطة بالسياسات العامة. ترتبط أعمالي بالاقتصاد السياسي، والمالية العمومية، والاقتصاد الكلي، وأسعى من خلالها إلى المساهمة في النقاش العام ودعم صنع القرار المبني على الأدلة.",
     about_more: "المزيد",
     info_edu_t: "التكوين", info_edu_s: "مدرسة باريس للاقتصاد",
     info_res_t: "البحث", info_res_s: "النمو، المؤسسات، التنمية",
@@ -174,7 +174,7 @@ const I18N = {
 
     pub7_date: "أوت 2026", pub7_type: "إعادة إنتاج وتوسيع", pub7_status: "مسودة متاحة",
     pub7_venue: "مدرسة باريس للاقتصاد (PSE)", pub7_authors: "مؤلف منفرد",
-    pub7_title: "إعادة إنتاج وتوسيع الأثر الاقتصادي للصدمات السياسية في تونس: من الربيع العربي إلى الاستيلاء على السلطة سنة 2021",
+    pub7_title: "Replicating and Extending the Economic Impact of Political Shocks in Tunisia: From the Arab Spring to the July 2021 Exceptional Measures",
 
     pub2_date: "مايو 2026", pub2_type: "إعادة إنتاج بحثية", pub2_status: "مسودة متاحة",
     pub2_venue: "مدرسة باريس للاقتصاد", pub2_authors: "بالاشتراك مع D. Agafiev Macambira وP.-A. Etienne",
