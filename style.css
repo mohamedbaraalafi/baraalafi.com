@@ -614,3 +614,31 @@ html[data-theme="dark"] .cost-table td.cat-cell { color: var(--gold); }
 .share-btn svg { width: 16px; height: 16px; }
 .share-btn:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
 .share-copied { font-size: 12.5px; color: var(--success); font-weight: 700; }
+/* Tunisia subsidy paper: separate, responsive interactive figures */
+.subsidy-figures { padding-top: 24px; }
+.figures-heading { max-width: 760px; margin: 0 auto 22px; }
+.figures-heading h2 { font-size: 23px; margin: 10px 0 6px; color: var(--navy-700); }
+html[data-theme="dark"] .figures-heading h2 { color: var(--gold); }
+.figures-heading p, .figure-section-title p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin: 0; }
+.figure-section-title { max-width: 760px; margin: 54px auto 8px; }
+.figure-section-title h3 { font-size: 20px; margin: 0 0 5px; color: var(--navy-700); }
+html[data-theme="dark"] .figure-section-title h3 { color: var(--gold); }
+.figure-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 1180px; margin: 0 auto; }
+.figure-grid .article-chart-card { max-width: none; margin: 18px 0 0; }
+.subsidy-chart-card { overflow: visible; }
+.subsidy-chart-card .chart-svg-wrap { overflow: visible; }
+.subsidy-chart-card svg { min-width: 0; }
+.sub-grid { stroke: var(--border); stroke-width: 1; }
+.sub-ref { stroke: #666; stroke-width: 1.5; stroke-dasharray: 7 6; }
+.sub-ref-vert { stroke: #e67e22; stroke-width: 1.5; stroke-dasharray: 2 6; }
+.sub-ref-vert.extreme { stroke: #c0392b; }
+.sub-axis { fill: var(--text-muted); font-size: 11px; }
+.sub-label { fill: var(--text-muted); font-size: 11px; }
+.sub-label.left { font-size: 11.5px; }
+.sub-label.right { font-size: 13px; fill: var(--text); font-weight: 500; }
+.sub-label-fo { overflow: visible; }
+.sub-html-label { width: 285px; height: 34px; display: flex; align-items: center; justify-content: flex-start; box-sizing: border-box; color: var(--text); font-size: 15px; line-height: 1.35; font-weight: 500; white-space: nowrap; text-align: right; direction: rtl; unicode-bidi: plaintext; font-family: var(--font-ar); }
+.sub-bar { cursor: pointer; transition: opacity .12s ease, filter .12s ease, transform .12s ease; transform-box: fill-box; transform-origin: center; }
+.sub-bar:hover, .sub-bar:focus { opacity: .78; filter: saturate(1.08); outline: none; }
+@media (max-width: 900px) { .figure-grid { grid-template-columns: 1fr; } .figure-grid .article-chart-card { max-width: 760px; margin-left: auto; margin-right: auto; width: 100%; } }
+@media (max-width: 600px) { .figures-heading h2 { font-size: 20px; } .figure-section-title { margin-top: 38px; } .subsidy-chart-card { padding: 20px 12px 16px; } .subsidy-chart-card .chart-svg-wrap { overflow-x: auto; } .subsidy-chart-card svg { min-width: 620px; } .figure-grid .subsidy-chart-card svg { min-width: 560px; } }
