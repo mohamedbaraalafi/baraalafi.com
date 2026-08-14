@@ -57,7 +57,7 @@ const I18N = {
 
     pub8_date: "August 2026", pub8_type: "Working Paper", pub8_status: "Paper available",
     pub8_venue: "Paris School of Economics (PSE)", pub8_authors: "sole author",
-    pub8_title: "Who Benefits from Fuel and Basic Commodity Subsidies in Tunisia? Incidence and Distributional Effects of Consumer Subsidies",
+    pub8_title: "Who Benefits from Tunisia's Subsidy System? Incidence and Distributional Effects of Consumer Subsidies",
 
     pub1_date: "March 2026", pub1_type: "Working Paper", pub1_status: "Draft available",
     pub1_venue: "Paris School of Economics — Synthetic Control Method", pub1_authors: "sole author",
