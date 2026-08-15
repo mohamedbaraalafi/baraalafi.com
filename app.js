@@ -55,10 +55,6 @@ const I18N = {
     cv_skill_1: "Econometrics & causal inference", cv_skill_2: "RCT, IV, DiD, RDD, Synthetic Control",
     cv_skill_3: "Python, R, SQL, VBA", cv_skill_4: "LaTeX",
 
-    pub8_date: "August 2026", pub8_type: "Working Paper", pub8_status: "Paper available",
-    pub8_venue: "Paris School of Economics (PSE)", pub8_authors: "sole author",
-    pub8_title: "Who Benefits from Tunisia's Subsidy System? Incidence and Distributional Effects of Consumer Subsidies",
-
     pub1_date: "March 2026", pub1_type: "Working Paper", pub1_status: "Draft available",
     pub1_venue: "Paris School of Economics — Synthetic Control Method", pub1_authors: "sole author",
     pub1_title: "What Would Saudi Arabia Look Like Without Vision 2030? Early Evidence from Synthetic Controls",
@@ -74,8 +70,9 @@ const I18N = {
     pub3_date: "Ongoing — 2026", pub3_type: "Research Project", pub3_status: "Work in progress",
     pub3_title: "FDI and Growth: Evidence from Tunisia, Egypt, Jordan and Morocco", pub3_authors: "with Mosbah Lafi",
 
-    pub4_date: "Ongoing — 2026", pub4_type: "Research Project", pub4_status: "Work in progress",
-    pub4_title: "Reforming the Subsidy System in Tunisia: Fiscal Sustainability, Social Protection and Economic Efficiency", pub4_authors: "sole author",
+    pub4_date: "August 2026", pub4_type: "Working Paper", pub4_status: "Paper available",
+    pub4_venue: "Paris School of Economics (PSE)",
+    pub4_title: "Who Benefits from Food and Energy Subsidies in Tunisia? Incidence and Distributional Effects of Consumer Subsidies, Evidence from the 2021 Household Budget Survey", pub4_authors: "sole author",
 
     pub5_date: "July 2026", pub5_type: "Working Paper", pub5_status: "Paper available",
     pub5_venue: "Paris School of Economics — Political Economy of Public Enterprises",
@@ -172,10 +169,6 @@ const I18N = {
     cv_skill_1: "الاقتصاد القياسي والاستدلال السببي", cv_skill_2: "RCT, IV, DiD, RDD, Synthetic Control",
     cv_skill_3: "Python, R, SQL, VBA", cv_skill_4: "LaTeX",
 
-    pub8_date: "أوت 2026", pub8_type: "ورقة عمل", pub8_status: "الورقة متاحة",
-    pub8_venue: "مدرسة باريس للاقتصاد (PSE)", pub8_authors: "مؤلف منفرد",
-    pub8_title: "من يستفيد من منظومة الدعم في تونس؟ الآثار التوزيعية لدعم المحروقات والمواد الأساسية",
-
     pub1_date: "مارس 2026", pub1_type: "ورقة عمل", pub1_status: "مسودة متاحة",
     pub1_venue: "مدرسة باريس للاقتصاد — طريقة الرقابة الاصطناعية", pub1_authors: "مؤلف منفرد",
     pub1_title: "كيف كان يمكن أن يبدو حال المملكة العربية السعودية بدون رؤية 2030؟ أدلة مبكرة من طريقة الرقابة الاصطناعية",
@@ -191,8 +184,9 @@ const I18N = {
     pub3_date: "قيد الإنجاز — 2026", pub3_type: "مشروع بحثي", pub3_status: "قيد الكتابة",
     pub3_title: "الاستثمار الأجنبي المباشر والنمو: أدلة من تونس ومصر والأردن والمغرب", pub3_authors: "بالاشتراك مع مصباح اللافي",
 
-    pub4_date: "قيد الإنجاز — 2026", pub4_type: "مشروع بحثي", pub4_status: "قيد الكتابة",
-    pub4_title: "إصلاح منظومة الدعم في تونس: الاستدامة المالية والحماية الاجتماعية والكفاءة الاقتصادية", pub4_authors: "مؤلف منفرد",
+    pub4_date: "أوت 2026", pub4_type: "ورقة عمل", pub4_status: "الورقة متاحة",
+    pub4_venue: "مدرسة باريس للاقتصاد (PSE)",
+    pub4_title: "من يستفيد من دعم المواد الغذائية والطاقة في تونس؟ تحليل انعكاسات الدعم الاستهلاكي وأثره التوزيعي، أدلة من المسح الوطني لميزانية الأسر لسنة 2021", pub4_authors: "مؤلف منفرد",
 
     pub5_date: "جويلية 2026", pub5_type: "ورقة عمل", pub5_status: "الورقة متاحة",
     pub5_venue: "مدرسة باريس للاقتصاد — الاقتصاد السياسي للمؤسسات العمومية",
@@ -246,8 +240,8 @@ const I18N = {
    Publication titles are kept in their original (English) form across all
    languages, matching the convention already used on publications.html. */
 const RECENT_WORK = [
-  { kind: 'pub', order: 202608, titleKey: 'pub8_title', typeKey: 'pub8_type', dateKey: 'pub8_date', link: 'publication-subsidies-tunisia.html' },
   { kind: 'pub', order: 202608, titleKey: 'pub7_title', typeKey: 'pub7_type', dateKey: 'pub7_date', link: 'publication-tunisia-two-shocks.html' },
+  { kind: 'pub', order: 202608, titleKey: 'pub4_title', typeKey: 'pub4_type', dateKey: 'pub4_date', link: 'publication-subsidy-reform-tunisia.html' },
   { kind: 'art', order: 202608, titleKey: 'art13_title', dateKey: 'art13_date', typeKey: 'topic_eco', link: 'article-facs-privees.html' },
   { kind: 'pub', order: 202607, titleKey: 'pub5_title', typeKey: 'pub5_type', dateKey: 'pub5_date', link: 'publication-public-enterprises-tunisia.html' },
   { kind: 'pub', order: 202605, title: 'Replication of Forbes and Warnock 2012', typeKey: 'pub2_type', dateKey: 'pub2_date', link: 'publications.html' },
