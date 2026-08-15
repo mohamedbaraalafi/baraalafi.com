@@ -130,7 +130,7 @@
       xlabels += '<text x="' + (x + bw / 2).toFixed(1) + '" y="' + (H - padB + 13) + '" text-anchor="middle" font-size="9" fill="var(--text-muted)">' + DECILE_LABELS[i] + '</text>';
     });
 
-    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg">' +
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" direction="ltr" xmlns="http://www.w3.org/2000/svg">' +
       grid + refLine + ylabels + bars + xlabels +
       '</svg>';
     mount.innerHTML = svg;
@@ -202,7 +202,7 @@
       '<rect x="90" y="-2" width="10" height="10" rx="2" fill="#B3282D"/><text x="105" y="7" font-size="10" fill="var(--text-muted)">الفقر المدقع</text>' +
       '</g>';
 
-    var svg = '<svg viewBox="0 0 ' + W + ' ' + (H + 14) + '" xmlns="http://www.w3.org/2000/svg">' +
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + (H + 14) + '" direction="ltr" xmlns="http://www.w3.org/2000/svg">' +
       '<g transform="translate(0,14)">' + grid + refLines + rows + labels + xlabels + '</g>' + legend +
       '</svg>';
     mount.innerHTML = svg;
