@@ -70,11 +70,11 @@ const I18N = {
     pub3_date: "Ongoing — 2026", pub3_type: "Research Project", pub3_status: "Work in progress",
     pub3_title: "FDI and Growth: Evidence from Tunisia, Egypt, Jordan and Morocco", pub3_authors: "with Mosbah Lafi",
 
-    pub4_date: "August 2026", pub4_type: "Working Paper", pub4_status: "Paper available",
+    pub4_date: "August 2026", pub4_type: "Working Paper", pub4_status: "Draft available",
     pub4_venue: "Paris School of Economics (PSE)",
     pub4_title: "Who Benefits from Food and Energy Subsidies in Tunisia? Incidence and Distributional Effects of Consumer Subsidies, Evidence from the 2021 Household Budget Survey", pub4_authors: "sole author",
 
-    pub5_date: "July 2026", pub5_type: "Working Paper", pub5_status: "Paper available",
+    pub5_date: "July 2026", pub5_type: "Working Paper", pub5_status: "Draft available",
     pub5_venue: "Paris School of Economics — Political Economy of Public Enterprises",
     pub5_title: "Public Enterprises in Tunisia: An Economic and Financial Assessment of Eleven Enterprises and Reform Options", pub5_authors: "sole author",
 
