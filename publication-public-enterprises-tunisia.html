@@ -104,6 +104,33 @@
   </div>
   <div class="accent-underline"></div>
 
+  <div class="share-bar academic-share">
+    <span class="share-label" data-i18n="share_label">Share:</span>
+    <button class="share-btn" id="share-copy" type="button" aria-label="Copy link" title="Copy link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    </button>
+    <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener" aria-label="X" title="Share on X">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="share-btn" id="share-fb" href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.5c0-.9.25-1.5 1.6-1.5H16.5V4.3c-.28-.04-1.25-.13-2.37-.13-2.35 0-3.96 1.44-3.96 4.08V10.5H7.6v3h2.57V21h3.33z"/></svg>
+    </a>
+    <a class="share-btn" id="share-linkedin" href="#" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM7 8.48H3V21h4V8.48zM13.5 8.48H9.75V21h3.75v-6.4c0-3.4 4.5-3.68 4.5 0V21H21v-7.93c0-6.2-6.9-5.97-7.5-2.92V8.48z"/></svg>
+    </a>
+    <span class="share-divider" aria-hidden="true"></span>
+    <button class="share-btn-pill" id="cite-apa" type="button" title="Copy APA-style citation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="M6 10.5V15c0 1.5 2.5 3 6 3s6-1.5 6-3v-4.5"/></svg>
+      <span data-i18n="cite_apa">Cite (APA)</span>
+    </button>
+    <button class="share-btn-pill" id="cite-bibtex" type="button" title="Copy BibTeX entry">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 3 12 8 18"/><polyline points="16 6 21 12 16 18"/></svg>
+      <span>BibTeX</span>
+    </button>
+    <span class="share-copied" id="share-copied-msg" data-i18n="share_copied" hidden>Link copied!</span>
+    <span class="share-copied" id="cite-copied-msg" data-i18n="cite_copied" hidden>Citation copied!</span>
+  </div>
+
   <div class="pub-downloads">
     <a class="btn btn-primary" href="assets/publications/public-enterprises-tunisia-en.pdf" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>

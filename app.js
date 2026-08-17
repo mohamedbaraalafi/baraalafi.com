@@ -95,6 +95,7 @@ const I18N = {
     art1_date: "July 2026", art1_title: "STEG: Public Governance, Pricing and Paths to Reform",
     steg_lede: "A look at the recurring power-outage crisis, between the company's internal governance and the broader economic model within which it has operated since independence.",
     share_label: "Share:", share_copied: "Link copied!",
+    cite_apa: "Cite (APA)", cite_copied: "Citation copied!",
     art2_lede: "Is it time to rethink Tunisia's food subsidy policy?",
     art5_lede: "Is the Democratic Party still the party of the poor?",
     art3_lede: "Lessons from Morocco's experience: why development needs a long-term vision.",
@@ -209,6 +210,7 @@ const I18N = {
     art1_date: "يوليو 2026", art1_title: "الشركة التونسية للكهرباء والغاز: الحوكمة العمومية والتسعير ومسارات الإصلاح",
     steg_lede: "قراءة في أزمة الانقطاعات المتكررة للتيار الكهربائي، بين مسؤولية الحوكمة الداخلية للشركة والنموذج الاقتصادي الأوسع الذي تعمل في إطاره منذ الاستقلال.",
     share_label: "شارك:", share_copied: "تم نسخ الرابط!",
+    cite_apa: "استشهاد (APA)", cite_copied: "تم نسخ الاستشهاد!",
     art2_lede: "هل آن الأوان لإعادة التفكير في سياسة دعم الغذاء في تونس؟",
     art5_lede: "هل ما يزال الحزب الديمقراطي حزب الفقراء؟",
     art3_lede: "من التجربة المغربية: لماذا تحتاج التنمية إلى رؤية طويلة المدى؟",
@@ -230,7 +232,7 @@ const I18N = {
     art11_date: "أبريل 2025", art11_title: "قضية مارين لوبان: الشفافية القضائية وسير العمل الديمقراطي في فرنسا",
     art12_date: "أبريل 2025", art12_title: "تنفيذ البرامج السياسية: حالة دونالد ترامب",
     art13_date: "أوت 2026", art13_title: "المشكلة ليست في الرأسمالية ولا في الاشتراكية: الجامعات الخاصة تكشف النموذج الاقتصادي المشوّه في تونس",
-    art13_lede: "اشتراكية في مواجهة المنافسة، رأسمالية في حماية الريع.",
+    art13_lede: "اشتراكية في مواجهة المنافسة، رأسمالية في حماية الاحتكار.",
   }
 };
 
@@ -310,6 +312,12 @@ function initShareBar() {
   const fb = document.getElementById('share-fb');
   if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
 
+  const xShare = document.getElementById('share-x');
+  if (xShare) xShare.href = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title);
+
+  const linkedin = document.getElementById('share-linkedin');
+  if (linkedin) linkedin.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url);
+
   const gmail = document.getElementById('share-gmail');
   if (gmail) {
     gmail.href = 'https://mail.google.com/mail/?view=cm&fs=1&su=' + encodeURIComponent(title) +
@@ -340,6 +348,121 @@ function initShareBar() {
         done();
       }
     });
+  }
+}
+
+/* Academic "Cite" buttons for publication pages: builds a plain-text
+   APA-style citation and a BibTeX entry directly from the page's own
+   metadata (title, authors, venue, badge type, date, canonical URL), so
+   individual publication pages don't need to hard-code a citation string.
+   Safe no-op if the elements aren't present (e.g. on article pages). */
+function initCiteBox() {
+  const apaBtn = document.getElementById('cite-apa');
+  const bibBtn = document.getElementById('cite-bibtex');
+  if (!apaBtn && !bibBtn) return;
+
+  const titleEl = document.querySelector('.pub-title');
+  const authorsEl = document.querySelector('.pub-authors');
+  if (!titleEl || !authorsEl) return;
+
+  const title = titleEl.textContent.trim();
+  const venueEl = authorsEl.querySelector('.venue');
+  const venue = venueEl ? venueEl.textContent.trim() : '';
+  const typeEl = document.querySelector('.badge-type');
+  const pubType = typeEl ? typeEl.textContent.trim() : '';
+  const dateEl = document.querySelector('.pub-meta-row .tag');
+  const dateText = dateEl ? dateEl.textContent.trim() : '';
+  const yearMatch = dateText.match(/\d{4}/);
+  const year = yearMatch ? yearMatch[0] : '';
+  const canonical = document.querySelector('meta[property="og:url"]');
+  const url = canonical ? canonical.content : window.location.href;
+
+  let authorNames = Array.prototype.map.call(authorsEl.querySelectorAll('b'), (b) => b.textContent.trim()).filter(Boolean);
+  if (!authorNames.length) authorNames = ['Mohamed Baraa Lafi'];
+
+  const isArabicName = (name) => /[\u0600-\u06FF]/.test(name);
+  const initialsOf = (given) => given.split(' ').filter(Boolean).map((part) =>
+    part.split('-').map((p) => (p ? p[0].toUpperCase() + '.' : '')).join('-')
+  ).join(' ');
+  const invert = (name) => {
+    if (isArabicName(name)) return name; // Arabic names are kept in natural order (no Latin-style inversion).
+    const parts = name.trim().split(/\s+/);
+    if (parts.length < 2) return name;
+    const family = parts[parts.length - 1];
+    return family + ', ' + initialsOf(parts.slice(0, -1).join(' '));
+  };
+  const invertFull = (name) => {
+    if (isArabicName(name)) return name;
+    const parts = name.trim().split(/\s+/);
+    if (parts.length < 2) return name;
+    const family = parts[parts.length - 1];
+    return family + ', ' + parts.slice(0, -1).join(' ');
+  };
+  const joinApa = (list) => {
+    if (list.length === 1) return list[0];
+    if (list.length === 2) return list[0] + ' & ' + list[1];
+    return list.slice(0, -1).join(', ') + ', & ' + list[list.length - 1];
+  };
+
+  const apaAuthors = joinApa(authorNames.map(invert));
+  const apaParts = [apaAuthors + ' (' + year + ').', title + '.'];
+  if (venue) apaParts.push(venue + '.');
+  if (pubType) apaParts.push(pubType + '.');
+  apaParts.push('Retrieved from ' + url);
+  const apaText = apaParts.join(' ');
+
+  const bibAuthorsAttr = authorsEl.getAttribute('data-bibtex-authors');
+  const bibAuthors = bibAuthorsAttr || authorNames.map(invertFull).join(' and ');
+
+  const keyAttr = authorsEl.getAttribute('data-cite-key');
+  let citeKey = keyAttr;
+  if (!citeKey) {
+    const lastFamily = (authorNames[0].trim().split(/\s+/).pop() || 'lafi').toLowerCase().replace(/[^a-z]/g, '');
+    const slug = window.location.pathname.split('/').pop()
+      .replace(/^publication-/, '').replace(/-ar\.html$/, '').replace(/\.html$/, '');
+    const firstWord = (slug.split('-')[0] || 'paper').toLowerCase();
+    citeKey = lastFamily + year + firstWord;
+  }
+  const institution = (venue.split('—')[0] || venue).trim();
+
+  const bibtex = '@techreport{' + citeKey + ',\n' +
+    '  author      = {' + bibAuthors + '},\n' +
+    '  title       = {' + title + '},\n' +
+    '  institution = {' + (institution || venue) + '},\n' +
+    '  year        = {' + year + '},\n' +
+    (pubType ? '  type        = {' + pubType + '},\n' : '') +
+    '  url         = {' + url + '}\n' +
+    '}';
+
+  const citedMsg = document.getElementById('cite-copied-msg');
+  const copyText = (text) => {
+    const done = () => {
+      if (citedMsg) {
+        citedMsg.hidden = false;
+        clearTimeout(citedMsg._t);
+        citedMsg._t = setTimeout(() => { citedMsg.hidden = true; }, 2500);
+      }
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(done);
+    } else {
+      const tmp = document.createElement('textarea');
+      tmp.value = text;
+      document.body.appendChild(tmp);
+      tmp.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(tmp);
+      done();
+    }
+  };
+
+  if (apaBtn && !apaBtn.dataset.bound) {
+    apaBtn.dataset.bound = '1';
+    apaBtn.addEventListener('click', () => copyText(apaText));
+  }
+  if (bibBtn && !bibBtn.dataset.bound) {
+    bibBtn.dataset.bound = '1';
+    bibBtn.addEventListener('click', () => copyText(bibtex));
   }
 }
 
@@ -412,6 +535,7 @@ function applyLang(lang) {
   renderRecentWork(lang);
   applyPageTitle(lang);
   initShareBar();
+  initCiteBox();
   document.querySelectorAll('[data-lang-block]').forEach(el => {
     el.style.display = (el.getAttribute('data-lang-block') === lang) ? 'block' : 'none';
   });

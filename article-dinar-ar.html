@@ -149,6 +149,9 @@
     <a class="share-btn" id="share-fb" href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.5c0-.9.25-1.5 1.6-1.5H16.5V4.3c-.28-.04-1.25-.13-2.37-.13-2.35 0-3.96 1.44-3.96 4.08V10.5H7.6v3h2.57V21h3.33z"/></svg>
     </a>
+    <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener" aria-label="X" title="Share on X">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
     <a class="share-btn" id="share-gmail" href="#" target="_blank" rel="noopener" aria-label="Gmail" title="Gmail">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="m3.5 5.5 8.5 7 8.5-7"/></svg>
     </a>
@@ -554,6 +557,9 @@
   function init() {
     var fb = document.getElementById('share-fb');
     if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href);
+
+    var xShare = document.getElementById('share-x');
+    if (xShare) xShare.href = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(document.title);
 
     var gmail = document.getElementById('share-gmail');
     if (gmail) {
