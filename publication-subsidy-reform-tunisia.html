@@ -41,6 +41,11 @@
   .bar-track { height: 12px; border-radius: 6px; background: var(--bg-alt); overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--navy-700), var(--gold)); }
   .bar-fill.energy { background: linear-gradient(90deg, #B3282D, #F0A24B); }
+  .bar-fill.kept { background: var(--border); }
+  .bar-row-kept .bl { color: var(--text-muted); font-style: normal; }
+  .bar-row-kept .bl em { font-style: italic; }
+  .bv-kept { color: var(--text-muted) !important; font-weight: 600 !important; }
+  .hh-note { max-width: 760px; margin: 12px auto 0; font-size: 12px; color: var(--text-muted); line-height: 1.6; }
   .kpi-banner { max-width: 760px; margin: 40px auto 30px; text-align: center; background: linear-gradient(135deg, var(--navy-700), #234a86);
     border-radius: var(--radius); padding: 30px 26px; box-shadow: var(--shadow); }
   .kpi-banner .kpi-num { font-size: 40px; font-weight: 800; color: #fff; line-height: 1.1; }
@@ -164,8 +169,8 @@
 <section style="padding-top:0;">
   <div class="container">
     <div class="kpi-banner">
-      <div class="kpi-num">4.71 billion DT</div>
-      <div class="kpi-label">Estimated annual state savings if subsidies were reformed to exclude the richest 40% of the population, leaving the bottom 60%, including every poor household, covered exactly as today. See the full product-by-product breakdown below.</div>
+      <div class="kpi-num">3.10 billion DT</div>
+      <div class="kpi-label">Estimated annual state savings from limiting these subsidies to the bottom 60% of the population &mdash; every poor household covered exactly as today &mdash; while also ending leakage to non-household buyers, with one deliberate exception: gasoil stays subsidized for everyone, to avoid a transport-cost shock. See the full product-by-product breakdown below.</div>
     </div>
 
     <div class="section-lede">
@@ -257,15 +262,32 @@
     </div>
 
     <div class="section-lede">
-      <h2>Estimated fiscal savings from pro-poor targeting reform</h2>
-      <p>For each product: (share of subsidy value captured by the richest 40% of the population) &times; (official fiscal cost) = the amount the state would save annually by excluding the top 40% from that subsidy, leaving the bottom 60% covered exactly as today.</p>
+      <h2>Where the subsidy money actually goes: households vs. non-households</h2>
+      <p>For every product where household purchases can be benchmarked against the official fiscal cost, most of the gap between the two is subsidized volume that never reaches a directly measured household &mdash; commercial and institutional buyers, and for gasoil in particular, the transport and freight sector. The bars below split each product's official fiscal cost three ways: the bottom 60% of households, the top 40%, and this non-household residual.</p>
     </div>
     <div class="article-chart-card" style="max-width:760px;">
-      <h4>Potential annual savings by product, if reformed to exclude the richest 40%</h4>
-      <p class="chart-sub">Millions of DT · ranked from largest to smallest potential saving</p>
-      <div class="subs-legend"><span><i style="background:linear-gradient(90deg,#B3282D,#F0A24B);"></i>Energy</span><span><i style="background:linear-gradient(90deg,var(--navy-700),var(--gold));"></i>Food</span></div>
+      <h4>Split of each product's official fiscal cost</h4>
+      <p class="chart-sub">Bottom 60% of households · top 40% of households · non-household (firms, institutions, other channels) · hover or tap a bar</p>
+      <div class="subs-legend">
+        <span><i style="background:var(--navy-700);"></i>Bottom 60% (households)</span>
+        <span><i style="background:#F0A24B;"></i>Top 40% (households)</span>
+        <span><i style="background:#B3282D;"></i>Non-household</span>
+      </div>
+      <div class="chart-svg-wrap" data-household-chart="1" style="min-height:420px;"></div>
+      <p class="chart-source">Source: author's calculations, combining EBCNV 2021 household quantities (annualised from the 7-day expenditure diary) with official Ministry of Finance unit subsidy rates (2025 Citizen Budget). Coffee and electricity/gas are excluded here: no official per-unit subsidy rate is published for either, so the household/non-household split cannot be computed for those two.</p>
+      <p class="hh-note">*Bread: the survey-implied household total is essentially equal to (very slightly above) the official fiscal cost, which mechanically floors its non-household share at zero. Restaurants, hotels and caterers plausibly also purchase subsidised bread; this specific product's split should be read with caution rather than as evidence that leakage is zero.</p>
+    </div>
+
+    <div class="section-lede">
+      <h2>Estimated fiscal savings from pro-poor targeting reform</h2>
+      <p>For each product except gasoil: (share of the official fiscal cost going to the richest 40% of households, plus all non-household consumption) = the amount the state would save annually by limiting that subsidy to the bottom 60% of the population. Gasoil is deliberately kept out of this reform and stays subsidized for everyone: diesel prices feed directly into freight, public transport and agricultural costs, so withdrawing it &mdash; even only from richer households &mdash; risks an inflationary pass-through across the whole economy that would end up hurting the same poor households the reform is meant to protect.</p>
+    </div>
+    <div class="article-chart-card" style="max-width:760px;">
+      <h4>Potential annual savings by product, targeting the bottom 60% and keeping gasoil universal</h4>
+      <p class="chart-sub">Millions of DT · ranked from largest to smallest potential saving · gasoil shown greyed out (kept subsidized)</p>
+      <div class="subs-legend"><span><i style="background:linear-gradient(90deg,#B3282D,#F0A24B);"></i>Energy</span><span><i style="background:linear-gradient(90deg,var(--navy-700),var(--gold));"></i>Food</span><span><i style="background:var(--border);"></i>Kept subsidized (excluded from reform)</span></div>
       <div id="savings-chart"></div>
-      <p class="chart-source">Source: author's calculations, combining EBCNV 2021 decile shares with official Ministry of Finance fiscal cost figures (2025 Citizen Budget). Total: 4,711 million DT (44% of the 10,688 million DT total fiscal cost of the ten products examined).</p>
+      <p class="chart-source">Source: author's calculations, combining EBCNV 2021 household quantities with official Ministry of Finance fiscal cost figures (2025 Citizen Budget), net of both top-40%-household and non-household consumption. Total: 3,104 million DT &mdash; 46.7% of the 6,646 million DT combined fiscal cost of these ten products (or 30.6% of the entire projected 2025 budget deficit of 10,150 million DT). Gasoil's own 1,351 million DT subsidy is fully retained and contributes 0 to this total. *Bread's split should be read with caution (see note above).</p>
     </div>
 
     <div class="article-refs">

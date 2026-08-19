@@ -42,19 +42,40 @@
   ];
   var POOR_POP_SHARE = 14.2, EXTREME_POP_SHARE = 2.2;
 
-  // Estimated annual state savings if each product's subsidy were withdrawn
-  // from the richest 40% of the population (Table 4 of the paper).
+  // Split of each product's OFFICIAL fiscal cost between the bottom 60% of
+  // households, the top 40% of households, and non-household consumption
+  // (firms, institutions, and other channels invisible to a household
+  // survey by construction). Percent of total fiscal cost. Sorted
+  // descending by non-household share.
+  var HOUSEHOLD_SPLIT = [
+    { t: 'الغزوال', b60: 2.6, t40: 4.5 },
+    { t: 'الفرينة', b60: 10.5, t40: 12.6 },
+    { t: 'الزيت النباتي', b60: 23.7, t40: 21.6 },
+    { t: 'الكسكسي', b60: 25.9, t40: 25.0 },
+    { t: 'العجين', b60: 36.3, t40: 32.7 },
+    { t: 'الحليب', b60: 36.5, t40: 38.8 },
+    { t: 'البنزين', b60: 23.6, t40: 59.4 },
+    { t: 'السميد', b60: 53.7, t40: 29.9 },
+    { t: 'قوارير الغاز', b60: 51.5, t40: 44.6 },
+    { t: 'الخبز*', b60: 55.2, t40: 44.8 }
+  ];
+
+  // Estimated annual state savings from limiting each subsidy to the bottom
+  // 60% of the population -- removing both the top-40%-household leg AND
+  // the non-household leg. Gasoil is deliberately kept subsidized for
+  // everyone (kept: true, v: 0) to avoid a transport-cost inflationary
+  // shock.
   var SAVINGS = [
-    { t: 'الكهرباء والغاز', cat: 'energy', v: 1886.6 },
-    { t: 'الغزوال', cat: 'energy', v: 695.8 },
-    { t: 'الخبز والفرينة', cat: 'food', v: 575.1 },
-    { t: 'السميد والكسكسي والعجين والأرز', cat: 'food', v: 406.7 },
-    { t: 'قوارير الغاز', cat: 'energy', v: 365.9 },
-    { t: 'الزيت النباتي', cat: 'food', v: 279.3 },
-    { t: 'البنزين', cat: 'energy', v: 275.0 },
-    { t: 'الحليب', cat: 'food', v: 166.3 },
-    { t: 'السكر', cat: 'food', v: 37.7 },
-    { t: 'القهوة', cat: 'food', v: 22.6 }
+    { t: 'الخبز*', cat: 'food', v: 596.6 },
+    { t: 'الزيت النباتي', cat: 'food', v: 580.1 },
+    { t: 'قوارير الغاز', cat: 'energy', v: 517.9 },
+    { t: 'البنزين', cat: 'energy', v: 326.1 },
+    { t: 'العجين', cat: 'food', v: 315.0 },
+    { t: 'الحليب', cat: 'food', v: 241.5 },
+    { t: 'الكسكسي', cat: 'food', v: 197.3 },
+    { t: 'السميد', cat: 'food', v: 193.7 },
+    { t: 'الفرينة', cat: 'food', v: 136.1 },
+    { t: 'الغزوال', cat: 'energy', v: 0, kept: true }
   ];
 
   var DECILE_LABELS = ['D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10'];
@@ -232,13 +253,84 @@
     mount.addEventListener('mouseleave', function () { tip.classList.remove('visible'); });
   }
 
+  // ---- household vs non-household stacked bar chart ---------------------
+
+  var HH_COLORS = { b60: 'var(--navy-700)', t40: '#F0A24B', nonhh: '#B3282D' };
+
+  function renderHouseholdSplitChart(mount) {
+    var W = 700, rowH = 34, padL = 150, padR = 60, padT = 10, padB = 34;
+    var n = HOUSEHOLD_SPLIT.length;
+    var H = padT + padB + n * rowH;
+    var plotW = W - padL - padR;
+    var maxVal = 100;
+
+    function xPix(v) { return padL + (v / maxVal) * plotW; }
+
+    var xTicks = [0, 20, 40, 60, 80, 100];
+    var grid = '', xlabels = '';
+    xTicks.forEach(function (g) {
+      var x = xPix(g);
+      grid += '<line x1="' + x.toFixed(1) + '" y1="' + padT + '" x2="' + x.toFixed(1) + '" y2="' + (H - padB) + '" stroke="var(--border)" stroke-width="1"/>';
+      xlabels += '<text x="' + x.toFixed(1) + '" y="' + (H - padB + 16) + '" text-anchor="middle" font-size="9.5" fill="var(--text-muted)">' + g + '%</text>';
+    });
+
+    var rows = '', labels = '';
+    HOUSEHOLD_SPLIT.forEach(function (d, i) {
+      var cy = padT + i * rowH;
+      var barH = 16;
+      var y = cy + (rowH - barH) / 2 + 4;
+      var x0 = padL, x1 = xPix(d.b60), x2 = xPix(d.b60 + d.t40), x3 = xPix(100);
+      rows += '<rect data-hh-bar data-i="' + i + '" data-series="b60" x="' + x0.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + Math.max(x1 - x0, 0.5).toFixed(1) + '" height="' + barH + '" fill="' + HH_COLORS.b60 + '" opacity="0.92"/>';
+      rows += '<rect data-hh-bar data-i="' + i + '" data-series="t40" x="' + x1.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + Math.max(x2 - x1, 0.5).toFixed(1) + '" height="' + barH + '" fill="' + HH_COLORS.t40 + '" opacity="0.92"/>';
+      rows += '<rect data-hh-bar data-i="' + i + '" data-series="nonhh" x="' + x2.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + Math.max(x3 - x2, 0.5).toFixed(1) + '" height="' + barH + '" fill="' + HH_COLORS.nonhh + '" opacity="0.92"/>';
+      labels += '<text x="' + (padL - 10) + '" y="' + (cy + rowH / 2 + 3.5) + '" text-anchor="end" font-size="10.5" fill="var(--text)">' + d.t + '</text>';
+    });
+
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + (H + 4) + '" direction="ltr" xmlns="http://www.w3.org/2000/svg">' +
+      '<g transform="translate(0,4)">' + grid + rows + labels + xlabels + '</g>' +
+      '</svg>';
+    mount.innerHTML = svg;
+
+    var tip = ensureTooltip(mount);
+    var svgEl = mount.querySelector('svg');
+    var bars = mount.querySelectorAll('[data-hh-bar]');
+    var seriesLabel = { b60: 'أدنى 60% من الأسر', t40: 'أعلى 40% من الأسر', nonhh: 'خارج الأسر' };
+    bars.forEach(function (bar) {
+      function activate() {
+        var i = parseInt(bar.getAttribute('data-i'), 10);
+        var series = bar.getAttribute('data-series');
+        var d = HOUSEHOLD_SPLIT[i];
+        var val = series === 'b60' ? d.b60 : (series === 't40' ? d.t40 : Math.max(100 - d.b60 - d.t40, 0));
+        var rectBox = svgEl.getBoundingClientRect();
+        var sx = rectBox.width / W, sy = rectBox.height / (H + 4);
+        var bx = parseFloat(bar.getAttribute('x')) + parseFloat(bar.getAttribute('width')) / 2;
+        var by = parseFloat(bar.getAttribute('y')) + 4;
+        tip.innerHTML = '<b>' + d.t + '</b><span class="tt-sub">' + seriesLabel[series] + ': ' + fmt1(val) + '%</span>';
+        tip.style.left = (bx * sx) + 'px';
+        tip.style.top = (by * sy) + 'px';
+        tip.classList.add('visible');
+      }
+      bar.addEventListener('mouseenter', activate);
+      bar.addEventListener('touchstart', activate, { passive: true });
+    });
+    mount.addEventListener('mouseleave', function () { tip.classList.remove('visible'); });
+  }
+
   // ---- reform-savings ranked bar list -------------------------------------
 
   function renderSavingsChart() {
     var mount = document.getElementById('savings-chart');
     if (!mount) return;
-    var max = Math.max.apply(null, SAVINGS.map(function (x) { return x.v; }));
+    var activeVals = SAVINGS.filter(function (x) { return !x.kept; }).map(function (x) { return x.v; });
+    var max = Math.max.apply(null, activeVals);
     mount.innerHTML = SAVINGS.map(function (item) {
+      if (item.kept) {
+        return '<div class="bar-row bar-row-kept">' +
+          '<div class="bar-row-top"><span class="bl">' + item.t + ' <em>&mdash; يبقى مدعوماً، مستثنى من الإصلاح</em></span>' +
+          '<span class="bv bv-kept">0 م.د</span></div>' +
+          '<div class="bar-track"><div class="bar-fill kept" style="width:100%"></div></div>' +
+          '</div>';
+      }
       var pct = Math.max((item.v / max) * 100, 2.5);
       return '<div class="bar-row">' +
         '<div class="bar-row-top"><span class="bl">' + item.t + '</span>' +
@@ -253,6 +345,7 @@
   function renderAll() {
     document.querySelectorAll('[data-decile-chart]').forEach(renderDecileChart);
     document.querySelectorAll('[data-poverty-chart]').forEach(renderPovertyChart);
+    document.querySelectorAll('[data-household-chart]').forEach(renderHouseholdSplitChart);
     renderSavingsChart();
   }
 
