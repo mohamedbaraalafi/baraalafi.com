@@ -28,19 +28,24 @@
   // Share of each product's subsidy value captured by poor (14.2% of the
   // population) and extreme-poor (2.2%) households. Reproduces Table 1 /
   // Figure 5 of the paper. Sorted descending by poor share.
+  // Share of each product's subsidy value captured by poor (16.6% of the
+  // population) and extreme-poor (2.9%) households. Recomputed from the
+  // updated incidence pipeline. Sorted descending by poor share.
   var POVERTY = [
-    { t: 'السميد والكسكسي والعجين والأرز', poor: 17.16, extreme: 3.25 },
-    { t: 'قوارير الغاز', poor: 16.98, extreme: 2.35 },
-    { t: 'الزيت النباتي', poor: 15.98, extreme: 2.83 },
-    { t: 'الخبز والفرينة', poor: 13.78, extreme: 1.61 },
-    { t: 'السكر', poor: 12.55, extreme: 1.70 },
-    { t: 'الحليب', poor: 12.12, extreme: 1.41 },
-    { t: 'الكهرباء والغاز', poor: 10.85, extreme: 1.30 },
-    { t: 'القهوة', poor: 9.05, extreme: 0.80 },
-    { t: 'الغزوال', poor: 3.78, extreme: 0.12 },
-    { t: 'البنزين', poor: 3.51, extreme: 0.31 }
+    { t: 'السميد', poor: 21.0, extreme: 4.6 },
+    { t: 'قوارير الغاز', poor: 13.7, extreme: 1.8 },
+    { t: 'الكسكسي', poor: 13.6, extreme: 1.7 },
+    { t: 'العجين', poor: 13.5, extreme: 1.9 },
+    { t: 'الخبز', poor: 11.3, extreme: 1.4 },
+    { t: 'الزيت النباتي', poor: 10.5, extreme: 1.2 },
+    { t: 'الفرينة', poor: 8.5, extreme: 0.8 },
+    { t: 'الحليب', poor: 8.1, extreme: 0.9 },
+    { t: 'الكهرباء والغاز', poor: 7.9, extreme: 0.9 },
+    { t: 'القهوة', poor: 6.0, extreme: 0.4 },
+    { t: 'الغزوال', poor: 3.4, extreme: 0.0 },
+    { t: 'البنزين', poor: 2.6, extreme: 0.2 }
   ];
-  var POOR_POP_SHARE = 14.2, EXTREME_POP_SHARE = 2.2;
+  var POOR_POP_SHARE = 16.6, EXTREME_POP_SHARE = 2.9;
 
   // Split of each product's OFFICIAL fiscal cost between the bottom 60% of
   // households, the top 40% of households, and non-household consumption
@@ -190,11 +195,13 @@
     var n = POVERTY.length;
     var H = padT + padB + n * rowH;
     var plotW = W - padL - padR;
-    var maxVal = 20;
+    var dataMax = Math.max.apply(null, POVERTY.map(function (d) { return Math.max(d.poor, d.extreme); }));
+    var maxVal = Math.max(20, Math.ceil((dataMax + 2) / 5) * 5);
 
     function xPix(v) { return padL + (v / maxVal) * plotW; }
 
-    var xTicks = [0, 5, 10, 15, 20];
+    var xTicks = [];
+    for (var g = 0; g <= maxVal; g += 5) xTicks.push(g);
     var grid = '', xlabels = '';
     xTicks.forEach(function (g) {
       var x = xPix(g);
