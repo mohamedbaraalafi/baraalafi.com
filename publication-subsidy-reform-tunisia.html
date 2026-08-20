@@ -48,16 +48,6 @@
     .subsidy-chart-card { padding: 18px 14px 16px; }
     .kpi-banner { border-radius: 14px; }
   }
-/* Justify all article text */
-.pub-abstract p,
-.figures-heading p,
-.figure-section-title p,
-.chart-sub,
-.chart-source,
-.stat-note,
-.article-refs li {
-  text-align: justify;
-}
 </style>
 </head>
 <body data-page="article">
@@ -134,11 +124,11 @@
   </div>
 
   <div class="pub-downloads">
-    <a class="btn btn-primary" href="#" download>
+    <a class="btn btn-primary" href="assets/publications/subsidy-reform-tunisia-2026.pdf" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-      Download PDF
+      Download Paper
     </a>
-    <a class="btn btn-outline" href="#" download>
+    <a class="btn btn-outline" href="assets/publications/Subsidy-Reform-Tunisia-Data-Code.zip" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
       Download Data &amp; Code
     </a>
@@ -147,17 +137,15 @@
 
 <div class="pub-abstract">
   <h2>Abstract</h2>
-<p>Tunisia’s subsidy system has long been one of the main pillars of the country’s social state, with the government providing basic food products and energy at low prices through direct compensation under the subsidy fund. However, this system has increasingly raised concerns about its sustainability, particularly in relation to public finances. Subsidy expenditure accounts for 19.4% of total budget expenditure under the 2025 Finance Law, amounting to TND 11.593 billion, while the state budget faces a deficit estimated at TND 11.02 billion.</p>
-
-<p style="margin-top:16px;">One of the main problems with the current system is that prices are uniform for all segments of society, regardless of income or living standards. This highlights the unequal distribution of subsidies: wealthy households benefit in the same way as poor households, at the expense of already fragile public finances. This study therefore seeks to measure who benefits from the current system by examining the consumption of households and non-household entities, using data from the 2021 Household Budget and Consumption Survey for most basic products. The results show that subsidized consumption is heavily concentrated among wealthier groups for several products, particularly gasoline and diesel. Non-poor households also account for a larger share of national consumption for most subsidized products. Poor households are among the least beneficiaries: despite representing 16.6% of the population, they account for only around 6% of coffee consumption, 3% of diesel consumption, and 2.6% of gasoline consumption. The extremely poor, who represent 2.9% of the population, account for no more than 1% of consumption for most products. Regarding non-household consumption, institutions, firms, and traders absorb a substantial share of the financial cost of subsidies, reaching around 93% for diesel, 78% for flour, and 56% for vegetable oil. This means that a significant share of subsidies does not reach households at all.</p>
-
-<p style="margin-top:16px;">The study concludes that the subsidy system should be redesigned through a scenario in which subsidies are targeted exclusively at the poorest 60% of the population, while maintaining diesel subsidies for all consumers in order to avoid inflationary effects. According to the calculations presented in this paper, such a scenario could generate savings of TND 4.69 billion.</p>
+  <p>Studies of subsidy incidence typically ask one question: among the households that consume a subsidised product, who benefits, the poor or the rich? This paper asks that question too, but it also asks a second one that is easy to overlook: how much of a subsidy's official fiscal cost can actually be matched to household purchases in the first place? The two questions are related but analytically distinct. A subsidy can look reasonably well targeted among the households that buy it directly while a large share of its total cost never shows up in household consumption data at all. By combining household data from the 2021 national household budget survey with product level fiscal cost data from the 2025 Citizen Budget, this analysis is able to separate the two.</p>
+  <p style="margin-top:16px;">Among the households that report buying a subsidised product themselves, the picture is mixed: cereal staples such as semolina and gros pain are mildly pro-poor, while transport fuels, especially gasoline, are sharply concentrated among richer households. But the more consequential finding concerns fiscal coverage. The share of each product's official fiscal cost that can be matched to a household purchase varies enormously, from 7.2% for diesel and 23.0% for flour up to 96.1% for bottled gas. The unmatched remainder is not directly observed non-household consumption; it is a residual, consistent with commercial and institutional use but also possibly reflecting survey underreporting and timing differences between the 2021 survey and the 2025 fiscal accounts.</p>
+  <p style="margin-top:16px;">This decomposition supports two distinct fiscal scenarios rather than one. A purely mechanical maximum, removing every subsidy for the richest 40% and for the residual, including diesel, would free up 4.69 billion dinars a year. But diesel is a poor candidate for removal in practice, given its role in transport, freight and fishing and the inflation risk that removing it would carry. The preferred reform keeps diesel subsidised for everyone and targets the remaining ten products only, for an estimated 3.37 billion dinars a year, still a third of the projected 2025 budget deficit. The gap between the two numbers is itself the point: the mechanically largest fiscal saving is not necessarily the economically preferable one.</p>
 </div>
 
 <div class="kpi-banner">
-  <div class="kpi-item"><b>4.69bn DT</b><span>Potential annual savings from targeting the bottom 60% of the population</span></div>
+  <div class="kpi-item"><b>3.37bn DT</b><span>Preferred reform: potential annual savings, diesel kept subsidised for everyone</span></div>
 </div>
-<p class="stat-note">Source: author's calculations, EBCNV 2021 and Budget Citoyen 2025. Diesel is kept subsidised for everyone in this reform scenario, so it contributes none of these savings.</p>
+<p class="stat-note">A purely mechanical calculation that also removed diesel's subsidy would show 4.69bn DT &mdash; but that is not what this analysis recommends (see Section 5 below). Source: author's calculations, EBCNV 2021 and Budget Citoyen 2025.</p>
 
 <div class="pub-tags-block">
   <div>
@@ -211,8 +199,8 @@
     </div>
 
     <div class="figure-section-title">
-      <h3>2. Where the subsidy money actually goes: households versus non-households</h3>
-      <p>For every product with a published official subsidy rate, this chart splits the total fiscal cost three ways: the bottom 60% of households, the top 40%, and everything that never reaches a measured household at all, most likely firms, public institutions, and in the case of fuel, the transport sector.</p>
+      <h3>2. Where the subsidy money actually goes: households versus the residual</h3>
+      <p>For every product with a published official subsidy rate, this chart splits the total fiscal cost three ways: the bottom 60% of households, the top 40%, and the residual, the part of the official cost that cannot be matched to a household purchase observed in the survey. That residual is consistent with commercial and institutional use (bakeries, restaurants, transport fleets paying the same subsidised price as a household), but it can also reflect survey underreporting or the gap between the 2021 survey and the 2025 fiscal accounts, so it should not be read as directly observed non-household consumption.</p>
     </div>
     <div class="article-chart-card subsidy-chart-card" style="max-width:820px;">
       <h4>Split of each product's official fiscal cost</h4>
@@ -220,7 +208,7 @@
       <div class="chart-legend">
         <span><i style="background:var(--navy-700);"></i>Bottom 60% of households</span>
         <span><i style="background:#F0A24B;"></i>Top 40% of households</span>
-        <span><i style="background:#B3282D;"></i>Non-household</span>
+        <span><i style="background:#B3282D;"></i>Residual (not matched to households)</span>
       </div>
       <div class="chart-svg-wrap" data-widget="household-split" style="min-height:400px;"></div>
       <p class="chart-source">Source: author's calculations combining EBCNV 2021 household quantities with official Ministry of Finance subsidy rates, Budget Citoyen 2025. Coffee and electricity and gas are excluded here: no official per unit subsidy rate is published for either.</p>
@@ -242,14 +230,19 @@
     </div>
 
     <div class="figure-section-title">
-      <h3>4. Potential fiscal savings from a targeted reform</h3>
-      <p>For each product except diesel, the amount the state would save each year by limiting that subsidy to the bottom 60% of the population: the share currently going to the top 40% plus the share never reaching a household, multiplied by the official fiscal cost. Diesel is deliberately excluded and kept subsidised for everyone, since its price feeds directly into freight, public transport, and farming costs, and removing it even for richer households risks an economy wide price shock that would end up hurting the same poor households the reform is meant to protect.</p>
+      <h3>4. Two fiscal scenarios: mechanical maximum versus preferred reform</h3>
+      <p>A purely mechanical calculation, removing every subsidy in the sample for the richest 40% of households and for the residual, including diesel, would free up 4.69 billion DT a year. But diesel is a poor candidate for removal in practice: it is a direct input into road transport, freight, and fishing, and removing its subsidy risks second round price increases that could end up hurting the same poor households a reform is meant to protect. The chart below shows the <strong>preferred reform</strong> instead: the same calculation for every product except diesel, which is kept subsidised for everyone. Hover over the grey bar to see what the mechanical calculation would have credited diesel with.</p>
     </div>
     <div class="article-chart-card subsidy-chart-card" style="max-width:820px;">
-      <h4>Potential annual savings by product</h4>
+      <h4>Preferred reform: potential annual savings by product</h4>
       <p class="chart-sub">Million Dinars &middot; ranked from largest to smallest &middot; diesel shown in grey, kept subsidised for everyone</p>
       <div class="chart-svg-wrap" data-widget="savings-chart" style="min-height:390px;"></div>
-      <p class="chart-source">Total potential savings: 4,689 Million Dinars, equivalent to 70.6% of the 6,646 Million Dinar combined fiscal cost of these eleven products, and 46.2% of the projected 2025 budget deficit of 10,150 Million Dinars. This is an upper bound assuming perfect targeting with no administrative cost, leakage, or behavioural response.</p>
+      <p class="chart-source">Preferred reform total: 3,374 Million Dinars, 63.7% of the 5,295 Million Dinar cost of the ten products actually targeted, 33.2% of the projected 2025 budget deficit of 10,150 Million Dinars. The mechanical maximum, which would also remove diesel's subsidy, is 4,689 Million Dinars, 70.6% of the combined cost of all eleven products, 46.2% of the deficit &mdash; but is not what this paper recommends. Both figures are upper bounds assuming perfect targeting with no administrative cost, leakage, or behavioural response.</p>
+    </div>
+
+    <div class="figure-section-title" style="margin-top:34px;">
+      <h3>5. Why the biggest mechanical saving is not the recommendation</h3>
+      <p>Diesel scores as the least well targeted subsidy in the whole sample on every measure in this paper: only 3.4% of its household-matched spending reaches poor households directly, and only 7.2% of its total fiscal cost can be matched to a household purchase at all. On a purely mechanical basis it is the strongest reform candidate here. We still argue against removing it. Diesel is a direct input into road transport, freight, and fishing. A household with no car still pays more for bread if the bakery's delivery costs rise, and a higher shared-taxi fare if the driver's fuel costs rise. Removing the subsidy, even just the part not matched to household purchases, risks second round price increases that could end up hurting the same poor households a reform is meant to protect. Gasoline does not carry the same risk, since it is overwhelmingly a private-vehicle fuel with a much smaller role in freight and food logistics, so it stays in the preferred reform like any other product.</p>
     </div>
 
   </div>
@@ -264,6 +257,8 @@
         <li>Ministère des Finances, Tunisie. <i>Budget Citoyen 2025.</i> Official subsidy rates per unit and total fiscal cost by product.</li>
         <li>Household quantities are annualised from the survey's 7 day expenditure diary, after excluding supplementary recall entries that would otherwise double count the same purchases.</li>
         <li>Bread is reported as two separate official categories, gros pain and baguette, each matched to its own official weight, retail price, subsidy rate, and share of the basic goods budget, rather than a single blended rate.</li>
+        <li>For each product, the part of the official fiscal cost matched to household purchases is compared against the part that cannot be matched, called the residual. The residual is consistent with commercial and institutional use, but is not directly observed: it can also reflect survey underreporting, and timing differences between the 2021 household data and the 2025 fiscal accounts.</li>
+        <li>Confidence intervals use a household level bootstrap with 1,000 replicates. They capture sampling variability within the survey only, not uncertainty in the retail prices, subsidy rates, or the 2021 to 2025 timing gap.</li>
       </ol>
     </div>
   </div>
@@ -389,8 +384,9 @@
     { key: 'couscous', v: 197.3 },
     { key: 'semolina', v: 193.7 },
     { key: 'flour', v: 136.1 },
-    { key: 'gasoil', v: 0, kept: true }
+    { key: 'gasoil', v: 0, kept: true, mech: 1315.4 }
   ];
+  var MECH_MAX_TOTAL_MD = 4689.1, PREFERRED_TOTAL_MD = 3373.7;
 
   function nameOf(key) { for (var i = 0; i < PRODUCTS.length; i++) if (PRODUCTS[i].key === key) return PRODUCTS[i].name; return key; }
   function catOf(key) { for (var i = 0; i < PRODUCTS.length; i++) if (PRODUCTS[i].key === key) return PRODUCTS[i].cat; return 'food'; }
@@ -506,7 +502,7 @@
 
     var tip = ensureTooltip(mount);
     var svgEl = mount.querySelector('svg');
-    var seriesLabel = { b60: 'Bottom 60% of households', t40: 'Top 40% of households', nonhh: 'Non-household' };
+    var seriesLabel = { b60: 'Bottom 60% of households', t40: 'Top 40% of households', nonhh: 'Residual' };
     Array.prototype.forEach.call(mount.querySelectorAll('[data-hh]'), function (bar) {
       function activate() {
         var i = parseInt(bar.getAttribute('data-i'), 10), s = bar.getAttribute('data-s');
@@ -618,7 +614,7 @@
       var color = d.kept ? '#9AA3AE' : (catOf(d.key) === 'food' ? 'url(#gradSavFood)' : 'url(#gradSavEnergy)');
       rows += '<rect data-sav data-i="' + i + '" x="' + padL + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + barH + '" fill="' + color + '" rx="4"/>';
       labels += '<text x="' + (padL - 10) + '" y="' + (cy + rowH / 2 + 4) + '" text-anchor="end" font-size="11" fill="var(--text)">' + nameOf(d.key) + '</text>';
-      var vtext = d.kept ? 'kept universal' : fmt1(d.v) + ' MD';
+      var vtext = d.kept ? ('kept, would be ' + fmt1(d.mech) + ' MD') : fmt1(d.v) + ' MD';
       vlabels += '<text x="' + (padL + w + 8).toFixed(1) + '" y="' + (cy + rowH / 2 + 4) + '" font-size="10.5" font-style="' + (d.kept ? 'italic' : 'normal') + '" fill="' + (d.kept ? 'var(--text-muted)' : 'var(--text)') + '">' + vtext + '</text>';
     });
 
@@ -635,7 +631,7 @@
         var bx = parseFloat(bar.getAttribute('x')) + parseFloat(bar.getAttribute('width')) / 2;
         var by = parseFloat(bar.getAttribute('y'));
         tip.innerHTML = d.kept ?
-          '<b>' + nameOf(d.key) + '</b><span class="tt-sub">Kept subsidised for everyone, excluded from the reform</span>' :
+          '<b>' + nameOf(d.key) + '</b><span class="tt-sub">Kept subsidised for everyone, excluded from the preferred reform</span><span class="tt-sub">Mechanical maximum if included: ' + fmt1(d.mech) + ' MD</span>' :
           '<b>' + nameOf(d.key) + '</b><span class="tt-sub">Potential saving: ' + fmt1(d.v) + ' Million Dinars</span>';
         tip.style.left = (bx * sx) + 'px';
         tip.style.top = (by * sy) + 'px';
