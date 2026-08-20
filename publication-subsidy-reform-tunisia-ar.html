@@ -25,109 +25,26 @@
   .chart-legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
   .stat-note { font-size: 12px; color: var(--text-muted); text-align: center; max-width: 900px; margin: 10px auto 0; }
 
-  .kpi-banner { max-width: 720px; margin: 34px auto 0; background: linear-gradient(135deg, #16315F 0%, #2F80ED 100%);
-    border-radius: 18px; padding: 38px 34px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;
+  .kpi-banner { max-width: 480px; margin: 34px auto 0; background: linear-gradient(135deg, #16315F 0%, #2F80ED 100%);
+    border-radius: 18px; padding: 40px 34px; text-align: center;
     box-shadow: 0 14px 34px rgba(22,49,95,0.28); }
-  .kpi-item b { display: block; font-family: var(--font-title); font-size: 36px; font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 8px; }
-  .kpi-item span { font-size: 13.5px; color: rgba(255,255,255,0.88); line-height: 1.55; }
-  @media (max-width: 600px) { .kpi-banner { grid-template-columns: 1fr; padding: 28px 24px; } }
+  .kpi-item b { display: block; font-family: var(--font-title); font-size: 42px; font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 10px; }
+  .kpi-item span { font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.55; }
+  @media (max-width: 600px) { .kpi-banner { padding: 30px 24px; max-width: 100%; } .kpi-item b { font-size: 34px; } }
 
   .decile-mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 4px; }
   .mini-chart-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 12px 12px 6px; position: relative; }
   .mini-chart-card h5 { font-size: 12.5px; font-weight: 700; margin: 0 0 4px; color: var(--text); }
+  .mini-chart-card .chart-svg-wrap { overflow: visible; }
+  .subsidy-chart-card .mini-chart-card svg { min-width: 0; width: 100%; }
   @media (max-width: 900px) { .decile-mini-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 560px) { .decile-mini-grid { grid-template-columns: 1fr; } }
-
+  @media (max-width: 560px) {
+    .decile-mini-grid { grid-template-columns: 1fr; gap: 10px; }
+    .mini-chart-card { padding: 10px 10px 4px; }
+    .subsidy-chart-card { padding: 18px 14px 16px; }
+    .kpi-banner { border-radius: 14px; }
+  }
 </style>
-
-<style id="mobile-container-fix">
-/* Mobile viewport fix: keep one page container, but let it fit the screen exactly */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.container,
-.page-header.container,
-.subsidy-page-flow.container {
-  box-sizing: border-box;
-  width: min(100% - 40px, 1120px);
-  max-width: 1120px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.subsidy-page-flow,
-.subsidy-page-flow * {
-  box-sizing: border-box;
-}
-
-.subsidy-page-flow img,
-.subsidy-page-flow svg,
-.subsidy-page-flow canvas {
-  max-width: 100%;
-}
-
-.chart-svg-wrap {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-@media (max-width: 768px) {
-  .container,
-  .page-header.container,
-  .subsidy-page-flow.container {
-    width: calc(100% - 28px);
-    max-width: none;
-  }
-
-  .page-header.container {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .subsidy-page-flow.container,
-  .subsidy-page-flow.container section,
-  .subsidy-page-flow.container .container {
-    max-width: 100%;
-  }
-
-  .article-chart-card,
-  .subsidy-chart-card,
-  .kpi-banner,
-  .pub-tags-block,
-  .article-refs {
-    width: 100%;
-    max-width: 100% !important;
-  }
-
-  [style*="width:700px"],
-  [style*="width: 700px"],
-  [style*="width:820px"],
-  [style*="width: 820px"],
-  [style*="width:900px"],
-  [style*="width: 900px"] {
-    max-width: 100% !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .container,
-  .page-header.container,
-  .subsidy-page-flow.container {
-    width: calc(100% - 24px);
-  }
-
-  .article-chart-card,
-  .subsidy-chart-card {
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-  }
-}
-</style>
-
 </head>
 <body data-page="article">
 <header class="site-nav">
@@ -203,18 +120,13 @@ html, body {
   </div>
 
   <div class="pub-downloads">
-    <a class="btn btn-primary" href="#" download>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-      تحميل PDF
-    </a>
-    <a class="btn btn-outline" href="#" download>
+    <a class="btn btn-outline" href="assets/publications/Subsidy-Reform-Tunisia-Data-Code.zip" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
       تحميل البيانات والكود
     </a>
   </div>
 </div>
 
-<main class="subsidy-page-flow container">
 <div class="pub-abstract">
   <h2>الملخص</h2>
   <p>تدرس هذه الورقة من يستفيد فعلياً من منظومة الدعم الموجهة للمواد الغذائية والطاقية الأساسية في تونس. اعتماداً على بيانات على مستوى الأسرة من مسح ميزانية واستهلاك الأسر لسنة 2021، مقارنة بمعدلات الدعم الرسمية والكلفة المالية الإجمالية المنشورة في ميزانية المواطن لسنة 2025، تقدر الورقة أي جزء من كل دعم يصل فعلاً إلى الأسر، وكيف يتوزع هذا الجزء بين مختلف فئات الدخل، وأي جزء لا يصل إطلاقاً إلى أسرة يمكن رصدها في المسح.</p>
@@ -224,7 +136,6 @@ html, body {
 
 <div class="kpi-banner">
   <div class="kpi-item"><b>4.69 مليار د</b><span>التوفير السنوي الممكن للدولة من خلال قصر الدعم على أدنى 60% من السكان</span></div>
-  <div class="kpi-item"><b>70.6%</b><span>حصة الإنفاق الحالي على هذه المنتجات التي لا تصل إلى أدنى 60% من الأسر</span></div>
 </div>
 <p class="stat-note">المصدر: حسابات الباحث، اعتماداً على مسح ميزانية واستهلاك الأسر 2021 وميزانية المواطن 2025. يبقى دعم الغزوال شاملاً لكل الفئات في سيناريو الإصلاح هذا، ولذلك لا يساهم بأي توفير في هذا المجموع.</p>
 
@@ -245,7 +156,7 @@ html, body {
 </div>
 
 <section class="subsidy-figures">
-  
+  <div class="container">
 
     <div class="figures-heading">
       <h2>1. من يستهلك ماذا: توزع الإنفاق المدعوم حسب العشرات</h2>
@@ -320,10 +231,12 @@ html, body {
       <div class="chart-svg-wrap" data-widget="savings-chart" style="min-height:390px;"></div>
       <p class="chart-source">إجمالي التوفير الممكن: 4,689 مليون دينار، أي ما يعادل 70.6% من إجمالي الكلفة المالية البالغة 6,646 مليون دينار لهذه المنتجات الأحد عشر، و46.2% من العجز المرتقب لميزانية 2025 والبالغ 10,150 مليون دينار. هذا تقدير أعلى حد ممكن، يفترض استهدافاً مثالياً بدون كلفة إدارية أو تسرب أو تغير في السلوك الاستهلاكي.</p>
     </div>
+
+  </div>
 </section>
 
 <section style="padding-top:0;">
-  
+  <div class="container">
     <div class="article-refs">
       <h4 style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin:0 0 16px;">البيانات والمنهجية</h4>
       <ol>
@@ -333,9 +246,8 @@ html, body {
         <li>يُعرض الخبز كفئتين رسميتين منفصلتين، الخبز والباقات، لكل منهما وزنها الرسمي وسعرها وسعر بيعها ومعدل دعمها وحصتها من ميزانية دعم المواد الأساسية، بدلاً من اعتماد معدل واحد مدموج للفئتين معاً.</li>
       </ol>
     </div>
+  </div>
 </section>
-
-</main>
 
 <footer class="site-footer">
   <div class="container">
@@ -507,7 +419,7 @@ html, body {
         var x = padL + i * (barW + barGap);
         var yTop = yPix(vals[i]), yBase = yPix(0);
         var color = lerpColor(lightC, darkC, i / 9);
-        bars += '<rect data-bar data-i="' + i + '" x="' + x.toFixed(1) + '" y="' + yTop.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + Math.max(yBase - yTop, 0.5).toFixed(1) + '" fill="' + color + '" rx="1.5"/>';
+        bars += '<rect data-bar data-i="' + i + '" x="' + x.toFixed(1) + '" y="' + yTop.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + Math.max(yBase - yTop, 0.5).toFixed(1) + '" fill="' + color + '" rx="3"/>';
         if (i === 0 || i === 4 || i === 9) {
           xlabels += '<text x="' + (x + barW / 2).toFixed(1) + '" y="' + (H - padB + 11) + '" text-anchor="middle" font-size="8.5" fill="var(--text-muted)">D' + (i + 1) + '</text>';
         }
@@ -564,9 +476,9 @@ html, body {
     data.forEach(function (d, i) {
       var cy = padT + i * rowH, barH = 16, y = cy + (rowH - barH) / 2 + 3;
       var x0 = padL, x1 = xPix(d.b60), x2 = xPix(d.b60 + d.t40), x3 = xPix(100);
-      rows += '<rect data-hh data-i="' + i + '" data-s="b60" x="' + x0.toFixed(1) + '" y="' + y + '" width="' + Math.max(x1 - x0, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradB60)"/>';
-      rows += '<rect data-hh data-i="' + i + '" data-s="t40" x="' + x1.toFixed(1) + '" y="' + y + '" width="' + Math.max(x2 - x1, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradT40)"/>';
-      rows += '<rect data-hh data-i="' + i + '" data-s="nonhh" x="' + x2.toFixed(1) + '" y="' + y + '" width="' + Math.max(x3 - x2, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradNonhh)"/>';
+      rows += '<rect data-hh data-i="' + i + '" data-s="b60" x="' + x0.toFixed(1) + '" y="' + y + '" width="' + Math.max(x1 - x0, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradB60)" rx="3"/>';
+      rows += '<rect data-hh data-i="' + i + '" data-s="t40" x="' + x1.toFixed(1) + '" y="' + y + '" width="' + Math.max(x2 - x1, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradT40)" rx="3"/>';
+      rows += '<rect data-hh data-i="' + i + '" data-s="nonhh" x="' + x2.toFixed(1) + '" y="' + y + '" width="' + Math.max(x3 - x2, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradNonhh)" rx="3"/>';
       labels += '<text x="' + (padL - 10) + '" y="' + (cy + rowH / 2 + 4) + '" text-anchor="end" font-size="11" fill="var(--text)">' + nameOf(d.key) + '</text>';
     });
 
@@ -622,8 +534,8 @@ html, body {
     var rows = '', labels = '';
     data.forEach(function (d, i) {
       var cy = padT + i * rowH, barH = 9, y1 = cy + rowH / 2 - barH - 1, y2 = cy + rowH / 2 + 1;
-      rows += '<rect data-pov data-i="' + i + '" data-s="poor" x="' + padL + '" y="' + y1.toFixed(1) + '" width="' + Math.max(xPix(d.poor) - padL, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradPoor)"/>';
-      rows += '<rect data-pov data-i="' + i + '" data-s="extreme" x="' + padL + '" y="' + y2.toFixed(1) + '" width="' + Math.max(xPix(d.extreme) - padL, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradExtreme)"/>';
+      rows += '<rect data-pov data-i="' + i + '" data-s="poor" x="' + padL + '" y="' + y1.toFixed(1) + '" width="' + Math.max(xPix(d.poor) - padL, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradPoor)" rx="2.5"/>';
+      rows += '<rect data-pov data-i="' + i + '" data-s="extreme" x="' + padL + '" y="' + y2.toFixed(1) + '" width="' + Math.max(xPix(d.extreme) - padL, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradExtreme)" rx="2.5"/>';
       labels += '<text x="' + (padL - 10) + '" y="' + (cy + rowH / 2 + 4) + '" text-anchor="end" font-size="11" fill="var(--text)">' + nameOf(d.key) + '</text>';
     });
 
@@ -684,7 +596,7 @@ html, body {
       var cy = padT + i * rowH, barH = 16, y = cy + (rowH - barH) / 2;
       var w = d.kept ? plotW * 0.06 : Math.max(xPix(d.v) - padL, 1);
       var color = d.kept ? '#9AA3AE' : (catOf(d.key) === 'food' ? 'url(#gradSavFood)' : 'url(#gradSavEnergy)');
-      rows += '<rect data-sav data-i="' + i + '" x="' + padL + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + barH + '" fill="' + color + '" rx="2"/>';
+      rows += '<rect data-sav data-i="' + i + '" x="' + padL + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + barH + '" fill="' + color + '" rx="4"/>';
       labels += '<text x="' + (padL - 10) + '" y="' + (cy + rowH / 2 + 4) + '" text-anchor="end" font-size="11" fill="var(--text)">' + nameOf(d.key) + '</text>';
       var vtext = d.kept ? 'يبقى شاملاً' : fmt1(d.v) + ' م.د';
       vlabels += '<text x="' + (padL + w + 8).toFixed(1) + '" y="' + (cy + rowH / 2 + 4) + '" font-size="10.5" font-style="' + (d.kept ? 'italic' : 'normal') + '" fill="' + (d.kept ? 'var(--text-muted)' : 'var(--text)') + '">' + vtext + '</text>';
