@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إصلاح منظومة الدعم في تونس: من يستفيد من النظام الحالي؟ - Mohamed Baraa Lafi</title>
+<meta name="description" content="من يستفيد فعلياً من منظومة دعم المواد الغذائية والطاقية في تونس؟ دراسة قياس الأثر باستخدام مسح ميزانية واستهلاك الأسر 2021 وميزانية المواطن 2025، مع تقدير للتوفير المالي الممكن من خلال قصر الدعم على أدنى 60% من السكان.">
+<link rel="stylesheet" href="style.css?v=202607230823">
+<link rel="icon" href="assets/logo-circle.png">
+
+<!-- Open Graph / social share preview -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mohamed Baraa Lafi">
+<meta property="og:title" content="إصلاح منظومة الدعم في تونس: من يستفيد من النظام الحالي؟">
+<meta property="og:description" content="من يستفيد فعلياً من منظومة دعم المواد الغذائية والطاقية في تونس؟ دراسة قياس الأثر باستخدام مسح ميزانية واستهلاك الأسر 2021 وميزانية المواطن 2025.">
+<meta property="og:image" content="https://baraalafi.com/assets/publications/subsidy-og-preview-ar.png">
+<meta property="og:url" content="https://baraalafi.com/publication-subsidy-reform-tunisia-ar.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="إصلاح منظومة الدعم في تونس: من يستفيد من النظام الحالي؟">
+<meta name="twitter:description" content="دراسة قياس أثر منظومة الدعم في تونس، اعتماداً على مسح ميزانية واستهلاك الأسر 2021.">
+
+<style>
+  .chart-legend { display: flex; flex-wrap: wrap; gap: 16px; margin: 2px 0 16px; font-size: 12.5px; color: var(--text-muted); }
+  .chart-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .chart-legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .stat-note { font-size: 12px; color: var(--text-muted); text-align: center; max-width: 900px; margin: 10px auto 0; }
+
+  .kpi-banner { max-width: 720px; margin: 34px auto 0; background: linear-gradient(135deg, #16315F 0%, #2F80ED 100%);
+    border-radius: 18px; padding: 38px 34px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;
+    box-shadow: 0 14px 34px rgba(22,49,95,0.28); }
+  .kpi-item b { display: block; font-family: var(--font-title); font-size: 36px; font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 8px; }
+  .kpi-item span { font-size: 13.5px; color: rgba(255,255,255,0.88); line-height: 1.55; }
+  @media (max-width: 600px) { .kpi-banner { grid-template-columns: 1fr; padding: 28px 24px; } }
+
+  .decile-mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 4px; }
+  .mini-chart-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 12px 12px 6px; position: relative; }
+  .mini-chart-card h5 { font-size: 12.5px; font-weight: 700; margin: 0 0 4px; color: var(--text); }
+  @media (max-width: 900px) { .decile-mini-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .decile-mini-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-page="article">
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-circle.png" alt="MBL">
+      <span class="brand-text"><b data-i18n="brand_name">Mohamed Baraa Lafi</b></span>
+    </a>
+    <nav class="primary-nav" id="primary-nav">
+      <a href="index.html" data-i18n-aria="nav_home" aria-label="الرئيسية">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9"/></svg>
+      </a>
+      <a href="publications.html" data-i18n="nav_publications" class="active">Publications</a>
+      <a href="articles.html" data-i18n="nav_articles">Articles</a>
+      <a href="cv.html" data-i18n="nav_cv">CV</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-tools">
+      <div class="lang-switch">
+        <button data-lang="en">EN</button>
+        <button data-lang="ar">AR</button>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="تبديل المظهر">
+        <svg id="theme-icon" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="burger" id="burger" aria-label="القائمة"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page-header container reveal d1">
+  <a href="publications.html" class="back-to-list">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    <span data-i18n="nav_publications">Publications</span>
+  </a>
+  <div class="pub-meta-row" style="margin-bottom:10px;">
+    <span class="tag" style="margin-bottom:0;">أوت 2026</span>
+    <span class="badge badge-type">ورقة عمل</span>
+    <span class="badge badge-draft">الورقة متاحة</span>
+  </div>
+  <h1 class="pub-title">إصلاح منظومة الدعم في تونس: من يستفيد من النظام الحالي؟ دراسة قياس الأثر اعتماداً على مسح ميزانية واستهلاك الأسر 2021</h1>
+  <div class="pub-authors" data-cite-key="lafi2026subsidy">
+    <b>محمد براّع اللافي</b>
+    <span class="venue">مدرسة باريس للاقتصاد (PSE)</span>
+  </div>
+  <div class="accent-underline"></div>
+
+  <div class="share-bar academic-share">
+    <span class="share-label" data-i18n="share_label">شارك:</span>
+    <button class="share-btn" id="share-copy" type="button" aria-label="نسخ الرابط" title="نسخ الرابط">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    </button>
+    <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener" aria-label="X" title="مشاركة على X">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="share-btn" id="share-fb" href="#" target="_blank" rel="noopener" aria-label="فيسبوك" title="فيسبوك">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.5c0-.9.25-1.5 1.6-1.5H16.5V4.3c-.28-.04-1.25-.13-2.37-.13-2.35 0-3.96 1.44-3.96 4.08V10.5H7.6v3h2.57V21h3.33z"/></svg>
+    </a>
+    <a class="share-btn" id="share-linkedin" href="#" target="_blank" rel="noopener" aria-label="لينكدإن" title="لينكدإن">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM7 8.48H3V21h4V8.48zM13.5 8.48H9.75V21h3.75v-6.4c0-3.4 4.5-3.68 4.5 0V21H21v-7.93c0-6.2-6.9-5.97-7.5-2.92V8.48z"/></svg>
+    </a>
+    <span class="share-divider" aria-hidden="true"></span>
+    <button class="share-btn-pill" id="cite-apa" type="button" title="نسخ الاستشهاد بنمط APA">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="M6 10.5V15c0 1.5 2.5 3 6 3s6-1.5 6-3v-4.5"/></svg>
+      <span data-i18n="cite_apa">Cite (APA)</span>
+    </button>
+    <button class="share-btn-pill" id="cite-bibtex" type="button" title="نسخ صيغة BibTeX">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 3 12 8 18"/><polyline points="16 6 21 12 16 18"/></svg>
+      <span>BibTeX</span>
+    </button>
+    <span class="share-copied" id="share-copied-msg" data-i18n="share_copied" hidden>Link copied!</span>
+    <span class="share-copied" id="cite-copied-msg" data-i18n="cite_copied" hidden>Citation copied!</span>
+  </div>
+
+  <div class="pub-downloads">
+    <a class="btn btn-primary" href="#" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      تحميل PDF
+    </a>
+    <a class="btn btn-outline" href="#" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
+      تحميل البيانات والكود
+    </a>
+  </div>
+</div>
+
+<div class="pub-abstract">
+  <h2>الملخص</h2>
+  <p>تدرس هذه الورقة من يستفيد فعلياً من منظومة الدعم الموجهة للمواد الغذائية والطاقية الأساسية في تونس. اعتماداً على بيانات على مستوى الأسرة من مسح ميزانية واستهلاك الأسر لسنة 2021، مقارنة بمعدلات الدعم الرسمية والكلفة المالية الإجمالية المنشورة في ميزانية المواطن لسنة 2025، تقدر الورقة أي جزء من كل دعم يصل فعلاً إلى الأسر، وكيف يتوزع هذا الجزء بين مختلف فئات الدخل، وأي جزء لا يصل إطلاقاً إلى أسرة يمكن رصدها في المسح.</p>
+  <p style="margin-top:16px;">تظهر النتائج تفاوتاً كبيراً بين المنتجات. فبعض المواد الأساسية، خاصة السميد والخبز الكبير، تستفيد منها الأسر الفقيرة وأدنى ستين بالمائة من السكان بنسبة تفوق حصتهم من عدد السكان. في المقابل، يذهب معظم دعم البنزين والغزوال إلى الأسر الأكثر ثراء أو لا يصل إطلاقاً إلى أسرة، وهو ما يرجح أن يكون متجهاً إلى قطاع النقل والقطاع التجاري. كما يظهر تقسيم الخبز إلى فئتيه الرسميتين، الخبز والباقات، أن لهما وضعية توزيعية مختلفة تماماً رغم أن الإحصائيات الرسمية تجمعهما عادة في رقم واحد.</p>
+  <p style="margin-top:16px;">استناداً إلى هذه التقديرات، تخلص الورقة إلى أن قصر هذه الإعانات على أدنى ستين بالمائة من السكان، مع الإبقاء على دعم الغزوال شاملاً لكل الفئات لتفادي صدمة في كلفة النقل، يمكن أن يوفر للدولة نحو أربعة مليارات وسبعمائة مليون دينار سنوياً. وهو مبلغ يفوق سبعين بالمائة من الإنفاق الحالي على هذه المنتجات ويقارب نصف العجز المرتقب لميزانية الدولة لسنة 2025.</p>
+</div>
+
+<div class="kpi-banner">
+  <div class="kpi-item"><b>4.69 مليار د</b><span>التوفير السنوي الممكن للدولة من خلال قصر الدعم على أدنى 60% من السكان</span></div>
+  <div class="kpi-item"><b>70.6%</b><span>حصة الإنفاق الحالي على هذه المنتجات التي لا تصل إلى أدنى 60% من الأسر</span></div>
+</div>
+<p class="stat-note">المصدر: حسابات الباحث، اعتماداً على مسح ميزانية واستهلاك الأسر 2021 وميزانية المواطن 2025. يبقى دعم الغزوال شاملاً لكل الفئات في سيناريو الإصلاح هذا، ولذلك لا يساهم بأي توفير في هذا المجموع.</p>
+
+<div class="pub-tags-block">
+  <div>
+    <h4>الكلمات المفتاحية</h4>
+    <div class="skill-pills">
+      <span>تونس</span><span>إصلاح منظومة الدعم</span><span>دعم المواد الغذائية</span><span>دعم الطاقة</span>
+      <span>قياس الأثر</span><span>استهداف الدعم</span><span>الفقر</span><span>مسح ميزانية الأسر</span>
+    </div>
+  </div>
+  <div>
+    <h4>التصنيف JEL</h4>
+    <div class="skill-pills">
+      <span>H23</span><span>I38</span><span>Q18</span><span>D31</span>
+    </div>
+  </div>
+</div>
+
+<section class="subsidy-figures">
+  <div class="container">
+
+    <div class="figures-heading">
+      <h2>1. من يستهلك ماذا: توزع الإنفاق المدعوم حسب العشرات</h2>
+      <p>حصة إنفاق كل منتج من إنفاق الأسر الوطني على العشرات العشرة لتوزيع الاستهلاك الفردي، من أفقر عشر من السكان (D1) إلى أغناهم (D10). يمثل الخط المنقط نسبة 10%، وهي الحصة التي سيحصل عليها كل عشر لو تم توزيع الاستهلاك بالتساوي. تزداد درجة لون العمود من D1 إلى D10.</p>
+    </div>
+    <div class="article-chart-card subsidy-chart-card" style="max-width:900px;">
+      <h4>المواد الغذائية</h4>
+      <p class="chart-sub">حصة إنفاق الأسر الوطني من المنتج حسب العشرة &middot; مرّر المؤشر أو انقر على عمود</p>
+      <div class="decile-mini-grid" data-decile-grid="food">
+        <div class="mini-chart-card"><h5>الزيت النباتي</h5><div data-decile-key="oil"></div></div>
+        <div class="mini-chart-card"><h5>الحليب</h5><div data-decile-key="milk"></div></div>
+        <div class="mini-chart-card"><h5>القهوة</h5><div data-decile-key="coffee"></div></div>
+        <div class="mini-chart-card"><h5>الفرينة</h5><div data-decile-key="flour"></div></div>
+        <div class="mini-chart-card"><h5>الخبز</h5><div data-decile-key="grospain"></div></div>
+        <div class="mini-chart-card"><h5>الباقات</h5><div data-decile-key="baguette"></div></div>
+        <div class="mini-chart-card"><h5>السميد</h5><div data-decile-key="semolina"></div></div>
+        <div class="mini-chart-card"><h5>الكسكسي</h5><div data-decile-key="couscous"></div></div>
+        <div class="mini-chart-card"><h5>العجين</h5><div data-decile-key="pasta"></div></div>
+      </div>
+      <p class="chart-source">المصدر: حسابات الباحث اعتماداً على مسح 2021، حيث تم احتساب كميات استهلاك الأسر سنوياً انطلاقاً من دفتر نفقات أسبوعي ومرجّحة على مستوى السكان.</p>
+    </div>
+    <div class="article-chart-card subsidy-chart-card" style="max-width:900px;">
+      <h4>مواد الطاقة</h4>
+      <p class="chart-sub">حصة إنفاق الأسر الوطني من المنتج حسب العشرة &middot; مرّر المؤشر أو انقر على عمود</p>
+      <div class="decile-mini-grid" data-decile-grid="energy" style="grid-template-columns:repeat(4,1fr);">
+        <div class="mini-chart-card"><h5>قوارير الغاز</h5><div data-decile-key="gpl"></div></div>
+        <div class="mini-chart-card"><h5>البنزين</h5><div data-decile-key="essence"></div></div>
+        <div class="mini-chart-card"><h5>الغزوال</h5><div data-decile-key="gasoil"></div></div>
+        <div class="mini-chart-card"><h5>الكهرباء والغاز</h5><div data-decile-key="elecgas"></div></div>
+      </div>
+      <p class="chart-source">المصدر: حسابات الباحث اعتماداً على مسح 2021، حيث تم احتساب كميات استهلاك الأسر سنوياً انطلاقاً من دفتر نفقات أسبوعي ومرجّحة على مستوى السكان.</p>
+    </div>
+
+    <div class="figure-section-title">
+      <h3>2. إلى أين تذهب أموال الدعم فعلياً: الأسر مقابل الجهات غير الأسرية</h3>
+      <p>بالنسبة لكل منتج له معدل دعم رسمي منشور، يقسّم هذا الرسم الكلفة المالية الإجمالية إلى ثلاثة أجزاء: أدنى 60% من الأسر، وأعلى 40% منها، وكل ما لا يصل إطلاقاً إلى أسرة يمكن رصدها، والمرجح أن يذهب أساساً إلى الشركات والمؤسسات العمومية، وفي حالة المحروقات، إلى قطاع النقل.</p>
+    </div>
+    <div class="article-chart-card subsidy-chart-card" style="max-width:820px;">
+      <h4>توزيع الكلفة المالية الرسمية لكل منتج</h4>
+      <p class="chart-sub">نسبة مئوية من إجمالي الكلفة المالية &middot; مرّر المؤشر أو انقر على جزء من العمود</p>
+      <div class="chart-legend">
+        <span><i style="background:var(--navy-700);"></i>أدنى 60% من الأسر</span>
+        <span><i style="background:#F0A24B;"></i>أعلى 40% من الأسر</span>
+        <span><i style="background:#B3282D;"></i>خارج الأسر</span>
+      </div>
+      <div class="chart-svg-wrap" data-widget="household-split" style="min-height:400px;"></div>
+      <p class="chart-source">المصدر: حسابات الباحث، بالجمع بين كميات استهلاك الأسر من مسح 2021 ومعدلات الدعم الرسمية الصادرة عن وزارة المالية، ميزانية المواطن 2025. تُستثنى القهوة والكهرباء والغاز من هذا الرسم، إذ لا يوجد معدل دعم رسمي للوحدة منشور لأي منهما.</p>
+    </div>
+
+    <div class="figure-section-title">
+      <h3>3. استهداف الفقراء: هل هم فعلاً من يستفيد؟</h3>
+      <p>حصة كل منتج من إنفاق الأسر الوطني التي تحصل عليها تحديداً الأسر الفقيرة والأسر في فقر مدقع. تمثل الخطوط المتقطعة الحصة السكانية لكل فئة. المنتج الذي يتجاوز عموده الخط المتقطع يُعتبر منحازاً لصالح الفقراء، أما الذي لا يبلغه فليس كذلك.</p>
+    </div>
+    <div class="article-chart-card subsidy-chart-card" style="max-width:820px;">
+      <h4>الحصة التي تحصل عليها الأسر الفقيرة والأسر في فقر مدقع</h4>
+      <p class="chart-sub">نسبة مئوية من إنفاق الأسر الوطني على المنتج &middot; مرّر المؤشر أو انقر على عمود</p>
+      <div class="chart-legend">
+        <span><i style="background:var(--navy-700);"></i>الأسر الفقيرة (16.6% من السكان)</span>
+        <span><i style="background:#F0A24B;"></i>الأسر في فقر مدقع (2.9% من السكان)</span>
+      </div>
+      <div class="chart-svg-wrap" data-widget="poverty-chart" style="min-height:420px;"></div>
+      <p class="chart-source">المصدر: حسابات الباحث اعتماداً على مسح 2021، باستخدام مؤشرات الفقر والفقر المدقع الرسمية الواردة في المسح نفسه.</p>
+    </div>
+
+    <div class="figure-section-title">
+      <h3>4. التوفير المالي الممكن من خلال إصلاح استهداف الدعم</h3>
+      <p>بالنسبة لكل منتج باستثناء الغزوال: المبلغ الذي يمكن للدولة توفيره سنوياً بقصر ذلك الدعم على أدنى 60% من السكان، أي حصة أعلى 40% من الأسر مضافاً إليها كل ما لا يصل إلى أسرة، مضروبة في الكلفة المالية الرسمية. يُستثنى الغزوال عمداً ويبقى مدعوماً للجميع، فأسعاره تدخل مباشرة في كلفة النقل والشحن والفلاحة، وسحب الدعم عنه ولو من الأسر الأغنى فقط قد يتسبب في صدمة أسعار تشمل الاقتصاد كله وتضر في النهاية بالأسر الفقيرة ذاتها التي يهدف الإصلاح إلى حمايتها.</p>
+    </div>
+    <div class="article-chart-card subsidy-chart-card" style="max-width:820px;">
+      <h4>التوفير السنوي الممكن حسب المنتج</h4>
+      <p class="chart-sub">بملايين الدنانير &middot; مرتبة من الأكبر إلى الأصغر &middot; يظهر الغزوال بلون رمادي، إذ يبقى مدعوماً للجميع</p>
+      <div class="chart-svg-wrap" data-widget="savings-chart" style="min-height:390px;"></div>
+      <p class="chart-source">إجمالي التوفير الممكن: 4,689 مليون دينار، أي ما يعادل 70.6% من إجمالي الكلفة المالية البالغة 6,646 مليون دينار لهذه المنتجات الأحد عشر، و46.2% من العجز المرتقب لميزانية 2025 والبالغ 10,150 مليون دينار. هذا تقدير أعلى حد ممكن، يفترض استهدافاً مثالياً بدون كلفة إدارية أو تسرب أو تغير في السلوك الاستهلاكي.</p>
+    </div>
+
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="article-refs">
+      <h4 style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin:0 0 16px;">البيانات والمنهجية</h4>
+      <ol>
+        <li>المعهد الوطني للإحصاء، تونس. <i>المسح الوطني لميزانية واستهلاك ومستوى عيش الأسر 2021.</i> بيانات دقيقة على مستوى الأسرة تخص الإنفاق والكميات المستهلكة والوضعية الرسمية إزاء الفقر.</li>
+        <li>وزارة المالية، تونس. <i>ميزانية المواطن 2025.</i> معدلات الدعم الرسمية للوحدة والكلفة المالية الإجمالية حسب المنتج.</li>
+        <li>تم احتساب كميات استهلاك الأسر سنوياً انطلاقاً من دفتر النفقات الأسبوعي الخاص بالمسح، بعد استبعاد التصريحات التكميلية التي كانت ستؤدي إلى احتساب نفس المشتريات مرتين.</li>
+        <li>يُعرض الخبز كفئتين رسميتين منفصلتين، الخبز والباقات، لكل منهما وزنها الرسمي وسعرها وسعر بيعها ومعدل دعمها وحصتها من ميزانية دعم المواد الأساسية، بدلاً من اعتماد معدل واحد مدموج للفئتين معاً.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:14px;">
+          <img src="assets/logo-circle.png" alt="MBL" style="width:38px;height:38px;">
+          <span class="brand-text"><b style="color:#fff;" data-i18n="brand_name">Mohamed Baraa Lafi</b></span>
+        </div>
+        <p data-i18n="hero_lead" style="max-width:38ch;">Young economics researcher, currently studying at the Paris School of Economics. My work focuses on economic growth, institutions and development.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer_quick">Quick links</h4>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="publications.html" data-i18n="nav_publications">Publications</a>
+        <a href="articles.html" data-i18n="nav_articles">Articles</a>
+        <a href="cv.html" data-i18n="nav_cv">CV</a>
+      </div>
+      <div>
+        <h4 data-i18n="footer_contact">Contact</h4>
+        <a href="mailto:contact@baraalafi.com">contact@baraalafi.com</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        <div class="socials" style="margin-top:12px;">
+          <a href="https://www.researchgate.net/profile/Mohamed-Baraa-Lafi?ev=hdr_xprf" target="_blank" rel="noopener" aria-label="ResearchGate">R</a>
+          <a href="https://www.linkedin.com/in/mohamed-baraa-lafi-/?skipRedirect=true" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://x.com/baraa_lafi_" target="_blank" rel="noopener" aria-label="X">X</a>
+          <a href="https://www.facebook.com/medbaraalafi" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a href="mailto:contact@baraalafi.com" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Mohamed Baraa Lafi — <span data-i18n="footer_rights">All rights reserved.</span></span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="app.js"></script>
+<script>
+(function () {
+  var GRID = 'var(--border)';
+  // Fixed hex gradients (not CSS vars) so they render identically in light and
+  // dark mode, matching the site's existing hardcoded energy gradient.
+  var FOOD_LIGHT = '#AFC6E3', FOOD_DARK = '#0D4F8B';
+  var ENERGY_LIGHT = '#F0A24B', ENERGY_DARK = '#B3282D';
+  var ORANGE = '#F0A24B', RED = '#B3282D', NAVY_HEX = '#16315F';
+
+  var PRODUCTS = [
+    { key: 'oil', name: 'الزيت النباتي', cat: 'food' },
+    { key: 'milk', name: 'الحليب', cat: 'food' },
+    { key: 'coffee', name: 'القهوة', cat: 'food' },
+    { key: 'flour', name: 'الفرينة', cat: 'food' },
+    { key: 'grospain', name: 'الخبز', cat: 'food' },
+    { key: 'baguette', name: 'الباقات', cat: 'food' },
+    { key: 'semolina', name: 'السميد', cat: 'food' },
+    { key: 'couscous', name: 'الكسكسي', cat: 'food' },
+    { key: 'pasta', name: 'العجين', cat: 'food' },
+    { key: 'gpl', name: 'قوارير الغاز', cat: 'energy' },
+    { key: 'essence', name: 'البنزين', cat: 'energy' },
+    { key: 'gasoil', name: 'الغزوال', cat: 'energy' },
+    { key: 'elecgas', name: 'الكهرباء والغاز', cat: 'energy' }
+  ];
+
+  var DECILE_DATA = {
+    oil: [5.8, 6.9, 6.6, 8.0, 8.2, 11.0, 9.2, 10.1, 14.6, 19.5],
+    milk: [4.1, 5.5, 6.3, 6.8, 7.1, 7.9, 8.3, 9.1, 9.9, 34.9],
+    coffee: [2.9, 5.2, 5.5, 6.6, 7.5, 8.3, 9.5, 10.8, 12.6, 31.1],
+    flour: [5.2, 6.4, 7.9, 8.4, 8.1, 9.9, 11.7, 11.8, 13.6, 16.9],
+    grospain: [11.1, 11.7, 11.8, 10.6, 10.2, 10.3, 8.8, 9.4, 8.2, 7.8],
+    baguette: [4.9, 6.2, 7.1, 7.8, 8.4, 9.3, 9.7, 10.3, 20.0, 16.4],
+    semolina: [14.5, 11.4, 10.3, 8.9, 9.2, 9.8, 9.0, 8.9, 8.5, 9.3],
+    couscous: [7.4, 8.4, 8.3, 8.2, 8.5, 8.9, 10.0, 10.2, 12.8, 17.2],
+    pasta: [7.8, 8.3, 8.8, 8.4, 8.7, 9.7, 10.1, 11.2, 12.1, 15.0],
+    gpl: [7.1, 7.9, 9.3, 9.5, 10.0, 9.8, 10.7, 10.8, 11.9, 13.0],
+    essence: [1.5, 3.3, 3.9, 5.0, 6.8, 7.9, 10.4, 12.1, 16.7, 32.4],
+    gasoil: [2.5, 4.0, 6.4, 6.5, 7.1, 10.3, 12.6, 11.3, 14.6, 24.6],
+    elecgas: [4.2, 5.3, 6.2, 7.1, 7.9, 8.6, 10.6, 11.6, 14.3, 24.3]
+  };
+
+  var HOUSEHOLD_SPLIT = [
+    { key: 'gasoil', b60: 2.6, t40: 4.5 },
+    { key: 'flour', b60: 10.5, t40: 12.5 },
+    { key: 'oil', b60: 23.7, t40: 21.6 },
+    { key: 'couscous', b60: 25.9, t40: 25.0 },
+    { key: 'baguette', b60: 29.5, t40: 30.1 },
+    { key: 'pasta', b60: 36.2, t40: 32.8 },
+    { key: 'milk', b60: 36.5, t40: 38.8 },
+    { key: 'essence', b60: 23.6, t40: 59.4 },
+    { key: 'grospain', b60: 46.7, t40: 23.4 },
+    { key: 'semolina', b60: 53.7, t40: 29.9 },
+    { key: 'gpl', b60: 51.5, t40: 44.6 }
+  ];
+
+  var POVERTY_DATA = [
+    { key: 'essence', poor: 2.6, extreme: 0.2 },
+    { key: 'gasoil', poor: 3.4, extreme: 0.0 },
+    { key: 'coffee', poor: 6.0, extreme: 0.4 },
+    { key: 'elecgas', poor: 7.9, extreme: 0.9 },
+    { key: 'milk', poor: 8.1, extreme: 0.9 },
+    { key: 'flour', poor: 8.5, extreme: 0.8 },
+    { key: 'baguette', poor: 9.4, extreme: 1.0 },
+    { key: 'oil', poor: 10.5, extreme: 1.2 },
+    { key: 'pasta', poor: 13.5, extreme: 1.9 },
+    { key: 'couscous', poor: 13.6, extreme: 1.7 },
+    { key: 'gpl', poor: 13.7, extreme: 1.8 },
+    { key: 'grospain', poor: 18.1, extreme: 2.7 },
+    { key: 'semolina', poor: 21.0, extreme: 4.6 }
+  ];
+  var POOR_POP_SHARE = 16.6, EXTREME_POP_SHARE = 2.9;
+
+  var SAVINGS = [
+    { key: 'baguette', v: 643.1 },
+    { key: 'oil', v: 580.1 },
+    { key: 'gpl', v: 517.9 },
+    { key: 'essence', v: 326.1 },
+    { key: 'pasta', v: 315.0 },
+    { key: 'milk', v: 241.5 },
+    { key: 'grospain', v: 222.9 },
+    { key: 'couscous', v: 197.3 },
+    { key: 'semolina', v: 193.7 },
+    { key: 'flour', v: 136.1 },
+    { key: 'gasoil', v: 0, kept: true }
+  ];
+
+  function nameOf(key) { for (var i = 0; i < PRODUCTS.length; i++) if (PRODUCTS[i].key === key) return PRODUCTS[i].name; return key; }
+  function catOf(key) { for (var i = 0; i < PRODUCTS.length; i++) if (PRODUCTS[i].key === key) return PRODUCTS[i].cat; return 'food'; }
+  function fmt1(x) { return x.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }); }
+
+  function lerpColor(hex1, hex2, t) {
+    var c1 = parseInt(hex1.slice(1), 16), c2 = parseInt(hex2.slice(1), 16);
+    var r1 = (c1 >> 16) & 255, g1 = (c1 >> 8) & 255, b1 = c1 & 255;
+    var r2 = (c2 >> 16) & 255, g2 = (c2 >> 8) & 255, b2 = c2 & 255;
+    var r = Math.round(r1 + (r2 - r1) * t), g = Math.round(g1 + (g2 - g1) * t), b = Math.round(b1 + (b2 - b1) * t);
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+  }
+
+  function ensureTooltip(mount) {
+    var tip = mount.querySelector('.chart-tooltip');
+    if (!tip) { tip = document.createElement('div'); tip.className = 'chart-tooltip'; mount.appendChild(tip); }
+    return tip;
+  }
+
+  /* ---------------------------------------------------------------------
+     Decile grid: one small chart per product, all visible at once, no
+     selection needed. Bars deepen in colour from D1 (lightest) to D10
+     (darkest) -- a gradient that visually encodes "poorer to richer".
+  --------------------------------------------------------------------- */
+  function renderDecileGrid(root) {
+    var cards = root.querySelectorAll('[data-decile-key]');
+    Array.prototype.forEach.call(cards, function (card) {
+      var key = card.getAttribute('data-decile-key');
+      var vals = DECILE_DATA[key];
+      var cat = catOf(key);
+      var lightC = cat === 'food' ? FOOD_LIGHT : ENERGY_LIGHT;
+      var darkC = cat === 'food' ? FOOD_DARK : ENERGY_DARK;
+
+      var W = 260, H = 148, padL = 4, padR = 4, padT = 6, padB = 16;
+      var plotW = W - padL - padR, plotH = H - padT - padB;
+      var maxV = Math.max(20, Math.ceil((Math.max.apply(null, vals) + 2) / 5) * 5);
+      var barGap = 3;
+      var barW = (plotW - barGap * 9) / 10;
+      function yPix(v) { return padT + plotH - (v / maxV) * plotH; }
+
+      var refY = yPix(10);
+      var ref = '<line x1="' + padL + '" y1="' + refY.toFixed(1) + '" x2="' + (padL + plotW) + '" y2="' + refY.toFixed(1) + '" stroke="' + GRID + '" stroke-width="1" stroke-dasharray="2,2"/>';
+
+      var bars = '', xlabels = '';
+      for (var i = 0; i < 10; i++) {
+        var x = padL + i * (barW + barGap);
+        var yTop = yPix(vals[i]), yBase = yPix(0);
+        var color = lerpColor(lightC, darkC, i / 9);
+        bars += '<rect data-bar data-i="' + i + '" x="' + x.toFixed(1) + '" y="' + yTop.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + Math.max(yBase - yTop, 0.5).toFixed(1) + '" fill="' + color + '" rx="1.5"/>';
+        if (i === 0 || i === 4 || i === 9) {
+          xlabels += '<text x="' + (x + barW / 2).toFixed(1) + '" y="' + (H - padB + 11) + '" text-anchor="middle" font-size="8.5" fill="var(--text-muted)">D' + (i + 1) + '</text>';
+        }
+      }
+
+      card.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" direction="ltr" xmlns="http://www.w3.org/2000/svg">' + ref + bars + xlabels + '</svg>';
+
+      var tip = ensureTooltip(card);
+      var svgEl = card.querySelector('svg');
+      Array.prototype.forEach.call(card.querySelectorAll('[data-bar]'), function (bar) {
+        function activate() {
+          var i = parseInt(bar.getAttribute('data-i'), 10);
+          var rectBox = svgEl.getBoundingClientRect();
+          var sx = rectBox.width / W, sy = rectBox.height / H;
+          var bx = parseFloat(bar.getAttribute('x')) + parseFloat(bar.getAttribute('width')) / 2;
+          var by = parseFloat(bar.getAttribute('y'));
+          tip.innerHTML = '<b>D' + (i + 1) + '</b><span class="tt-sub">' + fmt1(vals[i]) + '% من الإنفاق الوطني</span>';
+          tip.style.left = (bx * sx) + 'px';
+          tip.style.top = (by * sy) + 'px';
+          tip.classList.add('visible');
+        }
+        bar.addEventListener('mouseenter', activate);
+        bar.addEventListener('touchstart', activate, { passive: true });
+      });
+      card.addEventListener('mouseleave', function () { tip.classList.remove('visible'); });
+    });
+  }
+
+  /* ---------------------------------------------------------------------
+     Household vs non-household split (stacked horizontal bars, gradient fill)
+  --------------------------------------------------------------------- */
+  function renderHouseholdSplit(mount) {
+    var data = HOUSEHOLD_SPLIT.slice().sort(function (a, b) { return (100 - a.b60 - a.t40) - (100 - b.b60 - b.t40); }).reverse();
+    var W = 700, rowH = 32, padL = 140, padR = 50, padT = 8, padB = 30;
+    var n = data.length;
+    var H = padT + padB + n * rowH;
+    var plotW = W - padL - padR;
+    function xPix(v) { return padL + (v / 100) * plotW; }
+
+    var grid = '', xlabels = '';
+    [0, 20, 40, 60, 80, 100].forEach(function (g) {
+      var x = xPix(g);
+      grid += '<line x1="' + x.toFixed(1) + '" y1="' + padT + '" x2="' + x.toFixed(1) + '" y2="' + (H - padB) + '" stroke="' + GRID + '" stroke-width="1"/>';
+      xlabels += '<text x="' + x.toFixed(1) + '" y="' + (H - padB + 16) + '" text-anchor="middle" font-size="10" fill="var(--text-muted)">' + g + '%</text>';
+    });
+
+    var defs = '<defs>' +
+      '<linearGradient id="gradB60" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="' + lerpColor(NAVY_HEX, '#000000', 0) + '"/><stop offset="100%" stop-color="' + lerpColor(NAVY_HEX, '#3B6EA8', 1) + '"/></linearGradient>' +
+      '<linearGradient id="gradT40" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#F7C08A"/><stop offset="100%" stop-color="' + ORANGE + '"/></linearGradient>' +
+      '<linearGradient id="gradNonhh" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#D9525A"/><stop offset="100%" stop-color="' + RED + '"/></linearGradient>' +
+      '</defs>';
+
+    var rows = '', labels = '';
+    data.forEach(function (d, i) {
+      var cy = padT + i * rowH, barH = 16, y = cy + (rowH - barH) / 2 + 3;
+      var x0 = padL, x1 = xPix(d.b60), x2 = xPix(d.b60 + d.t40), x3 = xPix(100);
+      rows += '<rect data-hh data-i="' + i + '" data-s="b60" x="' + x0.toFixed(1) + '" y="' + y + '" width="' + Math.max(x1 - x0, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradB60)"/>';
+      rows += '<rect data-hh data-i="' + i + '" data-s="t40" x="' + x1.toFixed(1) + '" y="' + y + '" width="' + Math.max(x2 - x1, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradT40)"/>';
+      rows += '<rect data-hh data-i="' + i + '" data-s="nonhh" x="' + x2.toFixed(1) + '" y="' + y + '" width="' + Math.max(x3 - x2, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradNonhh)"/>';
+      labels += '<text x="' + (padL - 10) + '" y="' + (cy + rowH / 2 + 4) + '" text-anchor="end" font-size="11" fill="var(--text)">' + nameOf(d.key) + '</text>';
+    });
+
+    mount.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + (H + 4) + '" direction="ltr" xmlns="http://www.w3.org/2000/svg"><g transform="translate(0,4)">' + defs + grid + rows + labels + xlabels + '</g></svg>';
+
+    var tip = ensureTooltip(mount);
+    var svgEl = mount.querySelector('svg');
+    var seriesLabel = { b60: 'أدنى 60% من الأسر', t40: 'أعلى 40% من الأسر', nonhh: 'خارج الأسر' };
+    Array.prototype.forEach.call(mount.querySelectorAll('[data-hh]'), function (bar) {
+      function activate() {
+        var i = parseInt(bar.getAttribute('data-i'), 10), s = bar.getAttribute('data-s');
+        var d = data[i];
+        var val = s === 'b60' ? d.b60 : (s === 't40' ? d.t40 : Math.max(100 - d.b60 - d.t40, 0));
+        var rectBox = svgEl.getBoundingClientRect();
+        var sx = rectBox.width / W, sy = rectBox.height / (H + 4);
+        var bx = parseFloat(bar.getAttribute('x')) + parseFloat(bar.getAttribute('width')) / 2;
+        var by = parseFloat(bar.getAttribute('y')) + 3;
+        tip.innerHTML = '<b>' + nameOf(d.key) + '</b><span class="tt-sub">' + seriesLabel[s] + ': ' + fmt1(val) + '%</span>';
+        tip.style.left = (bx * sx) + 'px';
+        tip.style.top = (by * sy) + 'px';
+        tip.classList.add('visible');
+      }
+      bar.addEventListener('mouseenter', activate);
+      bar.addEventListener('touchstart', activate, { passive: true });
+    });
+    mount.addEventListener('mouseleave', function () { tip.classList.remove('visible'); });
+  }
+
+  /* ---------------------------------------------------------------------
+     Poverty targeting (grouped horizontal bars, gradient fill)
+  --------------------------------------------------------------------- */
+  function renderPovertyChart(mount) {
+    var data = POVERTY_DATA;
+    var W = 700, rowH = 30, padL = 140, padR = 60, padT = 8, padB = 30;
+    var n = data.length;
+    var H = padT + padB + n * rowH;
+    var plotW = W - padL - padR;
+    var maxV = Math.max(20, Math.ceil((Math.max.apply(null, data.map(function (d) { return d.poor; })) + 2) / 5) * 5);
+    function xPix(v) { return padL + (v / maxV) * plotW; }
+
+    var grid = '', xlabels = '';
+    for (var g = 0; g <= maxV; g += 5) {
+      var x = xPix(g);
+      grid += '<line x1="' + x.toFixed(1) + '" y1="' + padT + '" x2="' + x.toFixed(1) + '" y2="' + (H - padB) + '" stroke="' + GRID + '" stroke-width="1"/>';
+      xlabels += '<text x="' + x.toFixed(1) + '" y="' + (H - padB + 16) + '" text-anchor="middle" font-size="10" fill="var(--text-muted)">' + g + '%</text>';
+    }
+
+    var defs = '<defs>' +
+      '<linearGradient id="gradPoor" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3B6EA8"/><stop offset="100%" stop-color="' + NAVY_HEX + '"/></linearGradient>' +
+      '<linearGradient id="gradExtreme" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#F7C08A"/><stop offset="100%" stop-color="' + ORANGE + '"/></linearGradient>' +
+      '</defs>';
+
+    var rows = '', labels = '';
+    data.forEach(function (d, i) {
+      var cy = padT + i * rowH, barH = 9, y1 = cy + rowH / 2 - barH - 1, y2 = cy + rowH / 2 + 1;
+      rows += '<rect data-pov data-i="' + i + '" data-s="poor" x="' + padL + '" y="' + y1.toFixed(1) + '" width="' + Math.max(xPix(d.poor) - padL, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradPoor)"/>';
+      rows += '<rect data-pov data-i="' + i + '" data-s="extreme" x="' + padL + '" y="' + y2.toFixed(1) + '" width="' + Math.max(xPix(d.extreme) - padL, 0.5).toFixed(1) + '" height="' + barH + '" fill="url(#gradExtreme)"/>';
+      labels += '<text x="' + (padL - 10) + '" y="' + (cy + rowH / 2 + 4) + '" text-anchor="end" font-size="11" fill="var(--text)">' + nameOf(d.key) + '</text>';
+    });
+
+    var xPoor = xPix(POOR_POP_SHARE), xExt = xPix(EXTREME_POP_SHARE);
+    var refs = '<line x1="' + xPoor.toFixed(1) + '" y1="' + padT + '" x2="' + xPoor.toFixed(1) + '" y2="' + (H - padB) + '" stroke="' + NAVY_HEX + '" stroke-width="1.2" stroke-dasharray="2,3"/>' +
+      '<line x1="' + xExt.toFixed(1) + '" y1="' + padT + '" x2="' + xExt.toFixed(1) + '" y2="' + (H - padB) + '" stroke="' + ORANGE + '" stroke-width="1.2" stroke-dasharray="2,3"/>';
+
+    mount.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + (H + 4) + '" direction="ltr" xmlns="http://www.w3.org/2000/svg"><g transform="translate(0,4)">' + defs + grid + refs + rows + labels + xlabels + '</g></svg>';
+
+    var tip = ensureTooltip(mount);
+    var svgEl = mount.querySelector('svg');
+    var seriesLabel = { poor: 'الأسر الفقيرة', extreme: 'الأسر في فقر مدقع' };
+    Array.prototype.forEach.call(mount.querySelectorAll('[data-pov]'), function (bar) {
+      function activate() {
+        var i = parseInt(bar.getAttribute('data-i'), 10), s = bar.getAttribute('data-s');
+        var d = data[i];
+        var val = s === 'poor' ? d.poor : d.extreme;
+        var rectBox = svgEl.getBoundingClientRect();
+        var sx = rectBox.width / W, sy = rectBox.height / (H + 4);
+        var bx = parseFloat(bar.getAttribute('x')) + parseFloat(bar.getAttribute('width')) / 2;
+        var by = parseFloat(bar.getAttribute('y'));
+        tip.innerHTML = '<b>' + nameOf(d.key) + '</b><span class="tt-sub">' + seriesLabel[s] + ': ' + fmt1(val) + '%</span>';
+        tip.style.left = (bx * sx) + 'px';
+        tip.style.top = (by * sy) + 'px';
+        tip.classList.add('visible');
+      }
+      bar.addEventListener('mouseenter', activate);
+      bar.addEventListener('touchstart', activate, { passive: true });
+    });
+    mount.addEventListener('mouseleave', function () { tip.classList.remove('visible'); });
+  }
+
+  /* ---------------------------------------------------------------------
+     Potential savings, ranked (horizontal bars, gradient fill, Diesel greyed)
+  --------------------------------------------------------------------- */
+  function renderSavings(mount) {
+    var data = SAVINGS;
+    var W = 700, rowH = 32, padL = 110, padR = 90, padT = 8, padB = 28;
+    var n = data.length;
+    var H = padT + padB + n * rowH;
+    var plotW = W - padL - padR;
+    var maxV = Math.max.apply(null, data.filter(function (d) { return !d.kept; }).map(function (d) { return d.v; }));
+    function xPix(v) { return padL + (v / maxV) * plotW; }
+
+    var defs = '<defs>' +
+      '<linearGradient id="gradSavFood" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3B6EA8"/><stop offset="100%" stop-color="' + NAVY_HEX + '"/></linearGradient>' +
+      '<linearGradient id="gradSavEnergy" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="' + ORANGE + '"/><stop offset="100%" stop-color="' + RED + '"/></linearGradient>' +
+      '</defs>';
+
+    var grid = '';
+    [0, 0.25, 0.5, 0.75, 1].forEach(function (f) {
+      var x = padL + f * plotW;
+      grid += '<line x1="' + x.toFixed(1) + '" y1="' + padT + '" x2="' + x.toFixed(1) + '" y2="' + (H - padB) + '" stroke="' + GRID + '" stroke-width="1"/>';
+    });
+
+    var rows = '', labels = '', vlabels = '';
+    data.forEach(function (d, i) {
+      var cy = padT + i * rowH, barH = 16, y = cy + (rowH - barH) / 2;
+      var w = d.kept ? plotW * 0.06 : Math.max(xPix(d.v) - padL, 1);
+      var color = d.kept ? '#9AA3AE' : (catOf(d.key) === 'food' ? 'url(#gradSavFood)' : 'url(#gradSavEnergy)');
+      rows += '<rect data-sav data-i="' + i + '" x="' + padL + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + barH + '" fill="' + color + '" rx="2"/>';
+      labels += '<text x="' + (padL - 10) + '" y="' + (cy + rowH / 2 + 4) + '" text-anchor="end" font-size="11" fill="var(--text)">' + nameOf(d.key) + '</text>';
+      var vtext = d.kept ? 'يبقى شاملاً' : fmt1(d.v) + ' م.د';
+      vlabels += '<text x="' + (padL + w + 8).toFixed(1) + '" y="' + (cy + rowH / 2 + 4) + '" font-size="10.5" font-style="' + (d.kept ? 'italic' : 'normal') + '" fill="' + (d.kept ? 'var(--text-muted)' : 'var(--text)') + '">' + vtext + '</text>';
+    });
+
+    mount.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + (H + 4) + '" direction="ltr" xmlns="http://www.w3.org/2000/svg"><g transform="translate(0,4)">' + defs + grid + rows + labels + vlabels + '</g></svg>';
+
+    var tip = ensureTooltip(mount);
+    var svgEl = mount.querySelector('svg');
+    Array.prototype.forEach.call(mount.querySelectorAll('[data-sav]'), function (bar) {
+      function activate() {
+        var i = parseInt(bar.getAttribute('data-i'), 10);
+        var d = data[i];
+        var rectBox = svgEl.getBoundingClientRect();
+        var sx = rectBox.width / W, sy = rectBox.height / (H + 4);
+        var bx = parseFloat(bar.getAttribute('x')) + parseFloat(bar.getAttribute('width')) / 2;
+        var by = parseFloat(bar.getAttribute('y'));
+        tip.innerHTML = d.kept ?
+          '<b>' + nameOf(d.key) + '</b><span class="tt-sub">يبقى مدعوماً للجميع، مستثنى من الإصلاح</span>' :
+          '<b>' + nameOf(d.key) + '</b><span class="tt-sub">التوفير الممكن: ' + fmt1(d.v) + ' مليون دينار</span>';
+        tip.style.left = (bx * sx) + 'px';
+        tip.style.top = (by * sy) + 'px';
+        tip.classList.add('visible');
+      }
+      bar.addEventListener('mouseenter', activate);
+      bar.addEventListener('touchstart', activate, { passive: true });
+    });
+    mount.addEventListener('mouseleave', function () { tip.classList.remove('visible'); });
+  }
+
+  function init() {
+    var elFood = document.querySelector('[data-decile-grid="food"]');
+    if (elFood) renderDecileGrid(elFood);
+    var elEnergy = document.querySelector('[data-decile-grid="energy"]');
+    if (elEnergy) renderDecileGrid(elEnergy);
+    var el2 = document.querySelector('[data-widget="household-split"]');
+    if (el2) renderHouseholdSplit(el2);
+    var el3 = document.querySelector('[data-widget="poverty-chart"]');
+    if (el3) renderPovertyChart(el3);
+    var el4 = document.querySelector('[data-widget="savings-chart"]');
+    if (el4) renderSavings(el4);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</body>
+</html>
