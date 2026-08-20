@@ -41,6 +41,95 @@
   @media (max-width: 560px) { .decile-mini-grid { grid-template-columns: 1fr; } }
 
 </style>
+
+<style id="mobile-container-fix">
+/* Mobile viewport fix: keep one page container, but let it fit the screen exactly */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.container,
+.page-header.container,
+.subsidy-page-flow.container {
+  box-sizing: border-box;
+  width: min(100% - 40px, 1120px);
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subsidy-page-flow,
+.subsidy-page-flow * {
+  box-sizing: border-box;
+}
+
+.subsidy-page-flow img,
+.subsidy-page-flow svg,
+.subsidy-page-flow canvas {
+  max-width: 100%;
+}
+
+.chart-svg-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .container,
+  .page-header.container,
+  .subsidy-page-flow.container {
+    width: calc(100% - 28px);
+    max-width: none;
+  }
+
+  .page-header.container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .subsidy-page-flow.container,
+  .subsidy-page-flow.container section,
+  .subsidy-page-flow.container .container {
+    max-width: 100%;
+  }
+
+  .article-chart-card,
+  .subsidy-chart-card,
+  .kpi-banner,
+  .pub-tags-block,
+  .article-refs {
+    width: 100%;
+    max-width: 100% !important;
+  }
+
+  [style*="width:700px"],
+  [style*="width: 700px"],
+  [style*="width:820px"],
+  [style*="width: 820px"],
+  [style*="width:900px"],
+  [style*="width: 900px"] {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .page-header.container,
+  .subsidy-page-flow.container {
+    width: calc(100% - 24px);
+  }
+
+  .article-chart-card,
+  .subsidy-chart-card {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+</style>
+
 </head>
 <body data-page="article">
 <header class="site-nav">
