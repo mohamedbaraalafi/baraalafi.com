@@ -283,7 +283,7 @@
       <div class="chart-legend">
         <span><i style="background:#16315F;"></i>الأسر المحمية</span>
         <span><i style="background:#F0A24B;"></i>الأسر المستثناة</span>
-        <span><i style="background:#B3282D;"></i>غير مطابق لأي أسرة</span>
+        <span><i style="background:#B3282D;"></i>الاستهلاك غير الأسري (مستثنى)</span>
       </div>
       <div class="chart-svg-wrap" data-widget="recommended-split" style="min-height:400px;"></div>
       <p class="chart-source">المصدر: حسابات الباحث، مسح 2021 وميزانية المواطن 2025. تُصنّف الأسر حسب سيناريو مستوى المعيشة الموصى به (ب).</p>
@@ -876,7 +876,7 @@
 
     var tip = ensureTooltip(mount);
     var svgEl = mount.querySelector('svg');
-    var seriesLabel = { protected: 'الأسر المحمية', excluded: 'الأسر المستثناة', nonhh: 'غير مطابق لأي أسرة' };
+    var seriesLabel = { protected: 'الأسر المحمية', excluded: 'الأسر المستثناة', nonhh: 'الاستهلاك غير الأسري (مستثنى)' };
     Array.prototype.forEach.call(mount.querySelectorAll('[data-rs]'), function (bar) {
       function activate() {
         var i = parseInt(bar.getAttribute('data-i'), 10), s = bar.getAttribute('data-s'), d = data[i];
