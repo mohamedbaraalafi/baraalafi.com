@@ -84,6 +84,7 @@ const I18N = {
     pub_soon: "Draft coming soon",
 
     read_more: "Read →",
+    coming_soon: "Coming soon",
     brand_name: "Mohamed Baraa Lafi",
     showcase_pub_desc: "Working papers & articles", showcase_art_desc: "Research notes & commentary",
     showcase_cv_desc: "Education & experience", showcase_contact_desc: "Write to me",
@@ -199,6 +200,7 @@ const I18N = {
     pub_soon: "مسودة قريبًا",
 
     read_more: "قراءة ←",
+    coming_soon: "قريباً",
     brand_name: "محمد براء اللافي",
     showcase_pub_desc: "أوراق عمل ومقالات", showcase_art_desc: "ملاحظات بحثية وتعليقات",
     showcase_cv_desc: "التكوين والخبرة", showcase_contact_desc: "راسلني",
@@ -235,6 +237,23 @@ const I18N = {
     art13_lede: "اشتراكية في مواجهة المنافسة، رأسمالية في حماية الاحتكار.",
   }
 };
+
+/* Article listing page (articles.html): swap each card's cover image to its
+   "-ar" variant when the site is in Arabic, and back to the base (English)
+   file otherwise — same convention used on the individual article pages. */
+function updateArticleCardCovers(lang) {
+  document.querySelectorAll('.article-card-media img').forEach(img => {
+    let base = img.getAttribute('data-cover-base');
+    if (!base) {
+      base = img.getAttribute('src');
+      img.setAttribute('data-cover-base', base);
+    }
+    const dot = base.lastIndexOf('.');
+    const arSrc = dot === -1 ? (base + '-ar') : (base.slice(0, dot) + '-ar' + base.slice(dot));
+    const target = (lang === 'ar') ? arSrc : base;
+    if (img.getAttribute('src') !== target) img.setAttribute('src', target);
+  });
+}
 
 /* Source of truth for "Recent work" on the homepage.
    Combines publications.html and articles.html entries so the two stay in
@@ -532,6 +551,7 @@ function applyLang(lang) {
   document.querySelectorAll('.lang-switch button').forEach(b => {
     b.classList.toggle('active', b.dataset.lang === lang);
   });
+  updateArticleCardCovers(lang);
   renderRecentWork(lang);
   applyPageTitle(lang);
   initShareBar();

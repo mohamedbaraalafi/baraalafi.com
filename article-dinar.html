@@ -128,7 +128,11 @@
   </div>
 </header>
 
-<div class="page-header container reveal d1">
+<div class="article-hero container reveal d1">
+  <img src="assets/articles/dinar-cover.jpg" alt="The Tunisian Dinar in Africa: Is the Exchange Rate Enough to Measure Currency Strength?" width="1600" height="840" loading="lazy">
+</div>
+
+<div class="page-header container reveal d2">
   <a href="articles.html" class="back-to-list">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
     <span data-i18n="nav_articles">Articles</span>
@@ -159,9 +163,7 @@
   </div>
 </div>
 
-<div class="article-cover container">
-  <img src="assets/articles/dinar-cover.jpg" alt="The Tunisian Dinar in Africa: Is the Exchange Rate Enough to Measure Currency Strength?" width="1600" height="840" loading="lazy">
-</div>
+
 
 <section style="padding-top:0;">
   <div class="container">
@@ -525,7 +527,7 @@
    app.js (without the newer share/translation helpers) is being served. */
 (function () {
   function updateCoverImage(lang) {
-    var img = document.querySelector('.article-cover img');
+    var img = document.querySelector('.article-hero img');
     if (!img) return;
     var base = img.getAttribute('data-cover-base');
     if (!base) {

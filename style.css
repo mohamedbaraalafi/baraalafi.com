@@ -264,6 +264,46 @@ html[data-theme="dark"] .stat b { color: var(--gold); }
 .card .link-more { font-size: 13px; font-weight: 700; color: var(--navy-700); margin-top: 14px; display: inline-block; }
 html[data-theme="dark"] .card .link-more { color: var(--gold); }
 
+/* ---------- Article cards (magazine style, with cover image) ---------- */
+.article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.article-card {
+  display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.article-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
+.article-card-media { position: relative; aspect-ratio: 1.9; overflow: hidden; background: var(--navy-900); }
+.article-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.article-card:hover .article-card-media img { transform: scale(1.05); }
+.article-card-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+.article-card-body .pub-meta-row { margin-bottom: 10px; }
+.article-card-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.4; font-family: var(--font-body); }
+.article-card-lede {
+  font-size: 14px; line-height: 1.65; color: var(--text-muted); margin: 0 0 16px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.article-card-body .link-more { font-size: 13px; font-weight: 700; color: var(--navy-700); margin-top: auto; display: inline-block; }
+html[data-theme="dark"] .article-card-body .link-more { color: var(--gold); }
+
+/* Draft / not-yet-published article teaser: same card shape, no photo, disabled */
+.article-card.is-soon { cursor: default; }
+.article-card.is-soon:hover { transform: none; box-shadow: none; border-color: var(--border); }
+.article-card-media.is-placeholder {
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--navy-900), var(--navy-700));
+}
+.article-card-media.is-placeholder svg { width: 44px; height: 44px; opacity: 0.35; }
+.article-card.is-soon .article-card-body .link-more { color: var(--text-muted); }
+html[data-theme="dark"] .article-card.is-soon .article-card-body .link-more { color: var(--text-muted); }
+
+@media (max-width: 980px) { .article-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) {
+  .article-grid { grid-template-columns: 1fr; gap: 22px; }
+  .article-card-body h3 { font-size: 18.5px; line-height: 1.45; font-weight: 600; }
+  .article-card-lede { font-size: 15px; -webkit-line-clamp: 3; }
+  .article-card-body .link-more { font-size: 14.5px; }
+}
+
 /* ---------- Publications list rows ---------- */
 .pub-row {
   display: grid; grid-template-columns: 52px 1fr auto; gap: 18px; align-items: start;
@@ -563,6 +603,33 @@ html[data-theme="dark"] .chart-tooltip b { color: var(--gold); }
 .article-refs a { color: var(--navy-700); font-weight: 600; }
 html[data-theme="dark"] .article-refs a { color: var(--gold); }
 
+/* On article pages only: the headline/byline block above spans the full
+   container width, but the lede, share bar, body copy, references and chart
+   cards were centered independently within it (each 760px column re-centered
+   inside the wider container) — leaving the reading column visibly indented
+   relative to the headline. Flush them to the same start edge as the headline
+   instead (left in English, right in Arabic — matching where the headline's
+   own text starts). Scoped to article pages via the data-title-key="artN..."
+   prefix so publication pages (data-title-key="pubN...") keep their original,
+   unrelated centered treatment untouched. Physical margin-left/right (rather
+   than margin-inline) so it also works correctly in older browsers. */
+body[data-title-key^="art"] .article-lede,
+body[data-title-key^="art"] .share-bar,
+body[data-title-key^="art"] .article-body,
+body[data-title-key^="art"] .article-refs,
+body[data-title-key^="art"] .article-chart-card {
+  margin-left: 0;
+  margin-right: auto;
+}
+html[dir="rtl"] body[data-title-key^="art"] .article-lede,
+html[dir="rtl"] body[data-title-key^="art"] .share-bar,
+html[dir="rtl"] body[data-title-key^="art"] .article-body,
+html[dir="rtl"] body[data-title-key^="art"] .article-refs,
+html[dir="rtl"] body[data-title-key^="art"] .article-chart-card {
+  margin-left: auto;
+  margin-right: 0;
+}
+
 /* ---------- Publication detail page ---------- */
 .pub-authors { max-width: 760px; margin: 0 auto 6px; font-size: 15px; color: var(--text); }
 .pub-authors b { font-weight: 700; }
@@ -606,6 +673,24 @@ html[data-theme="dark"] .cost-table td.cat-cell { color: var(--gold); }
 
 .article-cover { max-width: 760px; margin: 22px auto 6px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
 .article-cover img { display: block; width: 100%; height: auto; }
+
+/* ---------- Article hero (lead image, magazine/wire-service style) ---------- */
+/* Sized like a proper editorial feature image (Al Jazeera / BBC style): present
+   and prominent, but capped so it never eats the whole first screen — the
+   headline and byline stay visible without scrolling. */
+.article-hero { margin-top: 28px; max-width: 800px; }
+.article-hero img {
+  display: block; width: 100%; height: auto;
+  border-radius: var(--radius); box-shadow: var(--shadow-lg); background: var(--navy-900);
+}
+@media (max-width: 720px) {
+  /* Edge-to-edge on phones: image runs full-bleed under the nav, no side gutters,
+     no rounded corners — the dense, immersive treatment used by AJ/BBC-style
+     news apps on mobile. Native aspect ratio here (no max-height) since the
+     narrow width already keeps it short. */
+  .article-hero { margin-top: 0; padding: 0 !important; max-width: none; }
+  .article-hero img { border-radius: 0; box-shadow: none; max-height: none; }
+}
 
 .share-bar { max-width: 760px; margin: 18px auto 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .share-label { font-size: 13px; font-weight: 700; color: var(--text-muted); }
