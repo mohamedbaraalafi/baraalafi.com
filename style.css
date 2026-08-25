@@ -273,7 +273,24 @@ html[data-theme="dark"] .card .link-more { color: var(--gold); }
 }
 .article-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
 .article-card-media { position: relative; aspect-ratio: 1.9; overflow: hidden; background: var(--navy-900); }
-.article-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+/* Unified treatment applied to every real photo (cards + hero further below)
+   so the mixed set of stock photos reads as one consistent editorial series:
+   a soft fade (lower contrast, slight lift in brightness/desaturation) plus a
+   thin light-blue wash layered on top, matching the site's accent colour.
+   This is a real translucent layer (::after), not a hue-rotate — hue-rotate
+   spins the whole colour wheel and makes skies/skin/greens shift to wrong
+   colours; a layered wash just tints everything toward blue while keeping
+   true colours recognisable underneath. Same recipe in both places so a
+   given article's card and hero match. */
+.article-card-media img {
+  width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease;
+  filter: saturate(0.88) contrast(0.94) brightness(1.05);
+}
+.article-card-media::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: rgba(29, 111, 217, 0.18);
+}
+.article-card-media.is-placeholder::after { content: none; }
 .article-card:hover .article-card-media img { transform: scale(1.05); }
 .article-card-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
 .article-card-body .pub-meta-row { margin-bottom: 10px; }
@@ -678,10 +695,18 @@ html[data-theme="dark"] .cost-table td.cat-cell { color: var(--gold); }
 /* Sized like a proper editorial feature image (Al Jazeera / BBC style): present
    and prominent, but capped so it never eats the whole first screen — the
    headline and byline stay visible without scrolling. */
-.article-hero { margin-top: 28px; max-width: 800px; }
+.article-hero { margin-top: 28px; max-width: 800px; position: relative; }
 .article-hero img {
-  display: block; width: 100%; height: auto;
-  border-radius: var(--radius); box-shadow: var(--shadow-lg); background: var(--navy-900);
+  display: block; width: 100%; aspect-ratio: 1.9; object-fit: cover;
+  border-radius: var(--radius); background: var(--navy-900);
+  box-shadow: var(--shadow-lg);
+  filter: saturate(0.88) contrast(0.94) brightness(1.05);
+}
+.article-hero::after {
+  content: ''; position: absolute; pointer-events: none;
+  top: 0; bottom: 0; left: 28px; right: 28px;
+  border-radius: var(--radius);
+  background: rgba(29, 111, 217, 0.18);
 }
 @media (max-width: 720px) {
   /* Edge-to-edge on phones: image runs full-bleed under the nav, no side gutters,
@@ -690,6 +715,7 @@ html[data-theme="dark"] .cost-table td.cat-cell { color: var(--gold); }
      narrow width already keeps it short. */
   .article-hero { margin-top: 0; padding: 0 !important; max-width: none; }
   .article-hero img { border-radius: 0; box-shadow: none; max-height: none; }
+  .article-hero::after { left: 0; right: 0; border-radius: 0; }
 }
 
 .share-bar { max-width: 760px; margin: 18px auto 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }

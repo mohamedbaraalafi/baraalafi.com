@@ -53,7 +53,7 @@
 </header>
 
 <div class="article-hero container reveal d1">
-  <img src="assets/articles/morocco-model-cover.jpg" alt="Morocco's Development Model: Investment, Infrastructure and Competitiveness" width="1600" height="840" loading="lazy">
+  <img src="assets/articles/morocco-model-cover.jpg" alt="Morocco's Development Model: Investment, Infrastructure and Competitiveness" loading="lazy">
 </div>
 
 <div class="page-header container reveal d2">
@@ -218,26 +218,12 @@
    That way this page keeps translating correctly even if an older cached
    app.js (without the newer share/translation helpers) is being served. */
 (function () {
-  function updateCoverImage(lang) {
-    var img = document.querySelector('.article-hero img');
-    if (!img) return;
-    var base = img.getAttribute('data-cover-base');
-    if (!base) {
-      base = img.getAttribute('src');
-      img.setAttribute('data-cover-base', base);
-    }
-    var dot = base.lastIndexOf('.');
-    var arSrc = dot === -1 ? (base + '-ar') : (base.slice(0, dot) + '-ar' + base.slice(dot));
-    var target = (lang === 'ar') ? arSrc : base;
-    if (img.getAttribute('src') !== target) img.setAttribute('src', target);
-  }
   function toggleLangBlocks() {
     var lang = (document.documentElement.getAttribute('lang') || 'en').trim();
     if (['en', 'ar'].indexOf(lang) === -1) lang = 'en';
     document.querySelectorAll('[data-lang-block]').forEach(function (el) {
       el.style.display = (el.getAttribute('data-lang-block') === lang) ? 'block' : 'none';
     });
-    updateCoverImage(lang);
   }
   toggleLangBlocks();
   if (document.readyState === 'loading') {

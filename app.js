@@ -238,23 +238,6 @@ const I18N = {
   }
 };
 
-/* Article listing page (articles.html): swap each card's cover image to its
-   "-ar" variant when the site is in Arabic, and back to the base (English)
-   file otherwise — same convention used on the individual article pages. */
-function updateArticleCardCovers(lang) {
-  document.querySelectorAll('.article-card-media img').forEach(img => {
-    let base = img.getAttribute('data-cover-base');
-    if (!base) {
-      base = img.getAttribute('src');
-      img.setAttribute('data-cover-base', base);
-    }
-    const dot = base.lastIndexOf('.');
-    const arSrc = dot === -1 ? (base + '-ar') : (base.slice(0, dot) + '-ar' + base.slice(dot));
-    const target = (lang === 'ar') ? arSrc : base;
-    if (img.getAttribute('src') !== target) img.setAttribute('src', target);
-  });
-}
-
 /* Source of truth for "Recent work" on the homepage.
    Combines publications.html and articles.html entries so the two stay in
    sync automatically. `order` is a language-independent YYYYMM sort key.
@@ -551,7 +534,6 @@ function applyLang(lang) {
   document.querySelectorAll('.lang-switch button').forEach(b => {
     b.classList.toggle('active', b.dataset.lang === lang);
   });
-  updateArticleCardCovers(lang);
   renderRecentWork(lang);
   applyPageTitle(lang);
   initShareBar();
