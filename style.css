@@ -435,6 +435,47 @@ html[data-theme="dark"] .fact-row .fact-value a { color: var(--gold); }
 .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--gold); }
 .contact-form label { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
 
+/* ---------- Contact page header ---------- */
+.page-header .lead-sub { margin-top: 10px; max-width: 60ch; font-size: 16px; }
+
+/* ---------- Contact layout: smart compose panel + tile list ---------- */
+.contact-layout { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 40px; align-items: start; }
+
+.compose-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+  padding: 30px 26px; box-shadow: var(--shadow); display: grid; gap: 18px;
+}
+.subject-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-family: var(--font-body); font-size: 13px; font-weight: 700; padding: 9px 16px;
+  border-radius: 999px; border: 1px solid var(--border); background: var(--bg-alt);
+  color: var(--text-muted); cursor: pointer; transition: all 0.25s ease;
+}
+.chip:hover { border-color: var(--gold); color: var(--gold); }
+.chip.active { background: var(--navy-900); border-color: var(--navy-900); color: #fff; }
+html[data-theme="dark"] .chip.active { background: var(--gold); border-color: var(--gold); color: var(--navy-900); }
+
+.compose-preview { display: grid; gap: 10px; background: var(--bg-alt); border-radius: 12px; padding: 16px 18px; }
+.compose-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.compose-row span { color: var(--text-muted); font-weight: 700; text-transform: uppercase; font-size: 10.5px; letter-spacing: 0.07em; }
+.compose-row b { font-weight: 600; font-size: 13.5px; color: var(--text); text-align: right; }
+.compose-send { justify-content: center; width: 100%; }
+.compose-copy {
+  display: inline-flex; align-items: center; gap: 6px; justify-self: start; background: none; border: none;
+  padding: 0; font-family: var(--font-body); font-size: 12.5px; font-weight: 700; color: var(--navy-700); cursor: pointer;
+}
+html[data-theme="dark"] .compose-copy { color: var(--gold); }
+.compose-copy.copied { color: var(--success); }
+
+@media (min-width: 981px) { .compose-panel { position: sticky; top: 108px; } }
+@media (max-width: 980px) { .contact-layout { grid-template-columns: 1fr; } }
+
+.contact-list { display: grid; gap: 14px; }
+
+html[dir="rtl"] .compose-row { flex-direction: row-reverse; }
+html[dir="rtl"] .compose-row b { text-align: left; }
+html[dir="rtl"] .compose-copy { justify-self: end; }
+
 /* ---------- Contact tiles (individual boxed cards, real brand-color accents) ---------- */
 .contact-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .contact-tile {
@@ -465,10 +506,47 @@ html[data-theme="dark"] .contact-tile-text b { color: var(--gold); }
 .tile-x:hover { border-top-color: var(--text); }
 .tile-researchgate:hover { border-top-color: #00CCBB; }
 .tile-location:hover { border-top-color: #EF4444; }
+.contact-tile.is-static { cursor: default; }
+.contact-tile.is-static:hover { transform: none; box-shadow: var(--shadow); border-top-color: #EF4444; }
+.contact-note { margin-top: 22px; text-align: center; font-size: 13.5px; color: var(--text-muted); }
+
+/* Cursor-follow glow, on every tile — subtle, matches the site's gold/blue accent */
+.contact-tile { position: relative; overflow: hidden; }
+.contact-tile::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(94, 162, 255, 0.16), transparent 68%);
+  transition: opacity 0.35s ease;
+}
+.contact-tile:hover::before { opacity: 1; }
+.contact-tile-icon { transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.contact-tile:hover .contact-tile-icon { transform: scale(1.08) rotate(-6deg); }
+
+/* Live status line inside the location tile */
+.tile-status { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.tile-status-sep { opacity: 0.6; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0; }
+.status-dot.is-on { background: var(--success); animation: statusPulse 2s infinite; }
+@keyframes statusPulse {
+  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.45); }
+  70% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+
+/* Featured LinkedIn CTA — same tile shape and hover behaviour as the rest,
+   but rendered in LinkedIn's own blue so it reads as the primary action. */
+.contact-tile.is-cta {
+  background: linear-gradient(135deg, #0A66C2, #073C74); border-color: #0A66C2; border-top-color: #0A66C2;
+}
+.contact-tile.is-cta .contact-tile-text b { color: #fff; }
+.contact-tile.is-cta .contact-tile-text span { color: rgba(255,255,255,0.78); }
+.contact-tile.is-cta .contact-tile-icon { background: #fff; color: #0A66C2; }
+.contact-tile.is-cta::before { background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.18), transparent 68%); }
+.contact-tile.is-cta:hover { border-top-color: #fff; }
 html[dir="rtl"] .contact-tile { flex-direction: row-reverse; }
 html[dir="rtl"] .contact-tile-text { align-items: flex-end; text-align: right; }
 @media (max-width: 640px) {
   .contact-rows { grid-template-columns: 1fr; }
+  .page-header-cta { justify-content: center; }
 }
 
 /* ---------- Footer ---------- */
