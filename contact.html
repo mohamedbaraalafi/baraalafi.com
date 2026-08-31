@@ -48,35 +48,32 @@
   <div class="container">
     <div class="contact-layout">
 
-      <!-- Smart compose panel: pick a reason, get a pre-filled email ready to send -->
+      <!-- Simple, elegant contact panel: no subject line needed — just say what
+           you're after (the pill's width is fixed to the longest possible word,
+           so the sentence never jumps as it rotates), and the email is right
+           there, ready to write to. -->
       <div class="compose-panel reveal d1">
-        <div class="compose-card">
-          <span class="eyebrow" style="margin:0;" data-i18n="compose_eyebrow">What's this about?</span>
-          <div class="subject-chips" id="subjectChips" role="group" aria-label="Message subject">
-            <button type="button" class="chip active" data-subject="Collaboration idea" data-body="collab" data-i18n="chip_collab">Collaboration</button>
-            <button type="button" class="chip" data-subject="Replication data request" data-body="data" data-i18n="chip_data">Data request</button>
-            <button type="button" class="chip" data-subject="General question" data-body="general" data-i18n="chip_general">General</button>
-          </div>
+        <div class="compose-card" id="composeCard">
+          <span class="eyebrow" style="margin:0;" data-i18n="compose_eyebrow">Reach out</span>
+          <p class="compose-need">
+            <span id="composeNeedPrefix">Need</span>
+            <span class="rotator-pill">
+              <span class="rotator-icon" id="composeWordIcon" aria-hidden="true"></span>
+              <span class="rotator-word" id="composeWord">data</span>
+            </span><span id="composeQMark">?</span>
+            <span id="composeNeedSuffix">I'd love to hear from you.</span>
+          </p>
 
-          <div class="compose-preview">
-            <div class="compose-row">
-              <span data-i18n="compose_to">To</span>
-              <b>mohamed@baraalafi.com</b>
-            </div>
-            <div class="compose-row">
-              <span data-i18n="compose_subject">Subject</span>
-              <b id="composeSubject">Collaboration idea</b>
-            </div>
+          <div class="email-reveal">
+            <span class="email-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            </span>
+            <a class="email-link" id="emailLink" href="mailto:mohamed@baraalafi.com">mohamed@baraalafi.com</a>
+            <button type="button" class="email-copy" id="emailCopyBtn" data-email="mohamed@baraalafi.com" aria-label="Copy email address">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+            </button>
+            <span class="email-copy-label" id="emailCopyLabel" data-i18n="email_copy_label">Copied!</span>
           </div>
-
-          <a class="btn btn-primary compose-send" id="composeSend" href="mailto:mohamed@baraalafi.com?subject=Collaboration%20idea">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
-            <span data-i18n="compose_open">Open in your email app</span>
-          </a>
-          <button type="button" class="compose-copy" id="composeCopy">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
-            <span data-i18n="compose_copy">Copy email address instead</span>
-          </button>
         </div>
       </div>
 
@@ -141,37 +138,13 @@
 
 <script>
 (function(){
-  var bodies = {
-    collab:  "Hi Mohamed,\n\nI came across your work and would love to explore a possible collaboration.\n\n",
-    data:    "Hi Mohamed,\n\nI'm writing to request the replication data / code for one of your papers.\n\nPaper: \n\n",
-    general: "Hi Mohamed,\n\n"
-  };
-  var email = "mohamed@baraalafi.com";
-  var chips = document.querySelectorAll('#subjectChips .chip');
-  var subjectEl = document.getElementById('composeSubject');
-  var sendBtn = document.getElementById('composeSend');
-
-  function applyChip(chip){
-    chips.forEach(function(c){ c.classList.toggle('active', c === chip); });
-    var subject = chip.getAttribute('data-subject');
-    var body = bodies[chip.getAttribute('data-body')] || '';
-    subjectEl.textContent = subject;
-    sendBtn.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  }
-  chips.forEach(function(chip){
-    chip.addEventListener('click', function(){ applyChip(chip); });
-  });
-
-  var copyBtn = document.getElementById('composeCopy');
-  if (copyBtn) {
-    var copyLabel = copyBtn.querySelector('span');
-    var originalLabel = copyLabel ? copyLabel.textContent : '';
-    copyBtn.addEventListener('click', function(){
-      var reset = function(){ copyBtn.classList.remove('copied'); if (copyLabel) copyLabel.textContent = originalLabel; };
-      var mark = function(){ copyBtn.classList.add('copied'); if (copyLabel) copyLabel.textContent = 'Copied!'; setTimeout(reset, 1600); };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(email).then(mark).catch(mark);
-      } else { mark(); }
+  // Cursor-aware glow on the compose card (subtle spotlight that follows the mouse)
+  var composeCard = document.getElementById('composeCard');
+  if (composeCard) {
+    composeCard.addEventListener('mousemove', function(e){
+      var r = composeCard.getBoundingClientRect();
+      composeCard.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      composeCard.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
     });
   }
 
