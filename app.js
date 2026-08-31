@@ -409,7 +409,7 @@ const RECENT_WORK = [
   { kind: 'art', order: 202608, titleKey: 'art13_title', dateKey: 'art13_date', typeKey: 'topic_eco', link: 'article-facs-privees.html' },
   { kind: 'pub', order: 202607, titleKey: 'pub5_title', typeKey: 'pub5_type', dateKey: 'pub5_date', link: 'publication-public-enterprises-tunisia.html' },
   { kind: 'pub', order: 202605, title: 'Replication of Forbes and Warnock 2012', typeKey: 'pub2_type', dateKey: 'pub2_date', link: 'publications.html' },
-  { kind: 'pub', order: 202603, title: 'pub1_title', typeKey: 'pub1_type', dateKey: 'pub1_date', link: 'publications.html' },
+  { kind: 'pub', order: 202603, titleKey: 'pub1_title', typeKey: 'pub1_type', dateKey: 'pub1_date', link: 'publication-saudi-arabia.html' },
   { kind: 'art', order: 202607, titleKey: 'art1_title', dateKey: 'art1_date', typeKey: 'topic_eco', link: 'article-steg.html' },
   { kind: 'art', order: 202512, titleKey: 'art2_title', dateKey: 'art2_date', typeKey: 'topic_social', link: 'article-subventions-alimentaires.html' },
   { kind: 'art', order: 202512, titleKey: 'art3_title', dateKey: 'art3_date', typeKey: 'topic_eco', link: 'article-maroc.html' },
