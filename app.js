@@ -644,7 +644,7 @@ function handleContactSubmit(e) {
   e.preventDefault();
   const lang = document.documentElement.getAttribute('lang') === 'ar' ? 'ar' : 'en';
   const dict = I18N[lang] || I18N.en;
-  alert(dict.contact_success);
+  showToast(dict.contact_success);
 }
 
 /* ---------------------------------------------------------------------------
@@ -910,6 +910,8 @@ function applyLang(lang) {
   initShareBar();
   initCiteBox();
   initContactRotator(lang);
+  initReadingTime(lang);
+  initCardTilt();
   document.querySelectorAll('[data-lang-block]').forEach(el => {
     el.style.display = (el.getAttribute('data-lang-block') === lang) ? 'block' : 'none';
   });
@@ -945,6 +947,133 @@ function initPrefs() {
   return { theme, lang };
 }
 
+/* ---------------------------------------------------------------------------
+   Header shrink-on-scroll: adds `.is-scrolled` once the visitor has actually
+   started scrolling, so the sticky nav tightens up and gains a soft shadow
+   instead of sitting at full size the whole time. */
+function initHeaderScroll() {
+  const header = document.querySelector('header.site-nav');
+  if (!header) return;
+  let ticking = false;
+  const update = () => { header.classList.toggle('is-scrolled', window.scrollY > 24); ticking = false; };
+  update();
+  window.addEventListener('scroll', () => {
+    if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+}
+
+/* ---------------------------------------------------------------------------
+   Back-to-top button: fades in past ~60% of a viewport height of scrolling,
+   scrolls smoothly to the top on click. Injected once, works on every page. */
+function initBackToTop() {
+  if (document.querySelector('.back-to-top')) return;
+  const btn = document.createElement('button');
+  btn.className = 'back-to-top';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>';
+  document.body.appendChild(btn);
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  let ticking = false;
+  const update = () => { btn.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.4); ticking = false; };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  update();
+}
+
+/* ---------------------------------------------------------------------------
+   Lightweight toast/snackbar system, used instead of alert() anywhere the
+   site needs to confirm something (contact form demo, command-palette
+   actions, and available to any future feature via window.showToast). */
+function showToast(message, opts) {
+  opts = opts || {};
+  let stack = document.querySelector('.toast-stack');
+  if (!stack) {
+    stack = document.createElement('div');
+    stack.className = 'toast-stack';
+    document.body.appendChild(stack);
+  }
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span></span>';
+  toast.querySelector('span').textContent = message;
+  stack.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add('is-visible'));
+  const life = opts.duration || 3200;
+  setTimeout(() => {
+    toast.classList.remove('is-visible');
+    setTimeout(() => toast.remove(), 350);
+  }, life);
+}
+window.showToast = showToast;
+
+/* ---------------------------------------------------------------------------
+   Magnetic spotlight, generalised from the contact tiles to every card grid
+   on the site — areas-of-interest cards, article cards, publication rows —
+   so the whole site shares the same cursor-aware language. Purely visual;
+   re-uses the --mx/--my custom properties already defined in style.css. */
+function initCardTilt() {
+  const cards = document.querySelectorAll('.card, .article-card, .pub-row');
+  if (!cards.length) return;
+  cards.forEach(card => {
+    if (card.dataset.tiltInit) return;
+    card.dataset.tiltInit = '1';
+    card.classList.add('tilt-glow');
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  });
+}
+
+/* ---------------------------------------------------------------------------
+   Small ripple pulse from the exact click point on buttons/toggles. Purely
+   decorative, fully passive, cleans up after its own animation. */
+function initRipple() {
+  document.querySelectorAll('.btn, .theme-toggle, .lang-switch button').forEach(el => {
+    if (el.dataset.rippleInit) return;
+    el.dataset.rippleInit = '1';
+    el.addEventListener('click', (e) => {
+      const r = el.getBoundingClientRect();
+      const size = Math.max(r.width, r.height) * 1.4;
+      const span = document.createElement('span');
+      span.className = 'ripple';
+      span.style.width = span.style.height = size + 'px';
+      span.style.left = (e.clientX - r.left - size / 2) + 'px';
+      span.style.top = (e.clientY - r.top - size / 2) + 'px';
+      el.appendChild(span);
+      span.addEventListener('animationend', () => span.remove());
+    });
+  });
+}
+
+/* ---------------------------------------------------------------------------
+   Article pages: a live estimated reading-time pill, computed from the
+   currently-visible-language article body (~200 words/min) and dropped next
+   to the date/topic badge. Recomputed on every language switch so EN/AR each
+   show their own true reading time. */
+function initReadingTime(lang) {
+  if (document.body.getAttribute('data-page') !== 'article') return;
+  const host = document.querySelector('.page-header .pub-meta-row');
+  if (!host) return;
+  const activeLang = lang || (document.documentElement.getAttribute('lang') === 'ar' ? 'ar' : 'en');
+  const body = document.querySelector('.article-body[data-lang-block="' + activeLang + '"]') || document.querySelector('.article-body');
+  if (!body) return;
+  const words = (body.textContent || '').trim().split(/\s+/).filter(Boolean).length;
+  const mins = Math.max(1, Math.round(words / 200));
+  const label = activeLang === 'ar' ? ('قراءة ' + mins + ' د') : (mins + ' min read');
+  let pill = host.querySelector('.reading-time-pill');
+  if (!pill) {
+    pill = document.createElement('span');
+    pill.className = 'reading-time-pill';
+    host.appendChild(pill);
+  }
+  pill.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg><span>' + label + '</span>';
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
   let { theme, lang } = initPrefs();
 
@@ -952,6 +1081,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initPubNumbers();
   initEmailCopy();
+  initHeaderScroll();
+  initBackToTop();
+  initCardTilt();
+  initRipple();
+  initReadingTime(lang);
 
   const toggle = document.getElementById('theme-toggle');
   if (toggle) {

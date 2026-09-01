@@ -944,3 +944,115 @@ html[data-theme="dark"] .figure-section-title h3 { color: var(--gold); }
 .sub-bar:hover, .sub-bar:focus { opacity: .78; filter: saturate(1.08); outline: none; }
 @media (max-width: 900px) { .figure-grid { grid-template-columns: 1fr; } .figure-grid .article-chart-card { max-width: 760px; margin-left: auto; margin-right: auto; width: 100%; } }
 @media (max-width: 600px) { .figures-heading h2 { font-size: 20px; } .figure-section-title { margin-top: 38px; } .subsidy-chart-card { padding: 20px 12px 16px; } .subsidy-chart-card .chart-svg-wrap { overflow-x: auto; } .subsidy-chart-card svg { min-width: 620px; } .figure-grid .subsidy-chart-card svg { min-width: 560px; } }
+
+/* ==========================================================================
+   Site-wide interaction layer
+   Global polish added on top of the existing design system: smoother scroll
+   feedback, a sticky header that tightens on scroll, cursor-aware card glow
+   reused everywhere (not just the contact tiles), a toast system, a button
+   ripple, a keyboard command palette, and a reading-time pill for articles.
+   Everything below is additive — nothing above this line is overridden.
+   ========================================================================== */
+
+/* Text selection + scrollbar, tuned to the brand palette instead of the
+   browser default (a small detail that a lot of "clean" sites miss) */
+::selection { background: var(--gold); color: #fff; }
+html[data-theme="dark"] ::selection { background: var(--navy-500); color: #0D1F3C; }
+html { scrollbar-width: thin; scrollbar-color: var(--gold) transparent; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; border: 2px solid var(--bg); background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); background-clip: padding-box; }
+
+/* Sharper, more deliberate focus ring (keyboard users), independent of the
+   mouse hover states above */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px;
+}
+
+/* Sticky header tightens itself once you've actually started reading —
+   .is-scrolled is toggled in app.js */
+header.site-nav { transition: box-shadow 0.35s ease; }
+header.site-nav .nav-inner { transition: padding 0.3s ease; }
+header.site-nav.is-scrolled { box-shadow: 0 6px 24px rgba(15,23,42,0.09); }
+header.site-nav.is-scrolled .nav-inner { padding-top: 11px; padding-bottom: 11px; }
+header.site-nav.is-scrolled .brand img { width: 36px; height: 36px; }
+.brand img { transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), width 0.3s ease, height 0.3s ease; }
+
+/* Smooth cross-document view transitions on browsers that support the API
+   (Chrome/Edge) — pages crossfade instead of hard-cutting. Silently ignored
+   everywhere else, so this is a pure progressive enhancement. */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: mbl-fade-out 0.16s ease both; }
+::view-transition-new(root) { animation: mbl-fade-in 0.22s ease both; }
+@keyframes mbl-fade-out { to { opacity: 0; } }
+@keyframes mbl-fade-in { from { opacity: 0; transform: translateY(8px); } }
+
+/* Back-to-top button (injected by JS on every page) */
+.back-to-top {
+  position: fixed; right: 22px; bottom: 22px; width: 46px; height: 46px; border-radius: 50%;
+  background: var(--navy-900); color: #fff; border: none; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; box-shadow: var(--shadow-lg); z-index: 90;
+  opacity: 0; visibility: hidden; transform: translateY(14px) scale(0.85);
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1), visibility 0.3s, background 0.3s ease;
+}
+html[data-theme="dark"] .back-to-top { background: var(--gold); color: var(--navy-900); }
+.back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+.back-to-top:hover { transform: translateY(-4px) scale(1.06); }
+.back-to-top svg { width: 20px; height: 20px; }
+html[dir="rtl"] .back-to-top { right: auto; left: 22px; }
+
+/* Toast / snackbar notifications, replacing browser alert()s */
+.toast-stack {
+  position: fixed; bottom: 26px; left: 50%; transform: translateX(-50%); z-index: 400;
+  display: flex; flex-direction: column-reverse; gap: 10px; align-items: center; pointer-events: none;
+}
+.toast {
+  background: var(--navy-900); color: #fff; padding: 12px 20px; border-radius: 12px; font-size: 13.5px; font-weight: 600;
+  box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 10px; max-width: 88vw;
+  opacity: 0; transform: translateY(14px) scale(0.96); transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+html[data-theme="dark"] .toast { background: var(--gold); color: var(--navy-900); }
+.toast.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+.toast svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* Cursor-follow spotlight, generalised from the contact tiles to every card
+   grid on the site (areas of interest, article cards, publication rows) */
+.tilt-glow { position: relative; }
+.tilt-glow::after {
+  content: ''; position: absolute; inset: 0; opacity: 0; pointer-events: none; border-radius: inherit; z-index: 0;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(47,128,237,0.10), transparent 70%);
+  transition: opacity 0.35s ease;
+}
+.tilt-glow:hover::after { opacity: 1; }
+html[data-theme="dark"] .tilt-glow::after { background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.06), transparent 70%); }
+.tilt-glow > * { position: relative; z-index: 1; }
+
+/* Small ripple pulse from the exact click point on primary buttons/toggles */
+.btn, .theme-toggle, .lang-switch button { position: relative; overflow: hidden; }
+.ripple { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.5); transform: scale(0); animation: mbl-ripple 0.6s ease-out; pointer-events: none; }
+.btn-outline .ripple, .btn-tan .ripple, .lang-switch button .ripple { background: rgba(0,0,0,0.16); }
+html[data-theme="dark"] .btn-outline .ripple, html[data-theme="dark"] .lang-switch button .ripple { background: rgba(255,255,255,0.22); }
+@keyframes mbl-ripple { to { transform: scale(2.6); opacity: 0; } }
+
+/* Reading-time pill, injected next to the date/topic badge on article pages */
+.reading-time-pill {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--text-muted);
+  background: var(--bg-alt); border: 1px solid var(--border); padding: 5px 11px; border-radius: 20px; margin-bottom: 0;
+}
+.reading-time-pill svg { width: 13px; height: 13px; }
+
+@media (max-width: 640px) {
+  .back-to-top { right: 14px; bottom: 14px; width: 42px; height: 42px; }
+  html[dir="rtl"] .back-to-top { left: 14px; right: auto; }
+}
+
+/* Respect reduced-motion preferences: keep the site fully usable while
+   dropping every non-essential animation for visitors who asked for less */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important; scroll-behavior: auto !important;
+  }
+}
