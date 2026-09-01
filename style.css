@@ -549,6 +549,7 @@ html[dir="rtl"] .email-link { background-position: right bottom; }
   background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--border);
   border-radius: 16px; box-shadow: var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  -webkit-backface-visibility: hidden; backface-visibility: hidden; -webkit-transform: translateZ(0);
 }
 .contact-tile:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
 .contact-tile-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
@@ -579,7 +580,7 @@ html[data-theme="dark"] .contact-tile-text b { color: var(--gold); }
 /* Cursor-follow glow, on every tile — subtle, matches the site's gold/blue accent */
 .contact-tile { position: relative; overflow: hidden; }
 .contact-tile::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; border-radius: inherit;
   background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(94, 162, 255, 0.16), transparent 68%);
   transition: opacity 0.35s ease;
 }
@@ -607,7 +608,7 @@ html[data-theme="dark"] .contact-tile-text b { color: var(--gold); }
 .contact-tile.is-cta .contact-tile-text span { color: rgba(255,255,255,0.78); }
 .contact-tile.is-cta .contact-tile-icon { background: #fff; color: #0A66C2; }
 .contact-tile.is-cta::before { background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.18), transparent 68%); }
-.contact-tile.is-cta:hover { border-top-color: #fff; }
+.contact-tile.is-cta:hover { border-top-color: #063970; }
 html[dir="rtl"] .contact-tile { flex-direction: row-reverse; }
 html[dir="rtl"] .contact-tile-text { align-items: flex-end; text-align: right; }
 @media (max-width: 640px) {
