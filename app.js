@@ -677,27 +677,7 @@ function initScrollProgress() {
   window.addEventListener('resize', update);
 }
 
-/* ---------------------------------------------------------------------------
-   Scroll-triggered reveal: elements with class="reveal" fade/slide in the
-   moment they enter the viewport (not just once, on page load), so pages
-   that scroll — publications, articles, CV — feel alive as you read them. */
-function initScrollReveal() {
-  const items = document.querySelectorAll('.reveal');
-  if (!items.length) return;
-  if (!('IntersectionObserver' in window)) {
-    items.forEach(el => el.classList.add('in-view'));
-    return;
-  }
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-  items.forEach(el => obs.observe(el));
-}
+
 
 /* ---------------------------------------------------------------------------
    Publications list: turns the static document-type icon into a live,
