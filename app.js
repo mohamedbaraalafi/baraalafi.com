@@ -21,9 +21,9 @@ const I18N = {
     about_more: "Learn more",
     recherche_eyebrow: "Research", recherche_title: "Areas of interest",
     recherche_lead: "Three axes where rigorous economic analysis meets policy and strategy.",
-    card1_tag: "01", card1_title: "Applied Econometrics & Policy Evaluation", card1_desc: "Causal inference — IV, DiD, RDD, Synthetic Control — applied to public-policy questions, the core toolkit behind economic consulting and policy evaluation.",
-    card2_tag: "02", card2_title: "Macroeconomics & Country Risk", card2_desc: "Macro and sovereign-risk analysis — inflation, fiscal sustainability, country risk, public finance, regulation.",
-    card3_tag: "03", card3_title: "Productivity, Development & Growth Strategy", card3_desc: "Long-run productivity, development and growth strategy at the macro and state level — the economic-policy side of strategy consulting, not corporate or business-level strategy.",
+    card1_tag: "01", card1_title: "Applied Econometrics & Policy Evaluation", card1_desc: "Causal inference (IV, DiD, RDD, Synthetic Control) applied to public-policy questions, the core toolkit behind economic consulting and policy evaluation.",
+    card2_tag: "02", card2_title: "Macroeconomics & Country Risk", card2_desc: "Macro and sovereign-risk analysis: inflation, fiscal sustainability, country risk, public finance, regulation.",
+    card3_tag: "03", card3_title: "Productivity, Development & Growth Strategy", card3_desc: "Long-run productivity, development and growth strategy at the macro and state level.",
     info_edu_t: "Education", info_edu_s: "Paris School of Economics",
     info_res_t: "Research", info_res_s: "Growth, institutions, development",
     info_pass_t: "Passion", info_pass_s: "Applied economics and public policy",
@@ -126,276 +126,128 @@ const I18N = {
     art13_date: "August 2026", art13_title: "The Problem Is Neither Capitalism nor Socialism: Private Universities Reveal Tunisia's Distorted Economic Model",
     art13_lede: "Tunisia Turns Socialist Against Competition and Capitalist for Rent-Seeking.",
   },
-ar: {
-  nav_home: "الرئيسية",
-  nav_about: "نبذة عني",
-  nav_research: "البحث",
-  nav_publications: "المنشورات",
-  nav_articles: "مقالات",
-  nav_cv: "السيرة الذاتية",
-  nav_contact: "تواصل",
-
-  hero_eyebrow: "اقتصادي",
-  hero_role: "باحث في الاقتصاد",
-  hero_title_1: "محمد براء",
-  hero_title_2: "اللافي",
-  hero_lead: "باحث في الاقتصاد، أدرس حاليًا في مدرسة باريس للاقتصاد. أركّز في أبحاثي على النمو الاقتصادي والمؤسسات والتنمية.",
-  hero_cta_1: "أعمالي",
-  hero_cta_2: "تواصل معي",
-
-  quote_text: "«لا تكمن الصعوبة في تطوير أفكار جديدة بقدر ما تكمن في التخلص من الأفكار القديمة.»",
-  quote_cite: "جون ماينارد كينز",
-
-  stat_1: "منشورات وأوراق عمل",
-  stat_2: "مقالات منشورة",
-  stat_3: "سنوات من البحث",
-  stat_4: "لغات",
-
-  about_eyebrow: "نبذة عني",
-  about_title: "من أنا؟",
-
-  about_p1: "طالب ماجستير في تحليل وسياسات الاقتصاد بمدرسة باريس للاقتصاد، أركّز على الاقتصاد التطبيقي والتحليل الكمي والبحث التجريبي، وأستخدم البيانات الاقتصادية وأساليب الاقتصاد القياسي والاستدلال السببي للإجابة عن أسئلة مرتبطة بالسياسات العامة.",
-
-  about_p2: "تتركز أبحاثي على الاقتصاد الكلي وتقييم السياسات العامة. أستخدم الاقتصاد القياسي لدراسة قضايا تتعلق بالمؤسسات والأسواق والسياسات العامة، من تقييم السياسات إلى فهم آثارها الاقتصادية. أهتم بالأبحاث التي تربط بين التحليل الاقتصادي والمشاكل الاقتصادية الفعلية.",
-
-  about_more: "المزيد",
-
-  recherche_eyebrow: "البحث",
-  recherche_title: "مجالات الاهتمام",
-  recherche_lead: "ثلاثة مجالات أركّز عليها في أبحاثي.",
-
-  card1_tag: "01",
-  card1_title: "الاقتصاد القياسي التطبيقي وتقييم السياسات",
-  card1_desc: "استخدام أساليب الاستدلال السببي مثل IV وDiD وRDD وSynthetic Control لدراسة أثر السياسات العامة والإجابة عن أسئلة اقتصادية مرتبطة بها.",
-
-  card2_tag: "02",
-  card2_title: "الاقتصاد الكلي ومخاطر الدول",
-  card2_desc: "أهتم بالاقتصاد الكلي ومخاطر الدول، خاصة التضخم، المالية العمومية، استدامة الدين، مخاطر الدولة والتنظيم.",
-
-  card3_tag: "03",
-  card3_title: "الإنتاجية والتنمية والنمو والاستشارات",
-  card3_desc: "أدرس قضايا الإنتاجية والتنمية والنمو على المدى الطويل، على مستوى الاقتصاد والدولة والمؤسسات، إلى جانب الاستشارات الاقتصادية وتحليل السياسات.",
-
-  info_edu_t: "التكوين",
-  info_edu_s: "مدرسة باريس للاقتصاد",
-
-  info_res_t: "البحث",
-  info_res_s: "النمو، المؤسسات، التنمية",
-
-  info_pass_t: "الاهتمام",
-  info_pass_s: "الاقتصاد التطبيقي والسياسات العامة",
-
-  work_eyebrow: "أعمال حديثة",
-  work_title: "أحدث المنشورات والمقالات",
-  work_view: "عرض الكل",
-
-  sections_title: "تصفح الموقع",
-
-  footer_quick: "روابط سريعة",
-  footer_contact: "تواصل",
-  footer_stay: "تواصل معي",
-  footer_stay_p: "للتعاون الأكاديمي أو لأي سؤال حول أبحاثي وأعمالي.",
-  footer_rights: "جميع الحقوق محفوظة.",
-
-  page_pub_title: "المنشورات",
-  page_pub_sub: "مقالات محكّمة، أوراق عمل وملاحظات بحثية.",
-
-  page_art_title: "مقالات وتدوينات",
-  page_art_sub: "مقالات رأي وتدوينات.",
-
-  page_cv_title: "السيرة الذاتية",
-  page_cv_sub: "التكوين والخبرة والمهارات.",
-
-  cv_hero_title: "السيرة الذاتية في وثيقة واحدة.",
-  cv_hero_sub: "التكوين، الخبرة، المنشورات، أوراق العمل والمهارات.",
-
-  cv_research: "الخبرة البحثية",
-  cv_teaching: "التدريس",
-  cv_fields: "مجالات التخصص",
-
-  cv_fact_edu: "مدرسة باريس للاقتصاد، ماستر في تحليل وسياسات الاقتصاد (APE)",
-  cv_fact_research: "مساعد باحث، جامعة CY Cergy Paris",
-  cv_fact_teaching: "مساعد تدريس في الاقتصاد الجزئي، جامعة باريس 2 بانتيون-أساس",
-  cv_fact_fields: "الاقتصاد العمومي (المالية العمومية)، الاقتصاد السياسي، الاقتصاد الكلي، المؤسسات",
-
-  page_contact_title: "تواصل",
-  page_contact_sub: "لأي سؤال حول أبحاثي، للتعاون، أو لطلب البيانات والنسخ من أعمالي، يمكنك مراسلتي.",
-
-  cv_edu: "التكوين",
-  cv_pos: "الخبرة",
-  cv_skills: "المهارات",
-  cv_lang: "اللغات",
-  cv_download: "تحميل السيرة الذاتية (PDF) ↓",
-
-  contact_send: "إرسال",
-  contact_name: "الاسم",
-  contact_email: "البريد الإلكتروني",
-  contact_msg: "الرسالة",
-
-  lang_native: "الفرنسية (بطلاقة)",
-  lang_ar: "العربية (اللغة الأم)",
-  lang_en: "الإنجليزية (بطلاقة)",
-  lang_de: "الألمانية (مبتدئ)",
-
-  edu1_yr: "سبتمبر 2025 — حاليًا",
-  edu1_title: "ماجستير في تحليل وسياسات الاقتصاد (APE)",
-  edu1_sub: "مدرسة باريس للاقتصاد",
-
-  edu2_yr: "سبتمبر 2022 — يونيو 2025",
-  edu2_title: "إجازة في الاقتصاد، تخصص فرعي في الإعلامية، مذكرة التخرج: 18/20",
-  edu2_sub: "جامعة باريس 1 بانتيون-سوربون",
-
-  edu3_yr: "2022",
-  edu3_title: "بكالوريا شعبة الرياضيات، 18.60/20، الرتبة 91 من 6482 وطنيًا",
-  edu3_sub: "المعهد الثانوي بمدنين، تونس",
-
-  pos1_yr: "يونيو 2026 — حاليًا",
-  pos1_title: "مساعد باحث، تدريب",
-  pos1_sub: "جامعة سيرجي باريس (CY)، بإشراف باميلا بومباردا",
-
-  pos2_yr: "مارس 2023 — حاليًا",
-  pos2_title: "عمل بدوام جزئي في قطاع الفندقة",
-  pos2_sub: "إلى جانب الدراسة",
-
-  pos3_yr: "سبتمبر 2023 — جانفي 2024",
-  pos3_title: "مدرّس رياضيات وإحصاء",
-  pos3_sub: "L1ECO+",
-
-  cv_skill_1: "الاقتصاد القياسي والاستدلال السببي",
-  cv_skill_2: "RCT, IV, DiD, RDD, Synthetic Control",
-  cv_skill_3: "Python, R, SQL, VBA",
-  cv_skill_4: "LaTeX",
-
-  pub1_date: "مارس 2026",
-  pub1_type: "ورقة عمل",
-  pub1_status: "المسودة متاحة",
-  pub1_venue: "مدرسة باريس للاقتصاد، طريقة الرقابة الاصطناعية",
-  pub1_authors: "مؤلف منفرد",
-  pub1_title: "كيف كان يمكن أن يبدو حال المملكة العربية السعودية بدون رؤية 2030؟ أدلة مبكرة من طريقة الرقابة الاصطناعية",
-
-  pub7_date: "أوت 2026",
-  pub7_type: "إعادة إنتاج وتوسيع",
-  pub7_status: "المسودة متاحة",
-  pub7_venue: "مدرسة باريس للاقتصاد (PSE)",
-  pub7_authors: "مؤلف منفرد",
-  pub7_title: "الأثر الاقتصادي للصدمات السياسية في تونس: من الربيع العربي إلى التدابير الاستثنائية لجويلية 2021",
-
-  pub2_date: "مايو 2026",
-  pub2_type: "إعادة إنتاج بحثية",
-  pub2_status: "المسودة متاحة",
-  pub2_venue: "مدرسة باريس للاقتصاد",
-  pub2_authors: "بالاشتراك مع D. Agafiev Macambira وP.-A. Etienne",
-  pub2_title: "Replication of Forbes and Warnock (2012): Capital Flow Waves",
-
-  pub3_date: "قيد الإنجاز، 2026",
-  pub3_type: "مشروع بحثي",
-  pub3_status: "قيد الكتابة",
-  pub3_title: "الاستثمار الأجنبي المباشر والنمو: أدلة من تونس ومصر والأردن والمغرب",
-  pub3_authors: "بالاشتراك مع مصباح اللافي",
-
-  pub4_date: "أوت 2026",
-  pub4_type: "ورقة عمل",
-  pub4_status: "الورقة متاحة",
-  pub4_venue: "مدرسة باريس للاقتصاد (PSE)",
-  pub4_title: "من يستفيد من منظومة الدعم في تونس؟",
-  pub4_authors: "مؤلف منفرد",
-
-  pub5_date: "جويلية 2026",
-  pub5_type: "ورقة عمل",
-  pub5_status: "الورقة متاحة",
-  pub5_venue: "مدرسة باريس للاقتصاد، الاقتصاد السياسي للمؤسسات العمومية",
-  pub5_title: "المنشآت العمومية في تونس: تقييم اقتصادي ومالي لإحدى عشرة مؤسسة وخيارات الإصلاح",
-  pub5_authors: "مؤلف منفرد",
-
-  pub6_date: "قيد الإنجاز، 2026",
-  pub6_type: "مشروع بحثي",
-  pub6_status: "قيد الكتابة",
-  pub6_title: "الأجر الأدنى في تونس: التشغيل والإنتاجية ونتائج سوق الشغل",
-  pub6_authors: "مؤلف منفرد",
-
-  pub_soon: "المسودة قريبًا",
-
-  read_more: "قراءة ←",
-  coming_soon: "قريبًا",
-
-  brand_name: "محمد براء اللافي",
-
-  showcase_pub_desc: "أوراق عمل ومقالات",
-  showcase_art_desc: "ملاحظات بحثية وتعليقات",
-  showcase_cv_desc: "التكوين والخبرة",
-  showcase_contact_desc: "راسلني",
-
-  contact_success: "شكرًا! تم إرسال الرسالة.",
-
-  compose_eyebrow: "تواصل معي",
-  contact_need_prefix: "تحتاج",
-  contact_need_suffix: "يسعدني أن أتواصل معك.",
-  contact_words: "بيانات,تعاون بحثي,مقابلة أو حوار,مجرد تحية,ملاحظات",
-
-  qmark: "؟",
-  email_copy_label: "تم النسخ!",
-
-  topic_eco: "اقتصاد",
-  topic_politique: "سياسة",
-  topic_social: "مجتمع",
-
-  art1_date: "يوليو 2026",
-  art1_title: "الشركة التونسية للكهرباء والغاز: الحوكمة العمومية والتسعير ومسارات الإصلاح",
-  steg_lede: "قراءة في أزمة الانقطاعات المتكررة للتيار الكهربائي، بين حوكمة الشركة والنموذج الاقتصادي الأوسع الذي تعمل في إطاره منذ الاستقلال.",
-
-  share_label: "شارك:",
-  share_copied: "تم نسخ الرابط!",
-
-  cite_apa: "استشهاد (APA)",
-  cite_copied: "تم نسخ الاستشهاد!",
-
-  art2_lede: "هل آن الأوان لإعادة التفكير في سياسة دعم الغذاء في تونس؟",
-  art5_lede: "هل ما يزال الحزب الديمقراطي حزب الفقراء؟",
-  art3_lede: "من التجربة المغربية: لماذا تحتاج التنمية إلى رؤية طويلة المدى؟",
-  art4_lede: "مقارنة لتكلفة المعيشة في 9 دول إفريقية، بعيدًا عن سعر الصرف الاسمي فقط.",
-  art6_lede: "هل تستطيع تونس مواصلة توسيع التوظيف العمومي؟",
-  art7_lede: "بعد كل حرب... من يبني ما دمرته الحروب في الشرق الأوسط؟",
-  art9_lede: "ماذا تخبرنا نتائج التعداد العام للسكان في تونس؟",
-  art10_lede: "علاقة اقتصادية كثيرا ما تُقدَّم على أنها غير متوازنة، فماذا تقول أرقام الاستثمار الأجنبي المباشر فعلا؟",
-
-  art2_date: "ديسمبر 2025",
-  art2_title: "دعم المواد الغذائية في تونس: بين الحماية الاجتماعية وتحديات الصحة العامة",
-
-  art3_date: "ديسمبر 2025",
-  art3_title: "النموذج التنموي المغربي: الاستثمار والبنية التحتية والتنافسية",
-
-  art4_date: "نوفمبر 2025",
-  art4_title: "الدينار التونسي في إفريقيا: هل يكفي سعر الصرف لقياس قوة العملة؟",
-
-  art5_date: "نوفمبر 2025",
-  art5_title: "التصويت في الولايات المتحدة: ما وراء الأفكار الشائعة عن الأحزاب السياسية",
-
-  art6_date: "أكتوبر 2025",
-  art6_title: "قانون المالية التونسي 2026: التشغيل العمومي واستدامة المالية العمومية",
-
-  art7_date: "سبتمبر 2025",
-  art7_title: "إعادة الإعمار في الشرق الأوسط: مقارنة بين مساهمات دول المنطقة",
-
-  art8_date: "سبتمبر 2025",
-  art8_title: "لبنان: عقدان ضائعان من النمو الاقتصادي؟",
-  art8_lede: "كيف خسر لبنان عشرين عامًا من التنمية؟",
-
-  art9_date: "مايو 2025",
-  art9_title: "التعداد السكاني في تونس: أبرز الدروس الديموغرافية والاقتصادية",
-
-  art10_date: "مايو 2025",
-  art10_title: "الاستثمارات المتبادلة بين الولايات المتحدة ودول الخليج: ماذا تقول البيانات؟",
-
-  art11_date: "أبريل 2025",
-  art11_title: "قضية مارين لوبان: الشفافية القضائية وسير العمل الديمقراطي في فرنسا",
-
-  art12_date: "أبريل 2025",
-  art12_title: "تنفيذ البرامج السياسية: حالة دونالد ترامب",
-
-  art13_date: "أوت 2026",
-  art13_title: "المشكلة ليست في الرأسمالية ولا في الاشتراكية: الجامعات الخاصة تكشف النموذج الاقتصادي المشوّه في تونس",
-  art13_lede: "اشتراكية في مواجهة المنافسة، رأسمالية في حماية الاحتكار."
-}
+  ar: {
+    nav_home: "الرئيسية", nav_about: "نبذة عني", nav_research: "البحث",
+    nav_publications: "المنشورات", nav_articles: "مقالات", nav_cv: "السيرة الذاتية", nav_contact: "تواصل",
+    hero_eyebrow: "اقتصادي",
+    hero_role: "باحث شاب في الاقتصاد",
+    hero_title_1: "محمد براء", hero_title_2: "اللافي",
+    hero_lead: "باحث شاب في الاقتصاد، يدرس حاليًا في مدرسة باريس للاقتصاد. تتمحور أعمالي حول النمو الاقتصادي والمؤسسات والتنمية.",
+    hero_cta_1: "مشاهدة منشوراتي", hero_cta_2: "تواصل معي",
+    quote_text: "«لا تكمن الصعوبة في الأفكار الجديدة، بل في التحرر من الأفكار القديمة.»",
+    quote_cite: "جون ماينارد كينز",
+    stat_1: "منشورات وأوراق عمل", stat_2: "مقالات منشورة", stat_3: "سنوات من البحث", stat_4: "اللغات المتحدثة",
+    about_eyebrow: "نبذة عني", about_title: "من أنا؟",
+    about_p1: "طالب ماجستير في تحليل السياسات الاقتصادية بمدرسة باريس للاقتصاد، ولديّ خلفية في الاقتصاد التطبيقي والتحليل الكمي والبحث التجريبي، وأعمل على البيانات الاقتصادية وأساليب الاقتصاد القياسي وأدوات الاستدلال السببي للإجابة عن أسئلة ذات صلة بالسياسات العامة.",
+    about_p2: "تتركز أبحاثي حول الاقتصاد الكلي وتقييم السياسات العامة، وأطبّق أساليب الاقتصاد القياسي الدقيقة على أسئلة تهمّ المؤسسات والشركات على حدّ سواء — من تصميم السياسات إلى اتخاذ القرارات الاستراتيجية. أسعى لإنتاج أبحاث تجمع بين الدقة التحليلية والأثر الواقعي.",
+    about_more: "المزيد",
+    recherche_eyebrow: "البحث", recherche_title: "مجالات الاهتمام",
+    recherche_lead: "ثلاثة محاور تلتقي فيها الدقة التحليلية الاقتصادية بالسياسات والاستراتيجية.",
+    card1_tag: "01", card1_title: "الاقتصاد القياسي التطبيقي وتقييم السياسات", card1_desc: "أساليب الاستدلال السببي (IV وDiD وRDD والرقابة الاصطناعية) مطبّقة على أسئلة السياسات العامة، وهي الأدوات الأساسية للاستشارات الاقتصادية وتقييم السياسات.",
+    card2_tag: "02", card2_title: "الاقتصاد الكلي ومخاطر الدول", card2_desc: "تحليل الاقتصاد الكلي ومخاطر السيادة: التضخم، الاستدامة المالية، مخاطر الدول، المالية العمومية، التنظيم.",
+    card3_tag: "03", card3_title: "الإنتاجية والتنمية واستراتيجية النمو", card3_desc: "استراتيجية الإنتاجية والتنمية والنمو على المدى الطويل، على المستوى الاقتصادي الكلي ومستوى الدول.",
+    info_edu_t: "التكوين", info_edu_s: "مدرسة باريس للاقتصاد",
+    info_res_t: "البحث", info_res_s: "النمو، المؤسسات، التنمية",
+    info_pass_t: "الاهتمام", info_pass_s: "الاقتصاد التطبيقي والسياسات العامة",
+    work_eyebrow: "أعمال حديثة", work_title: "أحدث المنشورات والمقالات", work_view: "عرض الكل",
+    sections_title: "استكشاف الموقع",
+    footer_quick: "روابط سريعة", footer_contact: "تواصل", footer_stay: "ابقَ على تواصل",
+    footer_stay_p: "لأي تعاون أكاديمي أو سؤال حول أعمالي.",
+    footer_rights: "جميع الحقوق محفوظة.",
+    page_pub_title: "المنشورات", page_pub_sub: "مقالات محكّمة، أوراق عمل، وملاحظات بحثية.",
+    page_art_title: "مقالات وتدوينات", page_art_sub: "مقالات رأي وتدوينات.",
+    page_cv_title: "السيرة الذاتية", page_cv_sub: "التكوين والخبرة والمهارات.",
+    cv_hero_title: "سيرة ذاتية كاملة في وثيقة واحدة.",
+    cv_hero_sub: "التكوين والمسار المهني والمنشورات وأوراق العمل والمهارات — السجل الكامل، محدّث باستمرار.",
+    cv_research: "الخبرة البحثية", cv_teaching: "التدريس", cv_fields: "التخصصات",
+    cv_fact_edu: "مدرسة باريس للاقتصاد — ماستر في تحليل وسياسات الاقتصاد (APE)",
+    cv_fact_research: "مساعد باحث، جامعة CY Cergy Paris",
+    cv_fact_teaching: "مساعد تدريس (الاقتصاد الجزئي)، جامعة باريس 2 بانتيون-أساس",
+    cv_fact_fields: "الاقتصاد العمومي (المالية العمومية)، الاقتصاد السياسي، الاقتصاد الكلي، المؤسسات",
+    page_contact_title: "تواصل", page_contact_sub: "لأي سؤال حول أعمالي أو تعاون أو طلب بيانات النسخ، لا تتردد في مراسلتي.",
+    cv_edu: "التكوين", cv_pos: "الخبرة", cv_skills: "المهارات", cv_lang: "اللغات", cv_download: "تحميل السيرة الذاتية (PDF) ↓",
+    contact_send: "إرسال", contact_name: "الاسم", contact_email: "البريد الإلكتروني", contact_msg: "الرسالة",
+    lang_native: "الفرنسية (بطلاقة)", lang_ar: "العربية (اللغة الأم)", lang_en: "الإنجليزية (بطلاقة)", lang_de: "الألمانية (مبتدئ)",
+
+    edu1_yr: "سبتمبر 2025 — حاليًا", edu1_title: "ماجستير في تحليل السياسات الاقتصادية (APE)", edu1_sub: "مدرسة باريس للاقتصاد",
+    edu2_yr: "سبتمبر 2022 — يونيو 2025", edu2_title: "إجازة في الاقتصاد، تخصص فرعي في الإعلامية — مذكرة التخرج: 18/20", edu2_sub: "جامعة باريس 1 بانتيون-سوربون",
+    edu3_yr: "2022", edu3_title: "بكالوريا شعبة الرياضيات — 18.60/20، الرتبة 91 من 6482 وطنيًا", edu3_sub: "المعهد الثانوي بمدنين، تونس",
+
+    pos1_yr: "يونيو 2026 — حاليًا", pos1_title: "مساعد باحث - تدريب", pos1_sub: "جامعة سيرجي باريس (CY) — بإشراف باميلا بومباردا",
+    pos2_yr: "مارس 2023 — حاليًا", pos2_title: "أعمال بدوام جزئي في قطاع الفندقة", pos2_sub: "مورست بالتوازي مع الدراسة لتمويل المسار الجامعي",
+    pos3_yr: "سبتمبر 2023 — جانفي 2024", pos3_title: "مدرّس رياضيات وإحصاء", pos3_sub: "L1ECO+",
+
+    cv_skill_1: "الاقتصاد القياسي والاستدلال السببي", cv_skill_2: "RCT, IV, DiD, RDD, Synthetic Control",
+    cv_skill_3: "Python, R, SQL, VBA", cv_skill_4: "LaTeX",
+
+    pub1_date: "مارس 2026", pub1_type: "ورقة عمل", pub1_status: "مسودة متاحة",
+    pub1_venue: "مدرسة باريس للاقتصاد — طريقة الرقابة الاصطناعية", pub1_authors: "مؤلف منفرد",
+    pub1_title: "كيف كان يمكن أن يبدو حال المملكة العربية السعودية بدون رؤية 2030؟ أدلة مبكرة من طريقة الرقابة الاصطناعية",
+
+    pub7_date: "أوت 2026", pub7_type: "إعادة إنتاج وتوسيع", pub7_status: "مسودة متاحة",
+    pub7_venue: "مدرسة باريس للاقتصاد (PSE)", pub7_authors: "مؤلف منفرد",
+    pub7_title: "إعادة إنتاج وتوسيع تحليل الأثر الاقتصادي للصدمات السياسية في تونس: من الربيع العربي إلى التدابير الاستثنائية لجويلية 2021",
+
+    pub2_date: "مايو 2026", pub2_type: "إعادة إنتاج بحثية", pub2_status: "مسودة متاحة",
+    pub2_venue: "مدرسة باريس للاقتصاد", pub2_authors: "بالاشتراك مع D. Agafiev Macambira وP.-A. Etienne",
+    pub2_title: "إعادة إنتاج بحث Forbes وWarnock (2012): موجات تدفق رؤوس الأموال",
+
+    pub3_date: "قيد الإنجاز — 2026", pub3_type: "مشروع بحثي", pub3_status: "قيد الكتابة",
+    pub3_title: "الاستثمار الأجنبي المباشر والنمو: أدلة من تونس ومصر والأردن والمغرب", pub3_authors: "بالاشتراك مع مصباح اللافي",
+
+    pub4_date: "أوت 2026", pub4_type: "ورقة عمل", pub4_status: "الورقة متاحة",
+    pub4_venue: "مدرسة باريس للاقتصاد (PSE)",
+    pub4_title: "من يستفيد من منظومة الدعم في تونس؟", pub4_authors: "مؤلف منفرد",
+
+    pub5_date: "جويلية 2026", pub5_type: "ورقة عمل", pub5_status: "الورقة متاحة",
+    pub5_venue: "مدرسة باريس للاقتصاد — الاقتصاد السياسي للمؤسسات العمومية",
+    pub5_title: "المنشآت العمومية في تونس: تقييم اقتصادي ومالي لإحدى عشرة مؤسسة وخيارات الإصلاح", pub5_authors: "مؤلف منفرد",
+
+    pub6_date: "قيد الإنجاز — 2026", pub6_type: "مشروع بحثي", pub6_status: "قيد الكتابة",
+    pub6_title: "الأجر الأدنى في تونس: التشغيل والإنتاجية ونتائج سوق الشغل", pub6_authors: "مؤلف منفرد",
+
+    pub_soon: "مسودة قريبًا",
+
+    read_more: "قراءة ←",
+    coming_soon: "قريباً",
+    brand_name: "محمد براء اللافي",
+    showcase_pub_desc: "أوراق عمل ومقالات", showcase_art_desc: "ملاحظات بحثية وتعليقات",
+    showcase_cv_desc: "التكوين والخبرة", showcase_contact_desc: "راسلني",
+    contact_success: "شكرًا! تم إرسال الرسالة (تجريبي).",
+    compose_eyebrow: "تواصل معي",
+    contact_need_prefix: "بحاجة إلى",
+    contact_need_suffix: "يسعدني تواصلك معي.",
+    contact_words: "بيانات,تعاون بحثي,مقابلة أو حوار,مجرد تحية,ملاحظات",
+    qmark: "؟",
+    email_copy_label: "تم النسخ!",
+    topic_eco: "اقتصاد", topic_politique: "سياسة", topic_social: "مجتمع",
+    art1_date: "يوليو 2026", art1_title: "الشركة التونسية للكهرباء والغاز: الحوكمة العمومية والتسعير ومسارات الإصلاح",
+    steg_lede: "قراءة في أزمة الانقطاعات المتكررة للتيار الكهربائي، بين مسؤولية الحوكمة الداخلية للشركة والنموذج الاقتصادي الأوسع الذي تعمل في إطاره منذ الاستقلال.",
+    share_label: "شارك:", share_copied: "تم نسخ الرابط!",
+    cite_apa: "استشهاد (APA)", cite_copied: "تم نسخ الاستشهاد!",
+    art2_lede: "هل آن الأوان لإعادة التفكير في سياسة دعم الغذاء في تونس؟",
+    art5_lede: "هل ما يزال الحزب الديمقراطي حزب الفقراء؟",
+    art3_lede: "من التجربة المغربية: لماذا تحتاج التنمية إلى رؤية طويلة المدى؟",
+    art4_lede: "مقارنة لتكلفة المعيشة في 9 دول إفريقية، تتجاوز سعر الصرف الاسمي.",
+    art6_lede: "هل تستطيع تونس مواصلة توسيع التوظيف العمومي؟",
+    art7_lede: "بعد كل حرب... من يبني ما دمرته الحروب في الشرق الأوسط؟",
+    art9_lede: "ماذا تخبرنا نتائج التعداد العام للسكان في تونس؟",
+    art10_lede: "علاقة اقتصادية كثيرا ما تُقدَّم على أنها غير متوازنة — فماذا تقول أرقام الاستثمار الأجنبي المباشر فعلا؟",
+    art2_date: "ديسمبر 2025", art2_title: "دعم المواد الغذائية في تونس: بين الحماية الاجتماعية وتحديات الصحة العامة",
+    art3_date: "ديسمبر 2025", art3_title: "النموذج التنموي المغربي: الاستثمار والبنية التحتية والتنافسية",
+    art4_date: "نوفمبر 2025", art4_title: "الدينار التونسي في إفريقيا: هل يكفي سعر الصرف لقياس قوة العملة؟",
+    art5_date: "نوفمبر 2025", art5_title: "التصويت في الولايات المتحدة: ما وراء الأفكار الشائعة عن الأحزاب السياسية",
+    art6_date: "أكتوبر 2025", art6_title: "قانون المالية التونسي 2026: التشغيل العمومي واستدامة المالية العمومية",
+    art7_date: "سبتمبر 2025", art7_title: "إعادة الإعمار في الشرق الأوسط: مقارنة بين مساهمات دول المنطقة",
+    art8_date: "سبتمبر 2025", art8_title: "لبنان: عقدان ضائعان من النمو الاقتصادي؟",
+    art8_lede: "كيف خسر لبنان عشرين عاماً من التنمية؟",
+    art9_date: "مايو 2025", art9_title: "التعداد السكاني في تونس: أبرز الدروس الديموغرافية والاقتصادية",
+    art10_date: "مايو 2025", art10_title: "الاستثمارات المتبادلة بين الولايات المتحدة ودول الخليج: ماذا تقول البيانات؟",
+    art11_date: "أبريل 2025", art11_title: "قضية مارين لوبان: الشفافية القضائية وسير العمل الديمقراطي في فرنسا",
+    art12_date: "أبريل 2025", art12_title: "تنفيذ البرامج السياسية: حالة دونالد ترامب",
+    art13_date: "أوت 2026", art13_title: "المشكلة ليست في الرأسمالية ولا في الاشتراكية: الجامعات الخاصة تكشف النموذج الاقتصادي المشوّه في تونس",
+    art13_lede: "اشتراكية في مواجهة المنافسة، رأسمالية في حماية الاحتكار.",
+  }
 };
 
 /* Source of truth for "Recent work" on the homepage.
@@ -409,7 +261,7 @@ const RECENT_WORK = [
   { kind: 'art', order: 202608, titleKey: 'art13_title', dateKey: 'art13_date', typeKey: 'topic_eco', link: 'article-facs-privees.html' },
   { kind: 'pub', order: 202607, titleKey: 'pub5_title', typeKey: 'pub5_type', dateKey: 'pub5_date', link: 'publication-public-enterprises-tunisia.html' },
   { kind: 'pub', order: 202605, title: 'Replication of Forbes and Warnock 2012', typeKey: 'pub2_type', dateKey: 'pub2_date', link: 'publications.html' },
-  { kind: 'pub', order: 202603, titleKey: 'pub1_title', typeKey: 'pub1_type', dateKey: 'pub1_date', link: 'publication-saudi-arabia.html' },
+  { kind: 'pub', order: 202603, title: 'What Would Saudi Arabia Look Like Without Vision 2030? Early Evidence from Synthetic Controls', typeKey: 'pub1_type', dateKey: 'pub1_date', link: 'publications.html' },
   { kind: 'art', order: 202607, titleKey: 'art1_title', dateKey: 'art1_date', typeKey: 'topic_eco', link: 'article-steg.html' },
   { kind: 'art', order: 202512, titleKey: 'art2_title', dateKey: 'art2_date', typeKey: 'topic_social', link: 'article-subventions-alimentaires.html' },
   { kind: 'art', order: 202512, titleKey: 'art3_title', dateKey: 'art3_date', typeKey: 'topic_eco', link: 'article-maroc.html' },
@@ -644,7 +496,7 @@ function handleContactSubmit(e) {
   e.preventDefault();
   const lang = document.documentElement.getAttribute('lang') === 'ar' ? 'ar' : 'en';
   const dict = I18N[lang] || I18N.en;
-  showToast(dict.contact_success);
+  alert(dict.contact_success);
 }
 
 /* ---------------------------------------------------------------------------
@@ -677,7 +529,27 @@ function initScrollProgress() {
   window.addEventListener('resize', update);
 }
 
-
+/* ---------------------------------------------------------------------------
+   Scroll-triggered reveal: elements with class="reveal" fade/slide in the
+   moment they enter the viewport (not just once, on page load), so pages
+   that scroll — publications, articles, CV — feel alive as you read them. */
+function initScrollReveal() {
+  const items = document.querySelectorAll('.reveal');
+  if (!items.length) return;
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('in-view'));
+    return;
+  }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4, rootMargin: '0px 0px -6% 0px' });
+  items.forEach(el => obs.observe(el));
+}
 
 /* ---------------------------------------------------------------------------
    Publications list: turns the static document-type icon into a live,
@@ -890,8 +762,6 @@ function applyLang(lang) {
   initShareBar();
   initCiteBox();
   initContactRotator(lang);
-  initReadingTime(lang);
-  initCardTilt();
   document.querySelectorAll('[data-lang-block]').forEach(el => {
     el.style.display = (el.getAttribute('data-lang-block') === lang) ? 'block' : 'none';
   });
@@ -927,133 +797,6 @@ function initPrefs() {
   return { theme, lang };
 }
 
-/* ---------------------------------------------------------------------------
-   Header shrink-on-scroll: adds `.is-scrolled` once the visitor has actually
-   started scrolling, so the sticky nav tightens up and gains a soft shadow
-   instead of sitting at full size the whole time. */
-function initHeaderScroll() {
-  const header = document.querySelector('header.site-nav');
-  if (!header) return;
-  let ticking = false;
-  const update = () => { header.classList.toggle('is-scrolled', window.scrollY > 24); ticking = false; };
-  update();
-  window.addEventListener('scroll', () => {
-    if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
-  }, { passive: true });
-}
-
-/* ---------------------------------------------------------------------------
-   Back-to-top button: fades in past ~60% of a viewport height of scrolling,
-   scrolls smoothly to the top on click. Injected once, works on every page. */
-function initBackToTop() {
-  if (document.querySelector('.back-to-top')) return;
-  const btn = document.createElement('button');
-  btn.className = 'back-to-top';
-  btn.type = 'button';
-  btn.setAttribute('aria-label', 'Back to top');
-  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>';
-  document.body.appendChild(btn);
-  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  let ticking = false;
-  const update = () => { btn.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.4); ticking = false; };
-  window.addEventListener('scroll', () => {
-    if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
-  }, { passive: true });
-  update();
-}
-
-/* ---------------------------------------------------------------------------
-   Lightweight toast/snackbar system, used instead of alert() anywhere the
-   site needs to confirm something (contact form demo, command-palette
-   actions, and available to any future feature via window.showToast). */
-function showToast(message, opts) {
-  opts = opts || {};
-  let stack = document.querySelector('.toast-stack');
-  if (!stack) {
-    stack = document.createElement('div');
-    stack.className = 'toast-stack';
-    document.body.appendChild(stack);
-  }
-  const toast = document.createElement('div');
-  toast.className = 'toast';
-  toast.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span></span>';
-  toast.querySelector('span').textContent = message;
-  stack.appendChild(toast);
-  requestAnimationFrame(() => toast.classList.add('is-visible'));
-  const life = opts.duration || 3200;
-  setTimeout(() => {
-    toast.classList.remove('is-visible');
-    setTimeout(() => toast.remove(), 350);
-  }, life);
-}
-window.showToast = showToast;
-
-/* ---------------------------------------------------------------------------
-   Magnetic spotlight, generalised from the contact tiles to every card grid
-   on the site — areas-of-interest cards, article cards, publication rows —
-   so the whole site shares the same cursor-aware language. Purely visual;
-   re-uses the --mx/--my custom properties already defined in style.css. */
-function initCardTilt() {
-  const cards = document.querySelectorAll('.card, .article-card, .pub-row');
-  if (!cards.length) return;
-  cards.forEach(card => {
-    if (card.dataset.tiltInit) return;
-    card.dataset.tiltInit = '1';
-    card.classList.add('tilt-glow');
-    card.addEventListener('mousemove', (e) => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-      card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-    });
-  });
-}
-
-/* ---------------------------------------------------------------------------
-   Small ripple pulse from the exact click point on buttons/toggles. Purely
-   decorative, fully passive, cleans up after its own animation. */
-function initRipple() {
-  document.querySelectorAll('.btn, .theme-toggle, .lang-switch button').forEach(el => {
-    if (el.dataset.rippleInit) return;
-    el.dataset.rippleInit = '1';
-    el.addEventListener('click', (e) => {
-      const r = el.getBoundingClientRect();
-      const size = Math.max(r.width, r.height) * 1.4;
-      const span = document.createElement('span');
-      span.className = 'ripple';
-      span.style.width = span.style.height = size + 'px';
-      span.style.left = (e.clientX - r.left - size / 2) + 'px';
-      span.style.top = (e.clientY - r.top - size / 2) + 'px';
-      el.appendChild(span);
-      span.addEventListener('animationend', () => span.remove());
-    });
-  });
-}
-
-/* ---------------------------------------------------------------------------
-   Article pages: a live estimated reading-time pill, computed from the
-   currently-visible-language article body (~200 words/min) and dropped next
-   to the date/topic badge. Recomputed on every language switch so EN/AR each
-   show their own true reading time. */
-function initReadingTime(lang) {
-  if (document.body.getAttribute('data-page') !== 'article') return;
-  const host = document.querySelector('.page-header .pub-meta-row');
-  if (!host) return;
-  const activeLang = lang || (document.documentElement.getAttribute('lang') === 'ar' ? 'ar' : 'en');
-  const body = document.querySelector('.article-body[data-lang-block="' + activeLang + '"]') || document.querySelector('.article-body');
-  if (!body) return;
-  const words = (body.textContent || '').trim().split(/\s+/).filter(Boolean).length;
-  const mins = Math.max(1, Math.round(words / 200));
-  const label = activeLang === 'ar' ? ('قراءة ' + mins + ' د') : (mins + ' min read');
-  let pill = host.querySelector('.reading-time-pill');
-  if (!pill) {
-    pill = document.createElement('span');
-    pill.className = 'reading-time-pill';
-    host.appendChild(pill);
-  }
-  pill.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg><span>' + label + '</span>';
-}
-
-
 document.addEventListener('DOMContentLoaded', () => {
   let { theme, lang } = initPrefs();
 
@@ -1061,11 +804,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initPubNumbers();
   initEmailCopy();
-  initHeaderScroll();
-  initBackToTop();
-  initCardTilt();
-  initRipple();
-  initReadingTime(lang);
 
   const toggle = document.getElementById('theme-toggle');
   if (toggle) {
