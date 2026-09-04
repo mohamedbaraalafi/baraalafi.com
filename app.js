@@ -125,6 +125,8 @@ const I18N = {
     art12_date: "April 2025", art12_title: "Implementing Political Platforms: The Case of Donald Trump",
     art13_date: "August 2026", art13_title: "The Problem Is Neither Capitalism nor Socialism: Private Universities Reveal Tunisia's Distorted Economic Model",
     art13_lede: "Tunisia Turns Socialist Against Competition and Capitalist for Rent-Seeking.",
+    art14_date: "September 2026", art14_title: "Tunisia and the IMF: Has Borrowing Ended, or Has the Lender Changed?",
+    art14_lede: "Between the Rhetoric of Sovereignty and the Reality of Public Financing.",
   },
   ar: {
     nav_home: "الرئيسية", nav_about: "نبذة عني", nav_research: "البحث",
@@ -247,6 +249,8 @@ const I18N = {
     art12_date: "أبريل 2025", art12_title: "تنفيذ البرامج السياسية: حالة دونالد ترامب",
     art13_date: "أوت 2026", art13_title: "المشكلة ليست في الرأسمالية ولا في الاشتراكية: الجامعات الخاصة تكشف النموذج الاقتصادي المشوّه في تونس",
     art13_lede: "اشتراكية في مواجهة المنافسة، رأسمالية في حماية الاحتكار.",
+    art14_date: "سبتمبر 2026", art14_title: "تونس وصندوق النقد الدولي: هل انتهى الاقتراض أم تغيّر المقرض؟",
+    art14_lede: "بين خطاب السيادة وواقع التمويل العمومي.",
   }
 };
 
