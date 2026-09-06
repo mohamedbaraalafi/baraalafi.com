@@ -260,6 +260,7 @@ const I18N = {
    Publication titles are kept in their original (English) form across all
    languages, matching the convention already used on publications.html. */
 const RECENT_WORK = [
+  { kind: 'art', order: 202609, titleKey: 'art14_title', dateKey: 'art14_date', typeKey: 'topic_eco', link: 'article-tunisie-fmi.html' },
   { kind: 'pub', order: 202608, titleKey: 'pub7_title', typeKey: 'pub7_type', dateKey: 'pub7_date', link: 'publication-tunisia-two-shocks.html' },
   { kind: 'pub', order: 202608, titleKey: 'pub4_title', typeKey: 'pub4_type', dateKey: 'pub4_date', link: 'publication-subsidy-reform-tunisia.html' },
   { kind: 'art', order: 202608, titleKey: 'art13_title', dateKey: 'art13_date', typeKey: 'topic_eco', link: 'article-facs-privees.html' },
