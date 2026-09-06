@@ -551,6 +551,33 @@
     return parts.join('.');
   }
 
+  /* Arabic glyphs in the site's Arabic font render noticeably wider per
+     character than Latin ones at the same font-size -- a flat px/char
+     estimate tuned for English overflows/overlaps Arabic legend labels. */
+  function estLabelW(label, lang) {
+    return label.length * ((lang === 'ar') ? 9.6 : 6.6);
+  }
+
+  /* Wrapping legend: lays series out left-to-right, starting a new row
+     whenever the next item would overflow the available width, so long
+     (especially Arabic) labels never get clipped by the SVG viewBox or
+     overlap each other. Returns the markup plus how many rows it used, so
+     the caller can reserve enough top padding before laying out the plot. */
+  function buildLegend(series, lang, padL, availW) {
+    var lineH = 20;
+    var x = padL, y = 10, row = 0;
+    var out = '<g font-size="11.5" font-weight="600">';
+    series.forEach(function (s) {
+      var w = 14 + estLabelW(s.label, lang) + 22;
+      if (x > padL && (x + w) > (padL + availW)) { row++; x = padL; y = 10 + row * lineH; }
+      out += '<circle cx="' + (x + 5) + '" cy="' + y + '" r="4.5" fill="' + s.color + '"/>';
+      out += '<text x="' + (x + 14) + '" y="' + (y + 4) + '" fill="var(--text)">' + s.label + '</text>';
+      x += w;
+    });
+    out += '</g>';
+    return { svg: out, rows: row + 1, lineH: lineH };
+  }
+
   /* ---------------------------------------------------------------------
      Generic multi-series LINE chart with a hover crosshair + tooltip.
      opts = {
@@ -566,7 +593,10 @@
     var series = opts.series;
     var W = opts.W || 680, H = opts.H || 320;
     var hasLegend = series.length > 1;
-    var padL = opts.padL || 46, padR = opts.padR || 14, padT = (hasLegend ? 34 : 18), padB = 38;
+    var padL = opts.padL || 46, padR = opts.padR || 14, padB = 38;
+    var plotWforLegend = W - padL - padR;
+    var legendInfo = hasLegend ? buildLegend(series, lang, padL, plotWforLegend) : { svg: '', rows: 0, lineH: 20 };
+    var padT = hasLegend ? (18 + legendInfo.rows * legendInfo.lineH) : 18;
     var plotW = W - padL - padR, plotH = H - padT - padB;
     var allVals = [];
     series.forEach(function (s) { s.values.forEach(function (v) { if (v !== null && v !== undefined) allVals.push(v); }); });
@@ -612,22 +642,12 @@
       });
     });
 
-    var legend = '';
-    if (hasLegend) {
-      var lx = padL;
-      legend += '<g font-size="11.5" font-weight="600">';
-      series.forEach(function (s, idx) {
-        legend += '<circle cx="' + (lx + 5) + '" cy="10" r="4.5" fill="' + s.color + '"/>';
-        legend += '<text x="' + (lx + 14) + '" y="14" fill="var(--text)">' + s.label + '</text>';
-        lx += 14 + (s.label.length * 6.6) + 22;
-      });
-      legend += '</g>';
-    }
+    var legend = legendInfo.svg;
 
     var guide = '<g class="ln-guide" opacity="0">' +
       '<line class="ln-guide-line" x1="0" y1="' + padT + '" x2="0" y2="' + (padT + plotH) + '" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="3,3"/>' +
       '</g>';
-    var overlay = '<rect class="ln-overlay" x="' + padL + '" y="' + padT + '" width="' + Math.max(plotW, 1) + '" height="' + Math.max(plotH, 1) + '" fill="transparent" style="cursor:crosshair"/>';
+    var overlay = '<rect class="ln-overlay" x="' + padL + '" y="' + padT + '" width="' + Math.max(plotW, 1) + '" height="' + Math.max(plotH, 1) + '" fill="transparent" style="cursor:crosshair;pointer-events:all;"/>';
 
     var svg = svgWrap(W, H, grid + axisY + axisX + ylabels + legend + paths + dotsAll + guide + overlay + xlabels);
     return { svg: svg, meta: { years: years, series: series, padL: padL, plotW: plotW, W: W, H: H, xPix: xPix, yPix: yPix, ySuffix: ySuffix, decimals: decimals } };
@@ -639,6 +659,11 @@
     var guide = mount.querySelector('.ln-guide');
     var guideLine = mount.querySelector('.ln-guide-line');
     if (!overlay) return;
+    /* .chart-svg-wrap sets overflow-x:auto, which per the CSS spec forces
+       overflow-y to compute as 'auto' too (never 'visible') -- so a tooltip
+       positioned near the top edge gets silently clipped. Force it visible
+       here rather than touching the shared site-wide CSS rule. */
+    mount.style.overflow = 'visible';
     var tip = document.createElement('div');
     tip.className = 'chart-tooltip';
     mount.appendChild(tip);
@@ -698,7 +723,10 @@
     var years = opts.years;
     var series = opts.series;
     var W = opts.W || 680, H = opts.H || 320;
-    var padL = opts.padL || 40, padR = opts.padR || 12, padT = 34, padB = 38;
+    var padL = opts.padL || 40, padR = opts.padR || 12, padB = 38;
+    var plotWforLegend = W - padL - padR;
+    var legendInfo = buildLegend(series, lang, padL, plotWforLegend);
+    var padT = 14 + legendInfo.rows * legendInfo.lineH;
     var plotW = W - padL - padR, plotH = H - padT - padB;
     var step = plotW / years.length;
     var bw = step * 0.62;
@@ -712,14 +740,7 @@
     var axisY = '<line x1="' + padL + '" y1="' + padT + '" x2="' + padL + '" y2="' + (padT + plotH) + '" stroke="var(--text-muted)" stroke-width="1.2"/>';
     var axisX = '<line x1="' + padL + '" y1="' + (padT + plotH) + '" x2="' + (padL + plotW) + '" y2="' + (padT + plotH) + '" stroke="var(--text-muted)" stroke-width="1.2"/>';
 
-    var legend = '<g font-size="11.5" font-weight="600">';
-    var lx = padL;
-    series.forEach(function (s) {
-      legend += '<circle cx="' + (lx + 5) + '" cy="10" r="4.5" fill="' + s.color + '"/>';
-      legend += '<text x="' + (lx + 14) + '" y="14" fill="var(--text)">' + s.label + '</text>';
-      lx += 14 + (s.label.length * 6.6) + 22;
-    });
-    legend += '</g>';
+    var legend = legendInfo.svg;
 
     var bars = '', xlabels = '';
     var xEvery = years.length > 12 ? 2 : 1;
@@ -734,19 +755,21 @@
         segs += '<rect class="sb-seg" x="' + x.toFixed(1) + '" y="' + y1.toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + (y0 - y1).toFixed(1) + '" fill="' + s.color + '"/>';
         cum += v;
       });
-      bars += '<g class="sb-bar" data-idx="' + yi + '" style="cursor:pointer">' + segs + '<rect x="' + x.toFixed(1) + '" y="' + padT + '" width="' + bw.toFixed(1) + '" height="' + plotH + '" fill="transparent"/></g>';
+      bars += '<g class="sb-bar" data-idx="' + yi + '" style="cursor:pointer">' + segs + '<rect x="' + x.toFixed(1) + '" y="' + padT + '" width="' + bw.toFixed(1) + '" height="' + plotH + '" fill="transparent" style="pointer-events:all;"/></g>';
       if (yi % xEvery === 0 || yi === years.length - 1) {
         xlabels += '<text x="' + (x + bw / 2).toFixed(1) + '" y="' + (padT + plotH + 20) + '" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">' + yr + '</text>';
       }
     });
 
     var svg = svgWrap(W, H, grid + axisY + axisX + ylabels + legend + bars + xlabels);
-    return { svg: svg, meta: { years: years, series: series, W: W, H: H, padL: padL, step: step, bw: bw, padT: padT } };
+    return { svg: svg, meta: { years: years, series: series, W: W, H: H, padL: padL, step: step, bw: bw, padT: padT, plotH: plotH } };
   }
 
   function attachBarInteractivity(mount, meta, lang) {
     var svgEl = mount.querySelector('svg');
     var groups = mount.querySelectorAll('.sb-bar');
+    /* Same top-edge clipping issue as the line chart -- see attachLineInteractivity. */
+    mount.style.overflow = 'visible';
     var tip = document.createElement('div');
     tip.className = 'chart-tooltip';
     mount.appendChild(tip);
@@ -762,8 +785,15 @@
           return '<span class="tt-sub" style="color:' + s.color + ';font-weight:700;">' + s.label + ': ' + (s.values[i] * 100).toFixed(1) + '%</span>';
         }).join('');
         tip.innerHTML = '<b>' + yearLabel + ' ' + meta.years[i] + '</b>' + rows;
+        /* Place the tooltip just above the top of THIS bar's stack (not a
+           fixed row), but never closer than ~40 local units to the card's
+           top edge so the translateY(-125%) flip never pushes it negative. */
+        var cum = 0;
+        meta.series.forEach(function (s) { cum += s.values[i]; });
+        var stackTopY = meta.padT + meta.plotH - cum * meta.plotH;
+        var clampedY = Math.max(stackTopY, meta.padT + 40);
         tip.style.left = (cx * sx) + 'px';
-        tip.style.top = (meta.padT * sy) + 'px';
+        tip.style.top = (clampedY * sy) + 'px';
         tip.classList.add('visible');
       });
       grp.addEventListener('mouseleave', function () { tip.classList.remove('visible'); });
