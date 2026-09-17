@@ -84,6 +84,10 @@ const I18N = {
     pub6_date: "Ongoing — 2026", pub6_type: "Research Project", pub6_status: "Work in progress",
     pub6_title: "Minimum Wage in Tunisia: Employment, Productivity and Labor Market Outcomes", pub6_authors: "sole author",
 
+    pub8_date: "September 2026", pub8_type: "Economic Analysis", pub8_status: "Published",
+    pub8_venue: "Arab Center for Research and Policy Studies (Doha Institute)", pub8_authors: "sole author",
+    pub8_title: "The Economics of Shortage in Tunisia: Between the Monopoly Narrative, Structural Imbalances and Prospects for Reform",
+
     pub_soon: "Draft coming soon",
 
     read_more: "Read →",
@@ -208,6 +212,10 @@ const I18N = {
     pub6_date: "قيد الإنجاز — 2026", pub6_type: "مشروع بحثي", pub6_status: "قيد الكتابة",
     pub6_title: "الأجر الأدنى في تونس: التشغيل والإنتاجية ونتائج سوق الشغل", pub6_authors: "مؤلف منفرد",
 
+    pub8_date: "سبتمبر 2026", pub8_type: "تحليل اقتصادي", pub8_status: "منشور",
+    pub8_venue: "المركز العربي للأبحاث ودراسة السياسات (مركز دراسات الدوحة)", pub8_authors: "مؤلف منفرد",
+    pub8_title: "اقتصاد النقص في تونس: بين سردية الاحتكار والاختلالات الهيكلية وآفاق الإصلاح",
+
     pub_soon: "مسودة قريبًا",
 
     read_more: "قراءة ←",
@@ -260,6 +268,7 @@ const I18N = {
    Publication titles are kept in their original (English) form across all
    languages, matching the convention already used on publications.html. */
 const RECENT_WORK = [
+  { kind: 'pub', order: 202609, titleKey: 'pub8_title', typeKey: 'pub8_type', dateKey: 'pub8_date', link: 'https://www.dohainstitute.org/ar/economic-studies/Pages/tunisia-shortage-economy-monopoly-structural-imbalances-and-prospects-for-reform.aspx' },
   { kind: 'art', order: 202609, titleKey: 'art14_title', dateKey: 'art14_date', typeKey: 'topic_eco', link: 'article-tunisie-fmi.html' },
   { kind: 'pub', order: 202608, titleKey: 'pub7_title', typeKey: 'pub7_type', dateKey: 'pub7_date', link: 'publication-tunisia-two-shocks.html' },
   { kind: 'pub', order: 202608, titleKey: 'pub4_title', typeKey: 'pub4_type', dateKey: 'pub4_date', link: 'publication-subsidy-reform-tunisia.html' },
@@ -292,11 +301,13 @@ function renderRecentWork(lang) {
     const title = item.titleKey ? (dict[item.titleKey] !== undefined ? dict[item.titleKey] : item.titleKey) : item.title;
     const date = dict[item.dateKey] !== undefined ? dict[item.dateKey] : '';
     const viewLabel = dict.work_view !== undefined ? dict.work_view : 'View all';
+    const isExternal = /^https?:\/\//.test(item.link);
+    const linkAttrs = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
     return `<div class="card">
         <span class="tag">${tag}</span>
         <h3>${title}</h3>
         <p class="meta">${date}</p>
-        <a href="${item.link}" class="link-more">${viewLabel} →</a>
+        <a href="${item.link}"${linkAttrs} class="link-more">${viewLabel} →</a>
       </div>`;
   }).join('');
 }
