@@ -6,7 +6,7 @@
 const I18N = {
   en: {
     nav_home: "Home", nav_about: "About", nav_research: "Research",
-    nav_publications: "Research", nav_articles: "Articles", nav_cv: "CV", nav_contact: "Contact",
+    nav_publications: "Research", nav_articles: "Writings", nav_cv: "CV", nav_contact: "Contact",
     hero_eyebrow: "Economist",
     hero_role: "Young economics researcher",
     hero_title_1: "Mohamed Baraa", hero_title_2: "Lafi",
@@ -33,7 +33,7 @@ const I18N = {
     footer_stay_p: "For any academic collaboration or question about my work.",
     footer_rights: "All rights reserved.",
     page_pub_title: "Research", page_pub_sub: "Peer-reviewed articles, working papers and research notes  .",
-    page_art_title: "Articles & posts", page_art_sub: "Opinion Articles & Blog Posts.",
+    page_art_title: "Writings & posts", page_art_sub: "Opinion Writings & Blog Posts.",
     page_cv_title: "Curriculum Vitae", page_cv_sub: "Education, experience and skills.",
     page_contact_title: "Contact", page_contact_sub: "For any question about my work, a collaboration or a request for replication data, feel free to write to me.",
     cv_edu: "Education", cv_pos: "Experience", cv_skills: "Skills", cv_lang: "Languages", cv_download: "Download CV (PDF) ↓",
