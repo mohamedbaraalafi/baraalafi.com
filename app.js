@@ -133,6 +133,8 @@ const I18N = {
     art14_lede: "Between the Rhetoric of Sovereignty and the Reality of Public Financing.",
     art15_date: "September 2026", art15_title: "Cancellation of the Debt Held by the ECB: What Is Jean-Luc Mélenchon’s Proposal Really Worth?",
     art15_lede: "What would cancellation really change for the central bank and public finances?",
+    art16_date: "October 2026", art16_title: "Between Forecast and Execution: How Accurate Were Tunisia's Finance Laws in 2014-2025?",
+    art16_lede: "How close do Tunisia's budget outturns come to what the finance law planned?",
   },
   ar: {
     nav_home: "الرئيسية", nav_about: "نبذة عني", nav_research: "البحث",
@@ -263,6 +265,8 @@ const I18N = {
     art14_lede: "بين خطاب السيادة وواقع التمويل العمومي.",
     art15_date: "سبتمبر 2026", art15_title: "إلغاء الدين الذي يحتفظ به المركزي الأوروبي: ما حقيقة مقترح جان لوك ميلونشون؟",
     art15_lede: "ما الذي سيغيّره الإلغاء فعلياً في ميزانية البنك المركزي والمالية العامة؟",
+    art16_date: "أكتوبر 2026", art16_title: "بين التوقع والتنفيذ: مدى دقة قوانين المالية في تونس خلال الفترة 2014-⁠2025",
+    art16_lede: "إلى أي حدّ تقترب نتائج تنفيذ الميزانية ممّا برمجه قانون المالية؟",
   }
 };
 
@@ -272,6 +276,7 @@ const I18N = {
    Publication titles are kept in their original (English) form across all
    languages, matching the convention already used on publications.html. */
 const RECENT_WORK = [
+  { kind: 'art', order: 202610, titleKey: 'art16_title', dateKey: 'art16_date', typeKey: 'topic_eco', link: 'article-tunisia-finance-error.html' },
   { kind: 'art', order: 202609, titleKey: 'art15_title', dateKey: 'art15_date', typeKey: 'topic_eco', link: 'article-melenchon.html' },
   { kind: 'pub', order: 202609, titleKey: 'pub8_title', typeKey: 'pub8_type', dateKey: 'pub8_date', link: 'https://www.dohainstitute.org/ar/economic-studies/Pages/tunisia-shortage-economy-monopoly-structural-imbalances-and-prospects-for-reform.aspx' },
   { kind: 'art', order: 202609, titleKey: 'art14_title', dateKey: 'art14_date', typeKey: 'topic_eco', link: 'article-tunisie-fmi.html' },
