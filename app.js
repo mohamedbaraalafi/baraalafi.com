@@ -188,7 +188,7 @@ const I18N = {
     pos3_yr: "سبتمبر 2023 — جانفي 2024", pos3_title: "مدرّس رياضيات وإحصاء", pos3_sub: "L1ECO+",
 
     cv_skill_1: "الاقتصاد القياسي والاستدلال السببي", cv_skill_2: "RCT, IV, DiD, RDD, Synthetic Control",
-    cv_skill_3: "Python, R, SQL, VBA", cv_skill_4: "LaTeX",
+    cv_skill_3: "Python, R, SQL, VBA", cv_skill_4: "LaTeX", cv_skill_5: "VAR, SVAR, Local Projections",
 
     pub1_date: "مارس 2026", pub1_type: "ورقة عمل", pub1_status: "مسودة متاحة",
     pub1_venue: "مدرسة باريس للاقتصاد — طريقة الرقابة الاصطناعية", pub1_authors: "مؤلف منفرد",
