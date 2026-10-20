@@ -1,4 +1,4 @@
-/* Mohamed Baraa Lafi — app.js
+/* Baraa Lafi — app.js
    Light/dark theme + EN/AR languages + mobile navigation.
    Preferences are propagated via URL parameters (?theme=&lang=) so they
    persist from one page to another without using browser storage. */
@@ -9,7 +9,7 @@ const I18N = {
     nav_publications: "Research", nav_articles: "Writings", nav_cv: "CV", nav_contact: "Contact",
     hero_eyebrow: "Economist",
     hero_role: "Young economics researcher",
-    hero_title_1: "Mohamed Baraa", hero_title_2: "Lafi",
+    hero_title_1: "Baraa", hero_title_2: "Lafi",
     hero_lead: "Young economics researcher, currently studying at the Paris School of Economics. My work focuses on macroeconomics, institutions, development and public policy.",
     hero_cta_1: "View my research", hero_cta_2: "Get in touch",
     quote_text: "“The difficulty lies not so much in developing new ideas as in escaping from old ones.”",
@@ -92,7 +92,7 @@ const I18N = {
 
     read_more: "Read →",
     coming_soon: "Coming soon",
-    brand_name: "Mohamed Baraa Lafi",
+    brand_name: "Baraa Lafi",
     showcase_pub_desc: "Working papers & articles", showcase_art_desc: "Research notes & commentary",
     showcase_cv_desc: "Education & experience", showcase_contact_desc: "Write to me",
     contact_success: "Thank you! Message sent (demo).",
@@ -133,7 +133,7 @@ const I18N = {
     nav_publications: "الأبحاث", nav_articles: "مقالات", nav_cv: "السيرة الذاتية", nav_contact: "تواصل",
     hero_eyebrow: "اقتصادي",
     hero_role: "باحث شاب في الاقتصاد",
-    hero_title_1: "محمد براء", hero_title_2: "اللافي",
+    hero_title_1: "براء", hero_title_2: "اللافي",
     hero_lead: "باحث شاب في الاقتصاد، يدرس حاليًا في مدرسة باريس للاقتصاد. تتمحور أعمالي حول الاقتصاد الكلي، والمؤسسات، والتنمية والسياسات العامة.",
     hero_cta_1: "مشاهدة أبحاثي", hero_cta_2: "تواصل معي",
     quote_text: "«لا تكمن الصعوبة في الأفكار الجديدة، بل في التحرر من الأفكار القديمة.»",
@@ -216,7 +216,7 @@ const I18N = {
 
     read_more: "قراءة ←",
     coming_soon: "قريباً",
-    brand_name: "محمد براء اللافي",
+    brand_name: "براء اللافي",
     showcase_pub_desc: "أوراق عمل ومقالات", showcase_art_desc: "ملاحظات بحثية وتعليقات",
     showcase_cv_desc: "التكوين والخبرة", showcase_contact_desc: "راسلني",
     contact_success: "شكرًا! تم إرسال الرسالة (تجريبي).",
@@ -305,20 +305,20 @@ function renderRecentWork(lang) {
   }).join('');
 }
 
-/* Page title translation: keeps the browser tab simple ("Mohamed Baraa Lafi",
-   "CV", "Contact"...) and translated, instead of long "X — Mohamed Baraa Lafi" titles. */
+/* Page title translation: keeps the browser tab simple ("Baraa Lafi",
+   "CV", "Contact"...) and translated, instead of long "X — Baraa Lafi" titles. */
 function applyPageTitle(lang) {
   const dict = I18N[lang] || I18N.en;
   const page = document.body.getAttribute('data-page');
   const map = {
-    home: 'Mohamed Baraa Lafi',
+    home: 'Baraa Lafi',
     publications: dict.nav_publications,
     articles: dict.nav_articles,
     cv: dict.nav_cv,
     contact: dict.nav_contact,
   };
   if (page && map[page] !== undefined) { document.title = map[page]; return; }
-  // Individual article pages: <body data-title-key="art1_title"> -> "Article Title - Mohamed Baraa Lafi"
+  // Individual article pages: <body data-title-key="art1_title"> -> "Article Title - Baraa Lafi"
   const titleKey = document.body.getAttribute('data-title-key');
   if (titleKey && dict[titleKey] !== undefined) {
     document.title = dict[titleKey] + ' - ' + dict.brand_name;
@@ -401,7 +401,7 @@ function initCiteBox() {
   const url = canonical ? canonical.content : window.location.href;
 
   let authorNames = Array.prototype.map.call(authorsEl.querySelectorAll('b'), (b) => b.textContent.trim()).filter(Boolean);
-  if (!authorNames.length) authorNames = ['Mohamed Baraa Lafi'];
+  if (!authorNames.length) authorNames = ['Baraa Lafi'];
 
   const isArabicName = (name) => /[\u0600-\u06FF]/.test(name);
   const initialsOf = (given) => given.split(' ').filter(Boolean).map((part) =>
