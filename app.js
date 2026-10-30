@@ -67,11 +67,9 @@ const I18N = {
     cv_skill_3: "Python, R, SQL, VBA", cv_skill_4: "LaTeX",
 
     pub1_date: "March 2026", pub1_type: "Working Paper", pub1_status: "Draft available",
-    pub1_venue: "Paris School of Economics — Synthetic Control Method", pub1_authors: "sole author",
     pub1_title: "What Would Saudi Arabia Look Like Without Vision 2030? Early Evidence from Synthetic Controls",
 
     pub7_date: "August 2026", pub7_type: "Replication & Extension", pub7_status: "Draft available",
-    pub7_venue: "Paris School of Economics (PSE)", pub7_authors: "sole author",
     pub7_title: "The Economic Cost of Political Shocks: Replicating and Extending Synthetic Control Evidence from the Arab Spring to 2021",
 
     pub2_date: "May 2026", pub2_type: "Replication", pub2_status: "Draft available",
@@ -82,18 +80,16 @@ const I18N = {
     pub3_title: "FDI and Growth in the MENA Region: Evidence from Four Middle-Income Economies", pub3_authors: "with Mosbah Lafi",
 
     pub4_date: "August 2026", pub4_type: "Working Paper", pub4_status: "Draft available",
-    pub4_venue: "Paris School of Economics (PSE)",
-    pub4_title: "Who Benefits from Consumer Subsidies? An Incidence Analysis of Food and Energy Subsidies Using Household Budget Survey Data", pub4_authors: "sole author",
+    pub4_title: "Who Benefits from Consumer Subsidies? An Incidence Analysis of Food and Energy Subsidies Using Household Budget Survey Data",
 
     pub5_date: "July 2026", pub5_type: "Working Paper", pub5_status: "Draft available",
-    pub5_venue: "Paris School of Economics — Political Economy of Public Enterprises",
-    pub5_title: "Reforming State-Owned Enterprises: An Economic and Financial Assessment of Eleven Firms and International Reform Options", pub5_authors: "sole author",
+    pub5_title: "Reforming State-Owned Enterprises: An Economic and Financial Assessment of Eleven Firms and International Reform Options",
 
     pub6_date: "Ongoing — 2026", pub6_type: "Research Project", pub6_status: "Work in progress",
-    pub6_title: "Minimum Wages, Employment and Productivity: Labor Market Outcomes in an Emerging Economy", pub6_authors: "sole author",
+    pub6_title: "Minimum Wages, Employment and Productivity: Labor Market Outcomes in an Emerging Economy",
 
     pub8_date: "September 2026", pub8_type: "Economic Analysis", pub8_status: "Published",
-    pub8_venue: "Arab Center for Research and Policy Studies (Doha Institute)", pub8_authors: "sole author",
+    pub8_venue: "Arab Center for Research and Policy Studies (Doha Institute)",
     pub8_title: "The Economics of Shortage in Tunisia: Between the Monopoly Narrative, Structural Imbalances and Prospects for Reform",
 
     pub_soon: "Draft coming soon",
@@ -199,11 +195,9 @@ const I18N = {
     cv_skill_3: "Python, R, SQL, VBA", cv_skill_4: "LaTeX", cv_skill_5: "VAR, SVAR, Local Projections",
 
     pub1_date: "مارس 2026", pub1_type: "ورقة عمل", pub1_status: "مسودة متاحة",
-    pub1_venue: "مدرسة باريس للاقتصاد — طريقة الرقابة الاصطناعية", pub1_authors: "مؤلف منفرد",
     pub1_title: "كيف كان يمكن أن يبدو حال المملكة العربية السعودية بدون رؤية 2030؟ أدلة مبكرة من طريقة الرقابة الاصطناعية",
 
     pub7_date: "أوت 2026", pub7_type: "إعادة إنتاج وتوسيع", pub7_status: "مسودة متاحة",
-    pub7_venue: "مدرسة باريس للاقتصاد (PSE)", pub7_authors: "مؤلف منفرد",
     pub7_title: "الكلفة الاقتصادية للصدمات السياسية: إعادة إنتاج وتوسيع أدلة طريقة الرقابة الاصطناعية من الربيع العربي إلى 2021",
 
     pub2_date: "مايو 2026", pub2_type: "إعادة إنتاج بحثية", pub2_status: "مسودة متاحة",
@@ -214,18 +208,16 @@ const I18N = {
     pub3_title: "الاستثمار الأجنبي المباشر والنمو في منطقة الشرق الأوسط وشمال إفريقيا: أدلة من أربعة اقتصادات متوسطة الدخل", pub3_authors: "بالاشتراك مع مصباح اللافي",
 
     pub4_date: "أوت 2026", pub4_type: "ورقة عمل", pub4_status: "الورقة متاحة",
-    pub4_venue: "مدرسة باريس للاقتصاد (PSE)",
-    pub4_title: "من يستفيد من دعم الاستهلاك؟ تحليل توزيع الكلفة المالية وسيناريوهات الإصلاح", pub4_authors: "مؤلف منفرد",
+    pub4_title: "من يستفيد من دعم الاستهلاك؟ تحليل توزيع الكلفة المالية وسيناريوهات الإصلاح",
 
     pub5_date: "جويلية 2026", pub5_type: "ورقة عمل", pub5_status: "الورقة متاحة",
-    pub5_venue: "مدرسة باريس للاقتصاد — الاقتصاد السياسي للمؤسسات العمومية",
-    pub5_title: "إصلاح المنشآت العمومية: تقييم اقتصادي ومالي لإحدى عشرة مؤسسة وخيارات الإصلاح في ضوء التجارب الدولية", pub5_authors: "مؤلف منفرد",
+    pub5_title: "إصلاح المنشآت العمومية: تقييم اقتصادي ومالي لإحدى عشرة مؤسسة وخيارات الإصلاح في ضوء التجارب الدولية",
 
     pub6_date: "قيد الإنجاز — 2026", pub6_type: "مشروع بحثي", pub6_status: "قيد الكتابة",
-    pub6_title: "الأجر الأدنى: التشغيل والإنتاجية ونتائج سوق الشغل في اقتصاد صاعد", pub6_authors: "مؤلف منفرد",
+    pub6_title: "الأجر الأدنى: التشغيل والإنتاجية ونتائج سوق الشغل في اقتصاد صاعد",
 
     pub8_date: "سبتمبر 2026", pub8_type: "تحليل اقتصادي", pub8_status: "منشور",
-    pub8_venue: "المركز العربي للأبحاث ودراسة السياسات (مركز دراسات الدوحة)", pub8_authors: "مؤلف منفرد",
+    pub8_venue: "المركز العربي للأبحاث ودراسة السياسات (مركز دراسات الدوحة)",
     pub8_title: "اقتصاد النقص في تونس: بين سردية الاحتكار والاختلالات الهيكلية وآفاق الإصلاح",
 
     pub_soon: "مسودة قريبًا",
@@ -468,7 +460,7 @@ function initCiteBox() {
   const bibtex = '@techreport{' + citeKey + ',\n' +
     '  author      = {' + bibAuthors + '},\n' +
     '  title       = {' + title + '},\n' +
-    '  institution = {' + (institution || venue) + '},\n' +
+    ((institution || venue) ? '  institution = {' + (institution || venue) + '},\n' : '') +
     '  year        = {' + year + '},\n' +
     (pubType ? '  type        = {' + pubType + '},\n' : '') +
     '  url         = {' + url + '}\n' +
