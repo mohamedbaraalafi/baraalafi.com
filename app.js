@@ -14,7 +14,7 @@ const I18N = {
     teach_c1_desc: "Market structures and strategic interaction: monopoly, duopoly (Cournot, Bertrand, Stackelberg) and oligopoly, with an introduction to game theory (strategies, Nash equilibrium).",
     teach_c2_title: "Macroeconomics 3", teach_c2_meta: "(L2, taught in French); Pr. S. Lotz",
     teach_c2_desc: "Monetary and financial macroeconomics: money, interest rates and financial markets, and the IS-LM model as a framework for analysing monetary and fiscal policy.",
-    teach_mat_head: "Course materials", teach_quiz1: "Midterm Exam 1", teach_exam: "Exam", teach_exam_g5: "Exam (group TD 05)", teach_exam_g6: "Exam (group TD 06)", teach_key: "Answer key", teach_slides: "Correction slides", teach_tools_head: "Classroom tools", teach_timer: "Exam timer", teach_timer_desc: "Full-screen countdown with exam guidelines and tips, to project during tests.",
+    teach_mat_head: "Course materials", teach_quiz1: "Midterm Exam 1", teach_exam: "Exam", teach_group: "Group", teach_key: "Answer key", teach_slides: "Correction slides", teach_tools_head: "Classroom tools", teach_timer: "Exam timer", teach_timer_desc: "Full-screen countdown with exam guidelines and tips, to project during tests.",
     hero_eyebrow: "Economist",
     hero_role: "Young economics researcher",
     hero_title_1: "Baraa", hero_title_2: "Lafi",
@@ -142,7 +142,7 @@ const I18N = {
     teach_c1_desc: "هياكل السوق والتفاعل الاستراتيجي: الاحتكار، واحتكار القلة الثنائي (نماذج كورنو وبرتراند وستاكلبرغ) واحتكار القلة، مع مدخل إلى نظرية الألعاب (الاستراتيجيات، توازن ناش).",
     teach_c2_title: "الاقتصاد الكلي 3", teach_c2_meta: "(السنة الثانية إجازة، باللغة الفرنسية)؛ الأستاذ S. Lotz",
     teach_c2_desc: "الاقتصاد الكلي النقدي والمالي: النقود وأسعار الفائدة والأسواق المالية، ونموذج IS-LM كإطار لتحليل السياسة النقدية والمالية.",
-    teach_mat_head: "المواد الدراسية", teach_quiz1: "الامتحان النصفي 1", teach_exam: "نص الاختبار", teach_exam_g5: "نص الاختبار (المجموعة TD 05)", teach_exam_g6: "نص الاختبار (المجموعة TD 06)", teach_key: "الإصلاح", teach_slides: "شرائح التصحيح", teach_tools_head: "أدوات القسم", teach_timer: "مؤقّت الامتحان", teach_timer_desc: "عدّاد تنازلي بملء الشاشة مع إرشادات الامتحان ونصائح، للعرض أثناء الاختبارات.",
+    teach_mat_head: "المواد الدراسية", teach_quiz1: "الامتحان النصفي 1", teach_exam: "نص الاختبار", teach_group: "المجموعة", teach_key: "الإصلاح", teach_slides: "شرائح التصحيح", teach_tools_head: "أدوات القسم", teach_timer: "مؤقّت الامتحان", teach_timer_desc: "عدّاد تنازلي بملء الشاشة مع إرشادات الامتحان ونصائح، للعرض أثناء الاختبارات.",
     hero_eyebrow: "اقتصادي",
     hero_role: "باحث شاب في الاقتصاد",
     hero_title_1: "براء", hero_title_2: "اللافي",
@@ -794,15 +794,20 @@ function updateLinksWithPrefs(theme, lang) {
       const url = new URL(href, window.location.href);
       if (url.origin !== window.location.origin) return;
       const filename = url.pathname.split('/').pop();
+      // Only pages carry preferences: leave PDFs, images and other files untouched.
+      if (!/\.html?$/i.test(filename)) return;
+      // Keep the folder part of the original link (e.g. assets/teaching/).
+      const path = href.split(/[?#]/)[0];
+      const dir = path.includes('/') ? path.slice(0, path.lastIndexOf('/') + 1) : '';
       if (/^(article|publication)-[a-z0-9-]+\.html$/.test(filename)) {
         const target = articleLangFilename(filename, lang);
         url.searchParams.set('theme', theme);
-        a.setAttribute('href', target + url.search + url.hash);
+        a.setAttribute('href', dir + target + url.search + url.hash);
         return;
       }
       url.searchParams.set('theme', theme);
       url.searchParams.set('lang', lang);
-      a.setAttribute('href', url.pathname.split('/').pop() + url.search + url.hash);
+      a.setAttribute('href', dir + filename + url.search + url.hash);
     } catch (e) { /* ignore malformed */ }
   });
 }
