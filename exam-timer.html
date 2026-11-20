@@ -58,12 +58,12 @@ h1,h2,h3{margin:0;font-weight:700;color:var(--text)}
 .round svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
 
 /* corps */
-.main{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(28px,4vw,80px);align-items:center;padding:clamp(14px,2.5vh,36px) clamp(20px,3vw,56px);min-height:0}
+.main{display:flex;justify-content:center;align-items:center;padding:clamp(14px,2.5vh,36px) clamp(20px,3vw,56px);min-height:0}
 .left{display:flex;flex-direction:column;align-items:center;gap:clamp(12px,2.2vh,26px);min-width:0}
 .eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0}
 .accent-underline{width:46px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--navy-700),var(--gold))}
 
-.dial{position:relative;width:min(60vh,40vw);aspect-ratio:1;flex:none}
+.dial{position:relative;width:min(62vh,80vw);aspect-ratio:1;flex:none}
 .dial-face{position:absolute;inset:7%;border-radius:50%;background:var(--surface);box-shadow:var(--shadow-lg);border:6px solid var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4em;transition:background .35s}
 .dial svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
 .dial .track{fill:none;stroke:var(--border);stroke-width:2.5}
@@ -73,7 +73,7 @@ h1,h2,h3{margin:0;font-weight:700;color:var(--text)}
 .dial .head{fill:var(--surface);stroke:var(--gold);stroke-width:3;transition:cx .3s linear,cy .3s linear}
 body[data-phase="last"] .dial .arc{stroke:var(--warning)}
 body[data-phase="last"] .dial .head{stroke:var(--warning)}
-.time{font-size:min(14vh,9.4vw);font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--navy-900);display:flex;transition:color .4s}
+.time{font-size:min(14.5vh,18vw);font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--navy-900);display:flex;transition:color .4s}
 html[data-theme="dark"] .time{color:var(--text)}
 .time .d{display:inline-block;width:.6em;text-align:center}
 .time .c{display:inline-block;width:.32em;text-align:center;transform:translateY(-.05em)}
@@ -85,53 +85,13 @@ body.final .dial-face{animation:pulse 1s ease-out infinite}
 @keyframes pulse{0%{box-shadow:var(--shadow-lg),0 0 0 0 rgba(245,158,11,.45)}100%{box-shadow:var(--shadow-lg),0 0 0 22px rgba(245,158,11,0)}}
 .dial-sub{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)}
 
-.stats{display:grid;grid-template-columns:repeat(3,auto);gap:clamp(20px,3vw,56px);justify-content:center;padding-top:clamp(10px,1.6vh,18px);border-top:1px solid var(--border);width:min(100%,560px)}
+.stats{display:grid;grid-template-columns:repeat(3,auto);gap:clamp(20px,3vw,56px);justify-content:center;padding-top:clamp(10px,1.6vh,18px);border-top:1px solid var(--border);width:min(100%,720px)}
 .stat{text-align:center}
-.stat b{display:block;font-size:clamp(22px,2vw,34px);font-weight:700;color:var(--navy-700);font-variant-numeric:tabular-nums;line-height:1.2}
+.stat b{display:block;font-size:clamp(26px,3vw,48px);font-weight:700;color:var(--navy-700);font-variant-numeric:tabular-nums;line-height:1.2}
 html[data-theme="dark"] .stat b{color:var(--gold)}
-.stat span{font-size:13px;color:var(--text-muted)}
+.stat span{font-size:clamp(13px,1vw,17px);color:var(--text-muted)}
 
-.status{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow);font-size:15px;color:var(--text);max-width:100%}
-.status .pill{flex:none;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--navy-900);color:#fff}
-html[data-theme="dark"] .status .pill{background:var(--gold);color:#0B1120}
-body[data-phase="warn"] .status .pill,body[data-phase="last"] .status .pill{background:var(--warning);color:#0D1F3C}
-.status .msg{transition:opacity .3s}
 
-/* consignes */
-.right{min-width:0}
-.section-head{margin-bottom:clamp(12px,2.2vh,26px)}
-.section-head h2{font-size:clamp(24px,2.1vw,36px);font-weight:600;line-height:1.2}
-.section-head .accent-underline{margin-top:14px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.4vw,22px)}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:clamp(14px,2.1vh,24px) clamp(16px,1.4vw,24px);position:relative;overflow:hidden}
-.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy-700),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
-.num{display:block;font-size:clamp(20px,1.7vw,28px);font-weight:700;color:var(--gold);line-height:1;margin-bottom:clamp(6px,1vh,12px);}
-.card h3{font-size:clamp(15px,1.15vw,20px);font-weight:600;line-height:1.35;margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.card p{font-size:clamp(13px,.95vw,16.5px);line-height:1.55}
-.card p strong{color:var(--text);font-weight:600}
-.opt{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--border);border-radius:5px;padding:2px 7px}
-.boxed{display:inline-block;border:2px solid var(--navy-700);border-radius:4px;padding:0 .4em;color:var(--text);font-weight:600;line-height:1.4}
-html[data-theme="dark"] .boxed{border-color:var(--gold)}
-.card.tipcard{background:var(--navy-900);border-color:var(--navy-900)}
-html[data-theme="dark"] .card.tipcard{background:#16315F;border-color:#16315F}
-.card.tipcard h3{color:#fff}
-.card.tipcard .num{color:#5EA2FF}
-.card.tipcard p{color:#cfd6dd;transition:opacity .4s,transform .4s ease}
-.card.tipcard p.out{opacity:0;transform:translateY(6px)}
-.tdots{display:flex;gap:5px;margin-top:10px}
-.tdots i{height:3px;width:12px;border-radius:2px;background:rgba(255,255,255,.2);transition:width .3s,background .3s}
-.tdots i.on{width:24px;background:#5EA2FF}
-
-.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.4vw,22px);background:var(--bg-alt);border-radius:var(--radius);padding:clamp(14px,2vh,22px)}
-.rule{display:flex;gap:14px;align-items:flex-start;padding:clamp(4px,.8vh,10px);border-radius:8px;border:1px solid transparent;}
-.rule .ic{width:clamp(34px,2.4vw,42px);height:clamp(34px,2.4vw,42px);border-radius:8px;background:var(--navy-900);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-html[data-theme="dark"] .rule .ic{background:var(--gold);color:#0B1120}
-.rule .ic svg{width:55%;height:55%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.rule h3{font-size:clamp(15px,1.15vw,20px);font-weight:700;line-height:1.3;margin-bottom:3px}
-.rule p{font-size:clamp(13px,.95vw,16.5px);line-height:1.5}
-.rule p strong{color:var(--text);font-weight:600}
-.right > .eyebrow{display:flex;align-items:center;gap:12px}
-.right > .eyebrow::after{content:"";width:46px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--navy-700),var(--gold))}
 
 /* pied (style footer du site) */
 .site-footer{background:var(--navy-900);color:#cfd6dd;display:flex;align-items:center;gap:10px;padding:clamp(10px,1.5vh,14px) clamp(20px,3vw,56px)}
@@ -169,7 +129,6 @@ body[data-phase="end"] .end-line{animation:grow 1s .3s var(--ease) forwards}
 
 @media (max-width:960px){
   body{overflow:auto}.app{height:auto;min-height:100svh}
-  .main{grid-template-columns:minmax(0,1fr)}
   .dial{width:min(80vw,60vh)}.time{font-size:min(15vw,13vh)}
   .course small,.copy{display:none}
 }
@@ -212,23 +171,8 @@ body[data-phase="end"] .end-line{animation:grow 1s .3s var(--ease) forwards}
         <div class="stat"><b id="m-end">—</b><span>Fin prévue</span></div>
         <div class="stat"><b id="m-elapsed">00:00</b><span>Écoulé</span></div>
       </div>
-      <div class="status"><span class="pill" id="pill">Prêt</span><span class="msg" id="msg">Appuyez sur Espace pour lancer l’épreuve.</span></div>
     </section>
 
-    <section class="right" aria-label="Consignes et conseils">
-      <p class="eyebrow">Consignes</p>
-      <div class="rules">
-        <div class="rule" data-k="demarche"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span><div><h3>Montrez votre démarche</h3><p>Détaillez chaque étape : <strong>le raisonnement compte autant que le résultat.</strong></p></div></div>
-        <div class="rule" data-k="nom"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><h3>Écrivez votre nom</h3><p>Sur <strong>chaque</strong> feuille, dès maintenant plutôt qu’à la dernière minute.</p></div></div>
-      </div>
-      <p class="eyebrow" style="margin-top:clamp(18px,3.2vh,38px)">Conseils</p>
-      <div class="grid">
-        <div class="card" data-k="1"><span class="num">01</span><h3>Dans l’ordre de votre choix</h3><p>Commencez par les questions qui vous inspirent le plus.</p></div>
-        <div class="card" data-k="2"><span class="num">02</span><h3>Ne restez pas bloqué·e</h3><p>Question difficile ? Laissez de l’espace sur la copie et revenez-y plus tard.</p></div>
-        <div class="card" data-k="3"><span class="num">03</span><h3>Encadrez vos résultats</h3><p>Par exemple <span class="boxed">q* = 12</span>, pour qu’ils sautent aux yeux.</p></div>
-        <div class="card tipcard" data-k="4"><span class="num">04</span><h3>Astuce</h3><p id="tip"></p><span class="tdots" id="tdots"></span></div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -246,7 +190,7 @@ body[data-phase="end"] .end-line{animation:grow 1s .3s var(--ease) forwards}
   <div class="accent-underline end-line"></div>
   <p class="eyebrow" id="o-meta">Temps écoulé</p>
   <h1>Posez vos <em>stylos.</em></h1>
-  <p>L’épreuve est terminée. Vérifiez que votre nom figure sur chaque feuille, puis rendez votre copie.</p>
+  <p>L’épreuve est terminée.</p>
   <span class="hint">R pour réinitialiser</span>
 </div>
 
@@ -281,22 +225,8 @@ body[data-phase="end"] .end-line{animation:grow 1s .3s var(--ease) forwards}
     $("dur-label").textContent=D+" min";$("dial-sub").textContent="sur "+D+" minutes";
   }
 
-  var tips=[
-    "Lisez l’ensemble du sujet avant d’écrire : repérez les questions les plus accessibles.",
-    "Numérotez clairement chaque réponse, surtout si vous ne suivez pas l’ordre du sujet.",
-    "Définissez vos notations et rappelez les hypothèses que vous utilisez.",
-    "Vérifiez la cohérence de vos résultats : signes, unités, ordres de grandeur.",
-    "Interprétez chaque résultat en une phrase : que signifie-t-il économiquement ?",
-    "Gardez les cinq dernières minutes pour vous relire.",
-    "Une copie aérée se corrige mieux : soulignez, rayez proprement, sautez des lignes."
-  ], ti=0, tip=$("tip"), td=$("tdots");
-  td.innerHTML=tips.map(function(){return"<i></i>"}).join("");
-  function setTip(i){[].forEach.call(td.children,function(d,j){d.classList.toggle("on",j===i)});tip.textContent=tips[i];}
-  setTip(0);
-  setInterval(function(){ti=(ti+1)%tips.length;tip.classList.add("out");setTimeout(function(){setTip(ti);tip.classList.remove("out");},400);},12000);
 
-  var lastPhase=null,lastMsg="";
-  function setMsg(p,m){$("pill").textContent=p;if(m!==lastMsg){lastMsg=m;var el=$("msg");el.style.opacity=0;setTimeout(function(){el.textContent=m;el.style.opacity=1;},280);}}
+  var lastPhase=null;
 
   function render(){
     var now=Date.now(),e=Math.min(elapsed(),S.duration),rem=S.duration-e,f=e/S.duration;
@@ -318,11 +248,6 @@ body[data-phase="end"] .end-line{animation:grow 1s .3s var(--ease) forwards}
       $("eyebrow").textContent=ph==="pause"?"En pause":"Temps restant";
       if(ph==="end"){$("o-meta").textContent="Temps écoulé · "+S.title+" · "+hm(now);unlock();}
     }
-    if(ph==="ready")setMsg("Prêt","Appuyez sur Espace pour lancer l’épreuve.");
-    else if(ph==="pause")setMsg("Pause","Le chronomètre est arrêté.");
-    else if(ph==="run")setMsg("En cours",f>=.5?"Mi-temps passée : faites le point sur les questions laissées de côté.":"Bon courage ! Lisez tout le sujet avant de vous lancer.");
-    else if(ph==="warn")setMsg("10 min","Plus que 10 minutes : revenez sur les questions laissées en suspens.");
-    else if(ph==="last")setMsg(rem<=60000?"1 min":"5 min",rem<=60000?"Dernière minute : terminez votre phrase.":"Dernières minutes : relisez-vous et vérifiez votre nom.");
   }
 
   var lk=null;
